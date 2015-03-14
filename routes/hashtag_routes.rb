@@ -7,14 +7,15 @@ class HashtagRoutes < Sinatra::Base
 
 	# get all ids with tag
 	get '/:tag' do
-		ids = Hashtag.where(tag: params[:tag]).select("tweet_id")
+		results = {tag: params[:tag]}
+		results[:ids] = Hashtag.where(tag: params[:tag]).select("tweet_id").map{|tweet| tweet.tweet_id}
 		status 200
-		ids.as_json.to_json
+		results.to_json
 	end
 
 	# insert a new tag
 	put '/:tag' do
-		hashtag = Hashtag.create(tag: params[:tag], tweet_id: params[:tweet_id]) if params[:tweet_id]
+		hashtag = Hashtag.create(tag: params["tag"], tweet_id: params[:tweet_id]) if params[:tweet_id]
 		status 201
 		hashtag.to_json
 	end
