@@ -33,6 +33,7 @@ post '/tweet' do					#if post at /tweet
 end
 
 get '/all' do						#gets all tweets
+
   "#{tweets.all()}"
 end
 
@@ -43,6 +44,8 @@ post '/get_tweets_for' do				#if post at /read
   rescue
     400					#malformed
   end
+
 end
+
 
 
