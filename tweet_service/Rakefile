@@ -6,7 +6,7 @@ require 'rubygems'
 
 desc "Load the environment"
 task :environment do
-	env = "local"
+	env = "deploy"
 	database = YAML.load_file("config/database.yaml")[env]
 	ENV['database'] = "#{database["adapter"]}://#{database["user"]}:#{database["password"]}@#{database["host"]}:#{database["port"]}/#{database["database"]}"
 	ENV['app'] = File.absolute_path("app.rb")
