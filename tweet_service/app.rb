@@ -33,13 +33,13 @@ post '/tweet' do					#if post at /tweet
 end
 
 get '/all' do						#gets all tweets
-	"#{tweets.all()}"
+	"#{tweets.limit(50).all()}"
 end
 
 post '/get_tweets_for' do				#if post at /read
 	req = JSON.parse request.body.read		#receives tweet
 	begin
-		"#{tweets.where([[:user_id, req['users']]]).all()}"
+		"#{tweets.where([[:user_id, req['users']]]).limit(50).order(:created_at).reverse().all()}"
 	rescue
 		400					#malformed
 	end
