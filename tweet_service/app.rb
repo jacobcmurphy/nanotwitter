@@ -2,7 +2,10 @@ require 'sinatra'
 require 'sequel'
 require 'json'
 
-tweets = Sequel.connect(ENV['database']).from(:tweets)
+dbloc = ENV['database'] || 'sqlite://dev.db'
+
+db = Sequel.connect(dbloc)
+tweets = db.from(:tweets)
 
 post '/tweet' do					#if post at /tweet
 	#puts DB.from(:tweets).all()
@@ -14,6 +17,15 @@ post '/tweet' do					#if post at /tweet
 	rescue
 		400					#malformed
 	end
+end
+
+get '/recent' do
+  puts "doing fetch"
+  begin
+    db.fetch("SELECT * FROM tweets ORDER BY created_at LIMIT 20").all()
+  rescue
+    "{}"
+  end
 end
 
 get '/tweet' do						#allows to search by user

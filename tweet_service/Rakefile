@@ -5,7 +5,7 @@ desc "Load the environment"
 task :environment do
 	env = "development"
 	database = YAML.load_file("config/database.yaml")[env]
-	ENV['database'] = "#{database["adapter"]}://#{database["user"]}:#{database["password"]}@#{database["host"]}:#{database["port"]}/#{database["database"]}"
+	ENV['database'] = database
 end
 
 namespace :app do
