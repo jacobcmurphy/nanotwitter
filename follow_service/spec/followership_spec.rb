@@ -40,7 +40,7 @@ describe "service" do
 
 	describe "POST on /followerships/1" do
 		it "should add a follower" do
-			post '/1', {followee_id: 4}
+			post '/1', {followee_id: 4}.to_json
 			expect(last_response.status).to eq(201)
 			
 			attributes = JSON.parse(last_response.body)

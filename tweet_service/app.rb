@@ -22,27 +22,27 @@ options "*" do
 end
 
 post '/tweet' do					#if post at /tweet
-	tweet = JSON.parse request.body.read		#receives tweet
-	tweet['created_at'] = Time.now			#adds timestamp
-	begin
-		tweets.insert(tweet)			#inserts tweet
-		200					#good response
-	rescue
-		400					#malformed
-	end
+  tweet = JSON.parse request.body.read		#receives tweet
+  tweet['created_at'] = Time.now			#adds timestamp
+  begin
+    tweets.insert(tweet)			#inserts tweet
+    200					#good response
+  rescue
+    400					#malformed
+  end
 end
 
 get '/all' do						#gets all tweets
-	"#{tweets.all()}"
+  "#{tweets.all()}"
 end
 
 post '/get_tweets_for' do				#if post at /read
-	req = JSON.parse request.body.read		#receives tweet
-	begin
-		"#{tweets.where([[:user_id, req['users']]]).all()}"
-	rescue
-		400					#malformed
-	end
+  req = JSON.parse request.body.read		#receives tweet
+  begin
+    "#{tweets.where([[:user_id, req['users']]]).all()}"
+  rescue
+    400					#malformed
+  end
 end
 
 

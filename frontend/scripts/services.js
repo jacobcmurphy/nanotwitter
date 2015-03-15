@@ -115,23 +115,27 @@ ntServices.factory('follow', ['$http', function($http) {
 
 	return {
 		addFollow: function (user, toFollow) {
-			$http.put(FOLLOW_ENDPOINT + user, { followee_id: toFollow})
+			$http.post(FOLLOW_ENDPOINT + user, { followee_id: toFollow})
 			.success(function (data) {
+				console.log("Followed!");
 				if (user in followCache) {
-					console.log(followCache[user]);
 					followCache[user].push(toFollow);
 					return;
 				}
 
 				followCache[user] = [toFollow];
+				console.log(followCache);
 			});
 		},
 
 		doesFollow: function(user, follows) {
-			if (!(user in followCache))
+			if (!(user in followCache)) {
+				console.log("User not in cache!");
 				return false;
+			}
 
-			return follows in followCache[user];
+
+			return followCache[user] == follows || followCache[user].indexOf(follows) > -1;
 		},
 
 		getFollowers: function(user) {

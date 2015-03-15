@@ -86,9 +86,12 @@ ntControllers.controller('UserCtrl', ['$scope', 'user', 'auth', 'follow', '$rout
 	      $scope.$watch(function () { 
 		      return follow.doesFollow(auth.getUserID(), $scope.userID); 
 	      }, function () {
+		      console.log("Logged in: " + auth.isLoggedIn());
+		      console.log((!follow.doesFollow(auth.getUserID(), $scope.userID)));
 		      $scope.canFollow = 
 			      auth.isLoggedIn() 
 			      && (!follow.doesFollow(auth.getUserID(), $scope.userID));
+		      console.log("New result: " + $scope.canFollow);
 	      });
 
       }]);
