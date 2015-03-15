@@ -1,6 +1,7 @@
 require 'active_record'
 require 'sinatra/activerecord/rake'
 require 'yaml'
+require 'rspec/core/rake_task'
 require 'rake/testtask'
 
 namespace :db do
@@ -19,10 +20,16 @@ namespace :db do
 	end
 end
 
+task(:test => ["db:migrate", :spec]) do
+end
 
-Rake::TestTask.new do |t|
-	ENV['RACK_ENV']="test"
-	t.libs << "test"
-	t.test_files = FileList['test/test*.rb']
-	t.verbose = true
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.pattern = Dir.glob('spec/**/*_spec.rb')
+end
+
+namespace :app do
+  desc "Run the app in dev mode"
+  task(:run => [:environment, "db:migrate"]) do
+    `rackup`
+  end
 end
