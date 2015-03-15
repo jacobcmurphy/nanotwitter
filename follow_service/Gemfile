@@ -3,6 +3,7 @@ gem 'puma'
 gem 'sinatra'
 gem 'activerecord'
 gem "sinatra-activerecord"
+gem 'sinatra-cross_origin'
 
 group :production do
 	gem 'pg'

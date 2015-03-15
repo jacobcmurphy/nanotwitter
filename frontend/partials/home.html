@@ -1,0 +1,16 @@
+
+<h1>User {{ userID }}</h1>
+
+<form>
+<p>Tweet: <input type="text" name="tweet" ng-model="tweet" /></p>
+<p><input type="submit" ng-click="submitTweet()" /></p>
+</form>
+
+<div>
+Followers:
+<ol>
+<li ng-repeat="followee in followees track by $index">User {{ followee }}</li>
+</ol>
+</div>
+
+

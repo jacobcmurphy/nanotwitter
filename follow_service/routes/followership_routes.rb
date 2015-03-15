@@ -1,9 +1,24 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
+require 'sinatra/cross_origin'
 require_relative "../models/followership"
 
 class FollowershipRoutes < Sinatra::Base
+  configure do
+    enable :cross_origin
+  end
+
+  options "*" do
+    response.headers["Allow"] = "HEAD,GET,PUT,DELETE,OPTIONS"
+    response.headers["Access-Control-Allow-Methods"] = "HEAD,GET,PUT,DELETE,OPTIONS"
+    
+    # Needed for AngularJS
+    response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+    200
+  end
+
 	register Sinatra::ActiveRecordExtension
+	register Sinatra::CrossOrigin
 
 	# get all followers of user with user_id
 	get '/:user_id' do
@@ -30,5 +45,4 @@ class FollowershipRoutes < Sinatra::Base
 			followership.errors.to_json
 		end
 	end
-			
 end
