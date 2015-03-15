@@ -2,6 +2,7 @@ require 'rubygems'
 require 'active_record' 
 require 'sinatra' 
 require 'sinatra/jsonp'
+require 'sinatra/cross_origin'
 require_relative 'models/user'
 
 # setting up the environment
@@ -12,6 +13,19 @@ env = env_arg || ENV["SINATRA_ENV"] || "development"
 databases = YAML.load_file("config/database.yml") 
 ActiveRecord::Base.establish_connection(databases[env])
 
+
+configure do
+  enable :cross_origin
+end
+
+options "*" do
+  response.headers["Allow"] = "HEAD,GET,PUT,DELETE,OPTIONS"
+ 
+  # Needed for AngularJS
+  response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+  
+  200
+end
 
 get '/api/v1/users/:id' do
   user = User.find_by_id(params[:id]) 
