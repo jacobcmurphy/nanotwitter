@@ -9,10 +9,11 @@ ntControllers.controller('LoginCtrl', ['$scope', 'auth', '$location',
 	       });
 
 
-	       $scope.$watch(auth.isLoggedIn, function (v) {
-		       if (v) {
+	       $scope.$watch(auth.isLoggedIn, function () {
+		       if (auth.isLoggedIn()) {
 			       // redirect to the homepage
-			       $location.path("#/home");
+			       console.log("Going to home!");
+			       $location.path("/home");
 		       }
 	       });
 

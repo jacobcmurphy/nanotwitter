@@ -4,6 +4,9 @@ source "http://rubygems.org"
 gem 'sinatra'
 gem 'sequel'
 
+gem 'sinatra-cross_origin'
+
+
 # client
 gem 'json'
 
