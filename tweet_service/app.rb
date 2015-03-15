@@ -2,7 +2,9 @@ require 'sinatra'
 require 'sequel'
 require 'json'
 
-tweets = Sequel.connect(ENV['database']).from(:tweets)
+dbloc = ENV['database'] || 'sqlite:/'
+
+tweets = Sequel.connect(dbloc).from(:tweets)
 
 post '/tweet' do					#if post at /tweet
 	#puts DB.from(:tweets).all()
