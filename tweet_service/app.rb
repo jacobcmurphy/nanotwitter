@@ -22,41 +22,28 @@ options "*" do
 end
 
 post '/tweet' do					#if post at /tweet
-  #puts DB.from(:tweets).all()
-  tweet = JSON.parse request.body.read		#receives tweet
-  tweet['created_at'] = Time.now			#adds timestamp
-  begin
-    tweets.insert(tweet)			#inserts tweet
-    200					#good response
-  rescue
-    400					#malformed
-  end
-end
-
-get '/recent' do
-  puts "doing fetch"
-  begin
-    db.fetch("SELECT * FROM tweets ORDER BY created_at LIMIT 20").all().to_json
-
-  rescue
-    "{}"
-  end
-end
-
-get '/tweet' do						#allows to search by user
-
-	user = params[:user]
-	top = params[:top]
+	tweet = JSON.parse request.body.read		#receives tweet
+	tweet['created_at'] = Time.now			#adds timestamp
 	begin
-		if user 
-			"#{tweets.where(:user => user).all()}" 
-		elsif top 
-			"#{tweets.limit(top).all()}"
-		end
+		tweets.insert(tweet)			#inserts tweet
+		200					#good response
 	rescue
-		400
+		400					#malformed
 	end
-	
+end
 
+get '/all' do						#gets all tweets
+	"#{tweets.all()}"
+end
+
+post '/get_tweets_for' do						#if post at /read
+	req = JSON.parse request.body.read		#receives tweet
+	users = req['users'] 
+	puts req['users']
+	begin
+		tweets.where([[:user, users]]).all()
+	rescue
+		400					#malformed
+	end
 end
 
