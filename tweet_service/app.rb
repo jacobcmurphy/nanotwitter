@@ -44,6 +44,19 @@ get '/recent' do
 end
 
 get '/tweet' do						#allows to search by user
-  user = params[:user]
-  "#{tweets.where(:user => user).all()}"
+
+	user = params[:user]
+	top = params[:top]
+	begin
+		if user 
+			"#{tweets.where(:user => user).all()}" 
+		elsif top 
+			"#{tweets.limit(top).all()}"
+		end
+	rescue
+		400
+	end
+	
+
 end
+
