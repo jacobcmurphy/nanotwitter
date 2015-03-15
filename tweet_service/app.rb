@@ -18,5 +18,12 @@ end
 
 get '/tweet' do						#allows to search by user
 	user = params[:user]
-	"#{tweets.where(:user => user).all()}"
+	top = params[:top]
+	if user 
+		"#{tweets.where(:user => user).all()}" 
+	elsif top 
+		"#{tweets.limit(top).all()}"
+	end
+
 end
+
