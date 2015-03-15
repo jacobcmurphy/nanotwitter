@@ -1,6 +1,8 @@
 require 'rubygems' 
 require 'active_record' 
 require 'sinatra' 
+require 'sinatra/jsonp'
+require 'sinatra/cross_origin'
 require_relative 'models/user'
 
 # setting up the environment
@@ -12,13 +14,26 @@ databases = YAML.load_file("config/database.yml")
 ActiveRecord::Base.establish_connection(databases[env])
 
 
+configure do
+  enable :cross_origin
+end
+
+options "*" do
+  response.headers["Allow"] = "HEAD,GET,PUT,DELETE,OPTIONS"
+ 
+  # Needed for AngularJS
+  response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+  
+  200
+end
+
 get '/api/v1/users/:id' do
   user = User.find_by_id(params[:id]) 
   if user 
     vals = { :id => user.id, :name => user.name, :username => user.username }
-    vals.to_json
+    jsonp(vals)
   else
-    error 404, {:error => "user not found"}.to_json 
+    error 404, jsonp({:error => "user not found"})
   end
 end
 
@@ -28,12 +43,12 @@ post '/api/v1/users' do
   begin
     user = User.create(JSON.parse(request.body.read)) 
     if user.valid?
-      user.to_json
+      jsonp(user.as_json)
     else
-      error 400, user.errors.to_json 
+      error 400, jsonp(user.errors)
     end
   rescue => e
-    error 400, e.message.to_json
+    error 400, jsonp(e.message)
   end
 end
 
@@ -44,11 +59,11 @@ post '/api/v1/users/login' do
     user = User.find_by(:username => attributes["username"],
                         :password => attributes["password"]) 
     if user
-      user.to_json
+      jsonp(user.as_json)
     else
-      error 400, {:error => "invalid login credentials"}.to_json
+      error 400, jsonp({:error => "invalid login credentials"})
     end
   rescue => e
-    error 400, e.message.to_json
+    error 400, jsonp(e.message)
   end 
 end

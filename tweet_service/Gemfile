@@ -1,0 +1,12 @@
+source "http://rubygems.org"
+
+# service
+gem 'sinatra'
+gem 'sequel'
+
+# client
+gem 'json'
+
+# testing
+gem 'rspec'
+gem 'twitter'
