@@ -1,0 +1,50 @@
+require 'sequel'
+require 'yaml'
+
+desc "Load the environment"
+task :environment do
+	env = "development"
+	database = YAML.load_file("config/database.yaml")[env]
+	ENV['database'] = "#{database["adapter"]}://#{database["user"]}:#{database["password"]}@#{database["host"]}:#{database["port"]}/#{database["database"]}"
+end
+
+namespace :app do
+	desc "starts the sinatra server"
+	task(:run => :environment) do
+		ruby 'app.rb'	
+	end
+end
+
+namespace :db do
+	desc "Migrate the database"
+	task(:migrate => :environment) do
+		Sequel.connect(ENV['database']).create_table :tweets do
+			primary_key :id
+			DateTime :created_at, :null=>false
+			Bignum :user, :null=>false
+			String :content, :null=>false
+		end
+	end
+	desc "Drops the database"
+	task(:drop => :environment) do
+		Sequel.connect(ENV['database']).drop_table :tweets 
+	end
+	desc "Dummy data"				#generates dummy data
+	task(:dummy => :environment) do
+		require 'twitter'
+		client = Twitter::Streaming::Client.new do |config|
+			config.consumer_key        = "jtlS31wC95Xli3CZMO4OidTH1"
+			config.consumer_secret     = "iCy6evhz0lGnOjNMCTnkxN5y9Cuh86ndyGpkIAX23HPIFCEdr3"
+			config.access_token        = "74636828-qW06kurl1F2AtM2x23izzSCWWNUggpWkzjA2aqeJP"
+			config.access_token_secret = "zsZR0CiT8PWkhOdSrXaVDRSVOWo4JuxOhjOmL2IkFz36o"
+		end
+		tweets = Sequel.connect(ENV['database']).from(:tweets)
+		client.sample do |tweet|
+			if tweet.is_a?(Twitter::Tweet)
+				tweets.insert(:created_at=>Time.now, :user=>tweet.user.id, :content=>tweet.text)
+			end
+		end
+	end
+end
+
+
