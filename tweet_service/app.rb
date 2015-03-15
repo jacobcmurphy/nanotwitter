@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sequel'
 require 'json'
 require 'sinatra/cross_origin'
-
+Sequel.quote_identifiers = false
 dbloc = ENV['database'] || 'sqlite://dev.db'
 
 db = Sequel.connect(dbloc)
@@ -36,14 +36,13 @@ get '/all' do						#gets all tweets
 	"#{tweets.all()}"
 end
 
-post '/get_tweets_for' do						#if post at /read
+post '/get_tweets_for' do				#if post at /read
 	req = JSON.parse request.body.read		#receives tweet
-	users = req['users'] 
-	puts req['users']
 	begin
-		tweets.where([[:user, users]]).all()
+		"#{tweets.where([[:user_id, req['users']]]).all()}"
 	rescue
 		400					#malformed
 	end
 end
+
 
