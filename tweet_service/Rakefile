@@ -1,17 +1,26 @@
 require 'sequel'
 require 'yaml'
+require 'rake'
+require 'rspec/core/rake_task'
+require 'rubygems'
 
 desc "Load the environment"
 task :environment do
-	env = "development"
+	env = "local"
 	database = YAML.load_file("config/database.yaml")[env]
-	ENV['database'] = database
+	ENV['database'] = "#{database["adapter"]}://#{database["user"]}:#{database["password"]}@#{database["host"]}:#{database["port"]}/#{database["database"]}"
+	ENV['app'] = File.absolute_path("app.rb")
 end
 
 namespace :app do
-	desc "starts the sinatra server"
+	RSpec::Core::RakeTask.new(:spec) do |t|
+		t.pattern = Dir.glob('spec/*_spec.rb')
+	end
+	desc "starts the tweet service"
 	task(:run => :environment) do
-		ruby 'app.rb'	
+		ruby ENV['app']	
+	end
+	task(:test => [:environment, :spec]) do
 	end
 end
 
@@ -19,9 +28,9 @@ namespace :db do
 	desc "Migrate the database"
 	task(:migrate => :environment) do
 		Sequel.connect(ENV['database']).create_table :tweets do
-			primary_key :id
+			primary_key :tweet_id
 			DateTime :created_at, :null=>false
-			Bignum :user, :null=>false
+			Bignum :user_id, :null=>false
 			String :content, :null=>false
 		end
 	end
@@ -41,7 +50,7 @@ namespace :db do
 		tweets = Sequel.connect(ENV['database']).from(:tweets)
 		client.sample do |tweet|
 			if tweet.is_a?(Twitter::Tweet)
-				tweets.insert(:created_at=>Time.now, :user=>tweet.user.id, :content=>tweet.text)
+				tweets.insert(:created_at=>Time.now, :user_id=>tweet.user.id, :content=>tweet.text)
 			end
 		end
 	end
