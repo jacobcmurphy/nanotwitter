@@ -5,5 +5,7 @@ class CreateFollowerships < ActiveRecord::Migration
 			t.integer :followee_id
 			t.datetime :created_at
 		end
+
+		add_index(:follwerships, [:user_id, :followee_id], unique: true, name: 'stop_double_following')
 	end
 end
