@@ -33,7 +33,7 @@ post '/tweet' do					#if post at /tweet
 end
 
 get '/all' do						#gets all tweets
-	"#{tweets.limit(50).all()}"
+	"#{tweets.limit(50).order(:created_at).reverse().all()}"
 end
 
 post '/get_tweets_for' do				#if post at /read
@@ -44,5 +44,6 @@ post '/get_tweets_for' do				#if post at /read
 		400					#malformed
 	end
 end
+
 
 
