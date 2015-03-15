@@ -9,3 +9,4 @@ gem 'json'
 
 # testing
 gem 'rspec'
+gem 'twitter'
