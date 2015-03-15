@@ -1,7 +1,1 @@
-development:
-        adapter: postgres
-        host: localhost
-        user: edenzik
-        password:
-        port: 5432
-        database: postgres
+development: "sqlite://dev.db"
