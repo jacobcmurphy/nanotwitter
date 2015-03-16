@@ -100,14 +100,20 @@ ntControllers.controller('HomeCtrl', ['$scope', 'auth', 'user', 'follow', 'tweet
       function ($scope, auth, user, follow, tweet) {
 	      $scope.userID = auth.getUserID();
 	      $scope.followees = follow.getFollowers($scope.userID);
-	      
+	      $scope.tweets = [];
+
 	      console.log("In ctrl! " + $scope.userID);
 
 	      $scope.$watch(function () {
 		      return follow.getFollowers($scope.userID);
 	      }, function () {
 		      $scope.followees = follow.getFollowers($scope.userID);
-		      console.log($scope.followees);
+		      tweet.getTweetsForUsers($scope.followees)
+		      .then(function (d) {
+			      console.log("got tweets! " + JSON.stringify(d));
+			      $scope.tweets = d;
+			      $scope.$apply();
+		      });
 	      });
 
 	      follow.updateCacheForFollow($scope.userID);
@@ -115,4 +121,6 @@ ntControllers.controller('HomeCtrl', ['$scope', 'auth', 'user', 'follow', 'tweet
 	      $scope.submitTweet = function () {
 		      tweet.postTweet($scope.userID, $scope.tweet);
 	      };
+
+
       }]);

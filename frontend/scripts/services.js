@@ -89,6 +89,8 @@ ntServices.factory('user', ['$http', function($http) {
 
 ntServices.factory('tweet', ['$http', function($http) {
 	var mostRecentTweets = [];
+	
+
 
 	return {
 		updateMostRecent: function () {
@@ -102,8 +104,22 @@ ntServices.factory('tweet', ['$http', function($http) {
 			return mostRecentTweets;
 		},
 
+		getTweetsForUsers: function(userList) {
+			console.log("Getting tweets");
+			var toR = Q.defer();
+			$http.post(TWEETS_FOR_ENDPOINT,
+				   {users: userList})
+			.success(function (data) {
+				console.log("Got response: " + JSON.stringify(data));
+				toR.resolve(data);
+			});
+
+			return toR.promise;
+		},
+
 		postTweet: function (userID, tweet) {
-			$http.post(TWEET_ENDPOINT, {"user": userID,
+			console.log("Posting tweet: " + tweet + " by " + userID);
+			$http.post(TWEET_ENDPOINT, {"user_id": parseInt(userID),
 						    "content": tweet });
 		}
 	};
@@ -117,20 +133,17 @@ ntServices.factory('follow', ['$http', function($http) {
 		addFollow: function (user, toFollow) {
 			$http.post(FOLLOW_ENDPOINT + user, { followee_id: toFollow})
 			.success(function (data) {
-				console.log("Followed!");
 				if (user in followCache) {
 					followCache[user].push(toFollow);
 					return;
 				}
 
 				followCache[user] = [toFollow];
-				console.log(followCache);
 			});
 		},
 
 		doesFollow: function(user, follows) {
 			if (!(user in followCache)) {
-				console.log("User not in cache!");
 				return false;
 			}
 
