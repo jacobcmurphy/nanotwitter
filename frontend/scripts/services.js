@@ -29,6 +29,8 @@ ntServices.factory('auth', ['$http', '$cookies', function($http, $cookies) {
 		},
 
 		attemptLogin: function(user, pass) {
+			var toR = Q.defer();
+
 			$http.post(AUTH_ENDPOINT, { "username": user,
 						    "password": pass })
 
@@ -36,14 +38,20 @@ ntServices.factory('auth', ['$http', '$cookies', function($http, $cookies) {
 				lastLoginFailed = false;
 				userID = data['id'];
 				$cookies["userID"] = userID;
+				toR.resolve();
 				
 			})
 			.error(function() {
+				toR.reject();
 				lastLoginFailed = "Login error";
 			});
+
+			return toR.promise;
 		},
 
 		createAccount: function(user, name, email, pass) {
+			var toR = Q.defer();
+
 			$http.post(CREATE_ENDPOINT, { "username" : user,
 						      "name": name,
 						      "email": email,
@@ -53,10 +61,14 @@ ntServices.factory('auth', ['$http', '$cookies', function($http, $cookies) {
 				lastCreateFailed = false;
 				lastLoginFailed = false;
 				userID = data['id'];
+				toR.resolve();
 			})
 			.error(function () {
 				lastCreateFailed = "Creation failure";
+				toR.reject();
 			});
+
+			return toR.promise;
 
 		},
 
@@ -71,17 +83,18 @@ ntServices.factory('user', ['$http', function($http) {
 	
 	return {
 		getUser: function (id) {
+			var toR = Q.defer();
 			if (id in userInfo) {
-				return userInfo[id];
+				toR.resolve(userInfo[id]);
+			} else {
+				$http.get(USER_ENDPOINT + id)
+				.success(function (data) {
+					userInfo[id] = data;
+					toR.resolve(userInfo[id]);
+				});	
 			}
-			return null;
-		},
-
-		updateCacheForUser: function (id) {
-			$http.get(USER_ENDPOINT + id)
-			.success(function (data) {
-				userInfo[id] = data;
-			});
+			
+			return toR.promise;
 		}
 
 	};
@@ -118,9 +131,15 @@ ntServices.factory('tweet', ['$http', function($http) {
 		},
 
 		postTweet: function (userID, tweet) {
+			var toR = Q.defer();
 			console.log("Posting tweet: " + tweet + " by " + userID);
 			$http.post(TWEET_ENDPOINT, {"user_id": parseInt(userID),
-						    "content": tweet });
+						    "content": tweet })
+			.success(function() {
+				toR.resolve();
+			});
+
+			return toR.promise;
 		}
 	};
 }]);
@@ -131,8 +150,10 @@ ntServices.factory('follow', ['$http', function($http) {
 
 	return {
 		addFollow: function (user, toFollow) {
+			console.log("Making " + user + " follow " + toFollow);
 			$http.post(FOLLOW_ENDPOINT + user, { followee_id: toFollow})
 			.success(function (data) {
+				console.log("Valid response for follow!");
 				if (user in followCache) {
 					followCache[user].push(toFollow);
 					return;
@@ -143,27 +164,43 @@ ntServices.factory('follow', ['$http', function($http) {
 		},
 
 		doesFollow: function(user, follows) {
-			if (!(user in followCache)) {
-				return false;
-			}
-
-
-			return followCache[user] == follows || followCache[user].indexOf(follows) > -1;
+			var toR = Q.defer();
+			
+			
+			$http.get(FOLLOW_ENDPOINT + user)
+			.success(function (data) {
+				follows = parseInt(follows);
+				followCache[user] = data.followees;
+				console.log(followCache[user]);
+				console.log(follows + " idx " + followCache[user].indexOf(follows));
+				toR.resolve(followCache[user] == follows 
+					    || followCache[user].indexOf(follows) > -1);
+			})
+			.error(function () {
+				toR.resolve(false);
+			});
+			
+			return toR.promise;
 		},
 
 		getFollowers: function(user) {
-			if (user in followCache) {
-				return followCache[user];
-			}
-			return null;
-		
-		},
+			var toR = Q.defer();
 
-		updateCacheForFollow: function(user) {
+			if (user in followCache) {
+				toR.resolve(followCache[user]);
+				return toR.promise;
+			}
+
 			$http.get(FOLLOW_ENDPOINT + user)
 			.success(function (data) {
 				followCache[user] = data.followees;
+				toR.resolve(followCache[user]);
 			});
-		},
+
+			return toR.promise;
+		
+		}
+
+
 	};
 }]);

@@ -69,57 +69,57 @@ ntControllers.controller('UserCtrl', ['$scope', 'user', 'auth', 'follow', '$rout
 	      $scope.userID = $routeParams.id;
 	      $scope.userInfo = {};
 
-	      user.updateCacheForUser($scope.userID);
-	      follow.updateCacheForFollow($scope.userID);
+	      user.getUser($scope.userID).then(function (d) {
+		      $scope.userInfo = d;
+		      $scope.$apply();
+	      });
 
-	      $scope.$watch(function () { return user.getUser($scope.userID); },
-			    function () { 
-				    $scope.userInfo = user.getUser($scope.userID); 
-			    });
-
-	      $scope.canFollow = auth.isLoggedIn();
-
+	      $scope.canFollow = false;
+	      follow.doesFollow(auth.getUserID(), $scope.userID).then(function (r) {
+		      console.log("Follow result: " + r);
+		      $scope.canFollow = !r;
+		      $scope.$apply();
+	      });
+		 
 	      $scope.follow = function () {
 		      follow.addFollow(auth.getUserID(), $scope.userID);
 	      };
 
-	      $scope.$watch(function () { 
-		      return follow.doesFollow(auth.getUserID(), $scope.userID); 
-	      }, function () {
-		      console.log("Logged in: " + auth.isLoggedIn());
-		      console.log((!follow.doesFollow(auth.getUserID(), $scope.userID)));
-		      $scope.canFollow = 
-			      auth.isLoggedIn() 
-			      && (!follow.doesFollow(auth.getUserID(), $scope.userID));
-		      console.log("New result: " + $scope.canFollow);
-	      });
+	     
 
       }]);
 
 ntControllers.controller('HomeCtrl', ['$scope', 'auth', 'user', 'follow', 'tweet',
       function ($scope, auth, user, follow, tweet) {
 	      $scope.userID = auth.getUserID();
-	      $scope.followees = follow.getFollowers($scope.userID);
-	      $scope.tweets = [];
 
-	      console.log("In ctrl! " + $scope.userID);
-
-	      $scope.$watch(function () {
-		      return follow.getFollowers($scope.userID);
-	      }, function () {
-		      $scope.followees = follow.getFollowers($scope.userID);
-		      tweet.getTweetsForUsers($scope.followees)
-		      .then(function (d) {
-			      console.log("got tweets! " + JSON.stringify(d));
-			      $scope.tweets = d;
-			      $scope.$apply();
-		      });
+	      follow.getFollowers($scope.userID).then(function (f) {
+		      $scope.followees = f;
 	      });
 
-	      follow.updateCacheForFollow($scope.userID);
+	      console.log("Followers: " + $scope.followees);
+	      $scope.tweets = [];
+
+
+	      follow.getFollowers($scope.userID).then(function (f) {
+		      $scope.followees = f;
+		      return tweet.getTweetsForUsers($scope.followees);
+	      }).then(function (d) {
+		      console.log("got tweets! " + JSON.stringify(d));
+		      $scope.tweets = d;
+		      $scope.$apply();
+	      });
+
 
 	      $scope.submitTweet = function () {
-		      tweet.postTweet($scope.userID, $scope.tweet);
+		      tweet.postTweet($scope.userID, $scope.tweet)
+		      .then(function () {
+			      $scope.tweets.unshift({"user_id": $scope.userID,
+						     "content": $scope.tweet,
+						     "created_at": new Date()});
+			      $scope.tweet = "";
+			      $scope.$apply();
+		      });
 	      };
 
 
