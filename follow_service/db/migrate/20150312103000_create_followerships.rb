@@ -6,6 +6,6 @@ class CreateFollowerships < ActiveRecord::Migration
 			t.datetime :created_at
 		end
 
-		add_index(:follwerships, [:user_id, :followee_id], unique: true, name: 'stop_double_following')
+		add_index(:followerships, [:user_id, :followee_id], unique: true, name: 'stop_double_following')
 	end
 end
