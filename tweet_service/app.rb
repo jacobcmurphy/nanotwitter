@@ -5,6 +5,7 @@ require 'sinatra/cross_origin'
 Sequel.quote_identifiers = false
 dbloc = ENV['database'] || 'sqlite://dev.db'
 
+set :port, ENV['port']
 db = Sequel.connect(dbloc)
 tweets = db.from(:tweets)
 

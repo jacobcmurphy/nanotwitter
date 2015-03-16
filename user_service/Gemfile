@@ -10,4 +10,5 @@ gem 'rspec'
 gem 'sqlite3'
 gem 'rack-test'
 gem 'sinatra-jsonp'
-gem "sinatra-cross_origin"
+gem 'sinatra-cross_origin'
+gem 'sinatra-activerecord'

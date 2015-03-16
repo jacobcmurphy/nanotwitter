@@ -19,4 +19,6 @@ ActiveRecord::Schema.define(version: 20150312103000) do
     t.datetime "created_at"
   end
 
+  add_index "followerships", ["user_id", "followee_id"], name: "stop_double_following", unique: true
+
 end

@@ -13,6 +13,7 @@ task :environment do
   #ENV['database'] = "#{database["adapter"]}://#{database["user"]}:#{database["password"]}@#{database["host"]}:#{database["port"]}/#{database["database"]}"
   ENV['database'] = database
   ENV['app'] = File.absolute_path("app.rb")
+  ENV['port'] = '4568'
 end
 
 namespace :app do
@@ -21,7 +22,7 @@ namespace :app do
   end
   desc "starts the tweet service"
   task(:run => :environment) do
-    ruby ENV['app']	
+    ruby ENV['app']
   end
   task(:test => [:environment, :spec]) do
   end
