@@ -39,7 +39,10 @@ namespace :db do
   end
   desc "Drops the database"
   task(:drop => :environment) do
-    Sequel.connect(ENV['database']).drop_table :tweets 
+    begin
+      Sequel.connect(ENV['database']).drop_table :tweets 
+    rescue
+    end
   end
   desc "Dummy data"				#generates dummy data
   task(:dummy => :environment) do
