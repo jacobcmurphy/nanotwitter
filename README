@@ -1,0 +1,8 @@
+README
+=====
+
+To run, run deploy.rb:
+
+./deploy.rb
+
+To kill, simply killall ruby && killall Python
