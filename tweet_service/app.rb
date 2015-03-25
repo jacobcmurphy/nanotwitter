@@ -3,10 +3,7 @@ require 'sequel'
 require 'json'
 require 'sinatra/cross_origin'
 Sequel.quote_identifiers = false
-dbloc = ENV['database'] || 'sqlite://dev.db'
-
-set :port, ENV['port']
-db = Sequel.connect(dbloc)
+db = Sequel.connect(:adapter=>'postgres', :host=>'ec2-107-22-253-198.compute-1.amazonaws.com', :database=>'dd05tn6063hgsb', :user=>'iyqmrjwllheyvy', :password=>'68t2Sk9xEw4CsfDRE2g_N6uz9C')
 tweets = db.from(:tweets)
 
 configure do
@@ -22,7 +19,7 @@ options "*" do
   200
 end
 
-post '/tweet' do					#if post at /tweet
+post '/tweet' do				#if post at /tweet
   tweet = JSON.parse request.body.read		#receives tweet
   tweet['created_at'] = Time.now			#adds timestamp
   begin

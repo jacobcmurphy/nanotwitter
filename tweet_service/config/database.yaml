@@ -10,10 +10,9 @@ local:
 
 deploy:
         adapter: postgres
-        host: ec2-23-23-215-150.compute-1.amazonaws.com
-        user: ipjvdnhtwczgqn
-        password: aN4EcwY57QUjizDCsG1SmXNG8r
+        host: ec2-107-22-253-198.compute-1.amazonaws.com 
+        user: iyqmrjwllheyvy
+        password: 68t2Sk9xEw4CsfDRE2g_N6uz9C
         port: 5432
-        database: d4na891quqasmo
-
+        database: dd05tn6063hgsb
 

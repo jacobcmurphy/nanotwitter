@@ -6,12 +6,12 @@ require 'rubygems'
 
 desc "Load the environment"
 task :environment do
-  env = ENV['SINATRA_ENV'] || "development"
+  env = ENV['SINATRA_ENV'] || "deploy"
 
   database = YAML.load_file("config/database.yaml")[env]
 
   #ENV['database'] = "#{database["adapter"]}://#{database["user"]}:#{database["password"]}@#{database["host"]}:#{database["port"]}/#{database["database"]}"
-  ENV['database'] = database
+  ENV['database'] = database['string']
   ENV['app'] = File.absolute_path("app.rb")
   ENV['port'] = '4568'
 end
@@ -31,7 +31,7 @@ end
 namespace :db do
   desc "Migrate the database"
   task(:migrate => :environment) do
-    Sequel.connect(ENV['database']).create_table :tweets do
+    Sequel.connect(:adapter=>'postgres', :host=>'ec2-107-22-253-198.compute-1.amazonaws.com', :database=>'dd05tn6063hgsb', :user=>'iyqmrjwllheyvy', :password=>'68t2Sk9xEw4CsfDRE2g_N6uz9C').create_table :tweets do
       primary_key :tweet_id
       DateTime :created_at, :null=>false
       Bignum :user_id, :null=>false
@@ -54,7 +54,7 @@ namespace :db do
       config.access_token        = "74636828-qW06kurl1F2AtM2x23izzSCWWNUggpWkzjA2aqeJP"
       config.access_token_secret = "zsZR0CiT8PWkhOdSrXaVDRSVOWo4JuxOhjOmL2IkFz36o"
     end
-    tweets = Sequel.connect(ENV['database']).from(:tweets)
+    tweets = Sequel.connect(:adapter=>'postgres', :host=>'ec2-107-22-253-198.compute-1.amazonaws.com', :database=>'dd05tn6063hgsb', :user=>'iyqmrjwllheyvy', :password=>'68t2Sk9xEw4CsfDRE2g_N6uz9C').from(:tweets)
     client.sample do |tweet|
       if tweet.is_a?(Twitter::Tweet)
         tweets.insert(:created_at=>Time.now, :user_id=>tweet.user.id, :content=>tweet.text)
