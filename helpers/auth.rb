@@ -5,7 +5,7 @@ module Sinatra
 	module SessionAuth
 		module Helpers
 			def authorized?
-				@current_user = User.find(username: session[:username])
+				@current_user = User.find(username: session[:username], password: session[:password])
 				return @current_user
 			end
 
@@ -14,7 +14,7 @@ module Sinatra
 			end
 
 			def logout!
-				session[:username] = false
+				session.clear
 			end
 		end
 

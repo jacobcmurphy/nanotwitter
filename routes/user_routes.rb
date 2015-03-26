@@ -18,11 +18,11 @@ class UserRoutes < Sinatra::Base
 		end
 	end
 
-	get '/:username' do
-		@user = User.find(username: params[:username]) 
+	get '/:id' do
+		@user = User.find(id: params[:id]) 
 		if @user 
 			@your_page = @user.eq @current_user
-			@tweets = @user.tweets.order('created_at DESC').limit(50)
+			@tweets = @user.tweets.order('created_at DESC').limit(100)
 			erb :user
 		else
 			error 404
@@ -32,7 +32,6 @@ class UserRoutes < Sinatra::Base
 	# create a new user
 	post '/' do
 		begin
-puts params.inspect, "*******"
 			user = User.create(name: params[:name],
 							   username: params[:username],
 							   email: params[:email],

@@ -4,6 +4,11 @@ require 'yaml'
 require 'rake/testtask'
 
 namespace :db do
+#	desc "Seed the database"
+#	task :seed => :environment  do
+#		require_relative './db/seeds'
+#	end
+
 	desc "Load the environment"
 	task :environment do
 		env = ENV["SINATRA_ENV"] || "development"
