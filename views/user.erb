@@ -1,0 +1,16 @@
+NAME: <%= @user.name %>
+<br>
+USERNAME: <%= @user.username>
+<%= erb :tweet_box if @is_your_page? %>
+<% unless @user.nil? %>
+<form action='/follow' method='post'>
+	<input type="hidden" name="followee_id" value="<%= @user.id %>" >
+	<input type="submit" value="Follow this person.">
+</form>
+<% end %>
+
+<% @tweets.each do |tweet| %>
+	<br><br>
+	BY: <a href="/users/<%= tweet.user.username %>"<%= tweet.user.name %>
+	TEXT: <%= tweet.text>
+<% end %>

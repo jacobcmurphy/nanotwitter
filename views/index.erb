@@ -1,0 +1,10 @@
+<% if @current_user %>
+	<a href="/logout">LOGOUT</a>
+<% end %>
+<br>
+TWEETS:
+<% @tweets.each do |tweet| %>
+	<br><% tweet.text %>
+	<br> <% tweet.user.name %>
+	<br> <% tweet.user.username %>
+<% end %>
