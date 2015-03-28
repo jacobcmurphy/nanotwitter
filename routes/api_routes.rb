@@ -7,6 +7,7 @@ class ApiRoutes < Sinatra::Base
 	register Sinatra::ActiveRecordExtension
 
 	get '/tweets/:id' do
+		pass if params[:id] == 'recent'
 		tweet = Tweet.find(params[:id])
 		if tweet
 			status 200
@@ -18,7 +19,7 @@ class ApiRoutes < Sinatra::Base
 	end
 
 	get '/tweets/recent' do
-		Tweets.order(created_at: :asc).to_json
+		Tweet.order(created_at: :asc).to_json
 	end
 
 	get '/users/:id' do
@@ -33,7 +34,7 @@ class ApiRoutes < Sinatra::Base
 			end
 		rescue => e
 			status 500
-			e.errors.to_json
+			e.to_json
 		end
 	end
 

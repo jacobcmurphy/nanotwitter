@@ -10,7 +10,7 @@ class UserRoutes < Sinatra::Base
 	register Sinatra::SessionAuth
 	set :views, File.expand_path('../../views', __FILE__)
 
-	get '/my/profile' do
+	get '/profile' do
 		authorize!
 		if @current_user 
 			@followees = @current_user.followees
@@ -21,6 +21,7 @@ class UserRoutes < Sinatra::Base
 	end
 
 	get '/:id' do
+		pass if params[:id] == 'profile'
 		@user = User.find(params[:id]) 
 		if @user 
 			@is_your_page = @user == get_current_user

@@ -11,5 +11,5 @@ run Rack::URLMap.new({
 	'/user' => UserRoutes,
 	'/follows' => FollowershipRoutes,
 	'/tweets' => TweetRoutes,
-	'/api/vi' => ApiRoutes
+	'/api/v1' => ApiRoutes
 })

@@ -1,3 +1,6 @@
+NAME: <%= @current_user.name %>
+<br>
+USERNAME: <%= @current_user.username %>
 <ul>
 	<% @followees.each do |followee| %>
 		<li><a href="/user/<%= "#{followee.id}" %>"><%= followee.username %></a></li>
