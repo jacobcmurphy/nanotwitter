@@ -2,16 +2,35 @@ require 'sinatra/base'
 require_relative './../helpers/auth'
 
 class LoginRoutes < Sinatra::Base
+	enable :sessions
 	register Sinatra::SessionAuth
 	set :views, File.expand_path('./../../views', __FILE__)
 
 	get '/' do
-		if @current_user
-			@tweets = @current_user.followees.tweets.order('created_at DESC').limit(50)
+		connection = ActiveRecord::Base.connection
+
+		if authorized?
+			@tweets = connection.exec_query %Q(
+				SELECT followees.id, followees.name, followees.username, tweets.text, tweets.created_at
+				FROM users
+				JOIN followerships ON followerships.user_id = users.id
+				JOIN users AS followees ON followees.id = followerships.followee_id
+				JOIN tweets ON tweets.user_id = followees.id
+				WHERE users.id = #{@current_user.id} 
+				ORDER BY tweets.created_at DESC
+				LIMIT 100)
+
 		else
-			@tweets = Tweet.order('created_at DESC').limit(50)
+			@tweets = connection.exec_query %Q(
+				SELECT users.id, users.name, users.username, tweets.text, tweets.created_at
+				FROM tweets
+				JOIN users ON tweets.user_id = users.id
+				ORDER BY tweets.created_at DESC
+				LIMIT 100)
 		end		
-		erb :index
+
+			@tweets = @tweets.rows
+			erb :index
 	end
 
 	get '/login' do
@@ -19,19 +38,16 @@ class LoginRoutes < Sinatra::Base
 	end
 
 	get '/register' do
-puts "HELLO?"
 		erb :register
 	end
 
 	# verify a user name and password 
 	post '/login' do
 		begin
-			attributes = 
 			user = User.find_by(:username => params["username"],
 								:password => params["password"]) 
 			if user
-				session[:username] = user.username
-				session[:token] = user.password
+				login! user
 				redirect '/'
 			else
 				error 400, {:error => "invalid login credentials"}.to_json
@@ -42,8 +58,7 @@ puts "HELLO?"
 	end
 
 	put '/logout' do
-		session[:user_id] = nil
-		session[:token] = nil
+		logout!
 		redirect to '/login'
 	end
 

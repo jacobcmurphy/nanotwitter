@@ -2,14 +2,16 @@ require 'active_record'
 require 'sinatra/base' 
 require_relative './../helpers/auth'
 require_relative './../models/user'
+require_relative './../models/tweet'
 
 
 class UserRoutes < Sinatra::Base
-
+	enable :sessions
 	register Sinatra::SessionAuth
 	set :views, File.expand_path('../../views', __FILE__)
 
 	get '/my/profile' do
+		authorize!
 		if @current_user 
 			@followees = @current_user.followees
 			erb :profile
@@ -19,10 +21,10 @@ class UserRoutes < Sinatra::Base
 	end
 
 	get '/:id' do
-		@user = User.find(id: params[:id]) 
+		@user = User.find(params[:id]) 
 		if @user 
-			@your_page = @user.eq @current_user
-			@tweets = @user.tweets.order('created_at DESC').limit(100)
+			@is_your_page = @user == get_current_user
+			@tweets = Tweet.joins(:user).select('users.name', 'users.username', 'users.id', 'tweets.user_id', 'tweets.text', 'tweets.created_at').where('tweets.user_id = ?', @user.id).order('tweets.created_at DESC').limit(100)
 			erb :user
 		else
 			error 404

@@ -5,7 +5,7 @@ module Sinatra
 	module SessionAuth
 		module Helpers
 			def authorized?
-				@current_user = User.find(username: session[:username], password: session[:password])
+				@current_user = User.find_by(username: session[:username], password: session[:token])
 				return @current_user
 			end
 
@@ -13,9 +13,16 @@ module Sinatra
 				redirect '/login' unless authorized?
 			end
 
+			def login!(user)
+				session[:username] = user.username
+				session[:token] = user.password
+			end
+
 			def logout!
 				session.clear
 			end
+
+			alias_method :get_current_user, :authorized?
 		end
 
 		def self.registered(app)

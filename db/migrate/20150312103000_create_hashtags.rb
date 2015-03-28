@@ -5,6 +5,8 @@ class CreateHashtags < ActiveRecord::Migration
 			t.integer :tweet_id
 			t.datetime :created_at
 		end
+
+		add_index(:hashtags, :tweet_id, name: "hashtag_tweetid_index")
 	end
 
 	def down

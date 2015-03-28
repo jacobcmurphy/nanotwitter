@@ -3,13 +3,13 @@ require_relative './routes/hashtag_routes'
 require_relative './routes/user_routes'
 require_relative './routes/followership_routes'
 require_relative './routes/tweet_routes'
-
-ENV['SINATRA_ENV'] ||= 'development'
+require_relative './routes/api_routes'
 
 run Rack::URLMap.new({
 	'/' => LoginRoutes,
 	'/hashtags' => HashtagRoutes,
-	'/users' => UserRoutes,
+	'/user' => UserRoutes,
 	'/follows' => FollowershipRoutes,
-	'/tweets' => TweetRoutes
+	'/tweets' => TweetRoutes,
+	'/api/vi' => ApiRoutes
 })

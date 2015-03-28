@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20150312104400) do
 
   create_table "followerships", force: :cascade do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.integer  "followee_id"
     t.datetime "created_at"
   end
 
-  add_index "followerships", ["user_id", "followee_id"], name: "stop_double_following", unique: true
+  add_index "followerships", ["user_id"], name: "stop_double_following"
 
   create_table "hashtags", force: :cascade do |t|
     t.string   "tag"
@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(version: 20150312104400) do
     t.datetime "created_at"
   end
 
+  add_index "hashtags", ["tweet_id"], name: "hashtag_tweetid_index"
+
   create_table "tweets", force: :cascade do |t|
     t.string   "text"
-    t.string   "user_id"
+    t.integer  "user_id"
     t.datetime "created_at"
   end
-
-  add_index "tweets", ["user_id"], name: "tweet_uid_index"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -43,5 +43,7 @@ ActiveRecord::Schema.define(version: 20150312104400) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["password"], name: "user_password_index"
 
 end

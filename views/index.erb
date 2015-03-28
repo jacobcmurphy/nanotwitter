@@ -1,10 +1,22 @@
 <% if @current_user %>
 	<a href="/logout">LOGOUT</a>
+<% else %>
+	<a href="/login">LOGIN</a>
+	<br>
+	<a href="/register">REGISTER</a>
 <% end %>
 <br>
-TWEETS:
+<% unless @tweets.nil? || @tweets.count <= 0 %>
+<h1>TWEETS:</h1>
 <% @tweets.each do |tweet| %>
-	<br><% tweet.text %>
-	<br> <% tweet.user.name %>
-	<br> <% tweet.user.username %>
+	<% puts tweet # for debugging%>
+	<br><%= tweet[3] %>
+	<br>BY:  <%= tweet[1] %>
+<br><a href='/user/<%= tweet[0] %>'><%= tweet[2] %></a>
+	<br>CREATED AT: <%= tweet[4] %>
+	<br><br>
+<% end %>
+
+<% else %>
+	<h1>NO TWEETS TO SHOW YET</h1>
 <% end %>

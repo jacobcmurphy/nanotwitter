@@ -3,9 +3,12 @@ require 'sinatra/activerecord'
 require_relative "../models/tweet"
 
 class TweetRoutes < Sinatra::Base
+	enable :sessions
+	register Sinatra::SessionAuth
 	register Sinatra::ActiveRecordExtension
 
 	post '/' do					#if post at /tweet
+		autorize!
 		tweet = JSON.parse request.body.read		#receives tweet
 		begin
 			Tweet.create(tweet)

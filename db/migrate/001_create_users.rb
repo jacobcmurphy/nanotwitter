@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password 
       t.timestamps
     end
+
+	add_index(:users, :password, name: "user_password_index")
 end
 
 
