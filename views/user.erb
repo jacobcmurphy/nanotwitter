@@ -2,8 +2,9 @@ NAME: <%= @user.name %>
 <br>
 USERNAME: <%= @user.username %>
 <%= erb :tweet_box if @is_your_page %>
-<% unless @current_user.nil? %>
-<form action='/follow' method='post'>
+<% unless @current_user.nil? || @is_your_page %>
+<form action='/follows' method='post'>
+	<input type="hidden" name="user_id" value="<%= @current_user.id %>" >
 	<input type="hidden" name="followee_id" value="<%= @user.id %>" >
 	<input type="submit" value="Follow this person.">
 </form>

@@ -1,7 +1,5 @@
-<%= erb :tweet_partial %>
-
 <ul>
 	<% @followees.each do |followee| %>
-		<li><a href="/users/<%= #{followee.username} %>"><%= followee.username %></a></li>
+		<li><a href="/user/<%= "#{followee.id}" %>"><%= followee.username %></a></li>
 	<% end %>
 </ul>

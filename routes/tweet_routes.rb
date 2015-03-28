@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
+require_relative './../helpers/auth'
 require_relative "../models/tweet"
 
 class TweetRoutes < Sinatra::Base
@@ -7,15 +8,15 @@ class TweetRoutes < Sinatra::Base
 	register Sinatra::SessionAuth
 	register Sinatra::ActiveRecordExtension
 
-	post '/' do					#if post at /tweet
-		autorize!
-		tweet = JSON.parse request.body.read		#receives tweet
+	post '/' do
+		authorize!
 		begin
-			Tweet.create(tweet)
-			200					#good response
+			Tweet.create(text: params[:text], user_id: @current_user.id)
+			status 200
+			redirect back
 		rescue => e
-			puts e
-			400					#malformed
+			status 400	#malformed
+			e.errors.to_json
 		end
 	end
 

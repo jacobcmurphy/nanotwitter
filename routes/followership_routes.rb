@@ -1,8 +1,11 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
+require_relative './../helpers/auth'
 require_relative "../models/followership"
 
 class FollowershipRoutes < Sinatra::Base
+	enable :sessions
+	register Sinatra::SessionAuth
 	register Sinatra::ActiveRecordExtension
 
 	# get all followers of user with user_id
@@ -19,15 +22,15 @@ class FollowershipRoutes < Sinatra::Base
 		end
 	end
 
-	# insert a new tag
-	post '/:user_id' do
+	# create a followership 
+	post '/' do
 		user_id = params[:user_id]
-		followee_id = JSON.parse(request.body.read)['followee_id']
+		followee_id = params[:followee_id]
 
 		followership = Followership.create(user_id: user_id, followee_id: followee_id)
 		if followership.valid?
 			status 201
-			followership.to_json
+			redirect back
 		else
 			status 500
 			followership.errors.to_json
