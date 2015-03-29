@@ -84,6 +84,17 @@ hr {
 	background-color:#393939;
 }
 
+.navbar-right {
+	margin-right:2px;	
+	font-size:20px;
+	font-weight:700;
+	text-align:center;
+	text-decoration:none;
+	text-shadow:0 0 1px;
+
+}
+
+
 .logo {
 	display:block;
 	padding:3px;
