@@ -23,7 +23,6 @@ hr {
 }
 
 
-
 .column {
 	height: 100%;
 	overflow: auto;
@@ -70,7 +69,8 @@ hr {
 	width:100%;
 }
 #main .img-circle {
-	margin-top:18px;
+	margin-top:7px;
+	margin-right:15px;
 	height:70px;
 	width:70px;
 }

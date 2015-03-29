@@ -13,11 +13,15 @@ $(document).ready(function(){/* off-canvas sidebar toggle */
 
 $(function () {
 	$('.btnChangeXML').click(function () {
-		hello = jQuery.get('/', function(data) {
-			alert(data);
-			//process text file line by line
-			$('#div').html(data.replace('n','<br />'));
-			}); 
+		hello = jQuery.get('/api/v1/tweets/recent', function(data) {
+		//	alert(JSON.parse(data));
+			//console.log(data);
+			var stuff = JSON.parse(data);
+			alert(JSON.parse(stuff[0]));
+			JSON.parse(data).forEach(function(element){
+				console.log(JSON.parse(element));
+			});
+		}); 
 		$('#txtDisplay').val(hello);
 	});
 
