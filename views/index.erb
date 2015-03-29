@@ -76,17 +76,11 @@
 								<div class="panel-thumbnail"><img src="/assets/bird.svg" class="img-responsive"></div>
 								<div class="panel-body">
 									<p class="lead">Welcome to NanoTwitter!</p>
-									<p><% if @current_user %>
-									<a href="/logout">LOGOUT</a>
-								<% end %>
-									<br>
-									TWEETS:
-									<% @tweets.each do |tweet| %>
-										<br><% tweet.text %>
-								<br> <% tweet.user.name %>
-								<br> <% tweet.user.username %>
-							<% end %></p>
 
+								
+									<textarea id="txtDisplay" rows="5" cols="35"></textarea>
+									<br />
+									<button class="btnChangeXML">Change XML</button>
 									<p>
 									<img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
 									</p>
@@ -257,7 +251,7 @@
 </div>
 <!-- script references -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="js/scripts.js"></script>
 </body>
 </html>
