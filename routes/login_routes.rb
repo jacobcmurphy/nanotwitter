@@ -58,7 +58,7 @@ class LoginRoutes < Sinatra::Base
 		end 
 	end
 
-	put '/logout' do
+	get '/logout' do
 		logout!
 		redirect to '/login'
 	end
