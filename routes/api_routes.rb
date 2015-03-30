@@ -19,7 +19,8 @@ class ApiRoutes < Sinatra::Base
 	end
 
 	get '/tweets/recent' do
-		Tweet.order(created_at: :asc).to_json
+		date = (params[:date]) ? DateTime.parse(params[:date]) : Time.now.to_datetime
+		Tweet.where(['created_at < ?', date]).order(created_at: :desc).limit(50).to_json
 	end
 
 	get '/users/:id' do
@@ -40,17 +41,18 @@ class ApiRoutes < Sinatra::Base
 
 	get '/users/:id/tweets' do
 		begin
-			user = User.find(params[:id])
-			if user
+			date = (params[:date]) ? DateTime.parse(params[:date]) : Time.now.to_datetime
+			tweets = Tweet.where(['user_id = ? and created_at < ?', params[:id].to_i, date]).order(created_at: :desc).limit(50)
+			if tweets.size > 0
 				status 200
-				user.tweets.to_json
+				tweets.to_json
 			else
 				status 404
 				{"Message": "No user exists with that id."}.to_json
 			end
-		rescue
+		rescue => e
 			status 500
-			e.errors.to_json
+			e.to_json
 		end
 	end
 end
