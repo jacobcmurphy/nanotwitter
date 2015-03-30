@@ -9,9 +9,4 @@ USERNAME: <%= @user.username %>
 	<input type="submit" value="Follow this person.">
 </form>
 <% end %>
-<% @tweets.each do |tweet| %>
-	<% puts tweet.attributes  %>
-	<br><br>
-	BY: <a href="/user/<%= tweet.user_id %>"><%= tweet.name %></a>
-	TEXT: <%= tweet.text %>
-<% end %>
+<%= erb :show_tweets %>

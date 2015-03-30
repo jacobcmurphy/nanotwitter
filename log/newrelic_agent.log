@@ -1,0 +1,15 @@
+# Logfile created on 2015-03-30 16:25:26 -0400 by logger.rb/47272
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : Starting the New Relic agent in "development" environment.
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : Reading configuration from config/newrelic.yml (/home/jacob/Dropbox/cosi105b_jcmurphy/nanotwitter)
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : Environment: development
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : No known dispatcher detected.
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : Application: NanoTwitter (Development)
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : Installing deferred Rack instrumentation
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : Installing Rack::Builder middleware instrumentation
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : Installing Net instrumentation
+[03/30/15 16:25:26 -0400 localhost (12064)] INFO : Finished instrumentation
+[03/30/15 16:25:27 -0400 localhost (12064)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[03/30/15 16:25:28 -0400 localhost (12064)] INFO : Doing deferred dependency-detection before Rack startup
+[03/30/15 16:25:28 -0400 localhost (12064)] INFO : Installing ActiveRecord 4 instrumentation
+[03/30/15 16:25:28 -0400 localhost (12064)] INFO : Installing Sinatra instrumentation

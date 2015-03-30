@@ -1,14 +1,18 @@
 <div id="tweets" class="panel-body">
+
+<% if @tweets.count > 0 %>
 	<% @tweets.each do |tweet| %>
-	<% puts "***", tweet, "***" %>
-	<a href="/user/<%= tweet[0] %>">
-		<%= tweet[2] %>
+	<a href="/user/<%= tweet.user_id %>">
+		<%= tweet.username%>
 	</a>
 	<br>
-	<%= tweet[1] %>
+	<%= tweet.name %>
 	<br>
-	<%= tweet[3] %>
+	<%= tweet.text %>
 	<br><hr>
 	<% end %>
+<% else %>
+	<h2>No tweets to show yet.</h2>
+<% end %>
 </div>
 

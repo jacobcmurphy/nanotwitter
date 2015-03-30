@@ -32,7 +32,25 @@
 
 		<div class="panel panel-default">
 			<div class="panel-heading"><!-- <a href="#" class="pull-right"> View all</a>--> <h4>Recent Tweets</h4></div>
-			<%= erb :show_tweets %>
-		</div>
 
+			<div id="tweets" class="panel-body">
+
+				<% if @tweets.count > 0 %>
+					<% @tweets.each do |tweet| %>
+						<% puts "***", tweet, "***" %>
+						<a href="/user/<%= tweet[0] %>">
+							<%= tweet[2] %>
+						</a>
+						<br>
+						<%= tweet[1] %>
+						<br>
+						<%= tweet[3] %>
+						<br><hr>
+					<% end %>
+				<% else %>
+					<h2>No tweets to show yet.</h2>
+				<% end %>
+			</div>
+
+		</div>
 	</div><!--/row-->
