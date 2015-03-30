@@ -9,22 +9,22 @@ $(document).ready(function(){/* off-canvas sidebar toggle */
 		$('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
 		$('#btnShow').toggle();
 	});
-
-	$(function () {
-		$('.btnChangeXML').click(function () {
-			hello = jQuery.get('/api/v1/tweets/recent', function(data) {
-				var tweets = JSON.parse(data);
-				tweets.forEach(function(element){
-					var m = JSON.stringify(element);
-					console.log(m);
-					$('#txtDisplay').val(m);
-				});
-			}); 
-			$('#txtDisplay').val(hello);
+	jQuery.get('/api/v1/tweets/recent', function(data) {
+		var tweetBox = document.getElementById('tweets');
+		JSON.parse(data).forEach(function(element){
+			tweetBox.innerHTML = tweetBox.innerHTML + element.text + "<br><hr>";
 		});
+	}); 
+});
 
+$(function () {
+	$('.signIn').click(function () {
+		$.post( "/login", function( data ) {
+			alert( "Data Loaded: " + data );
+		}).fail(function(data) {
+    alert( JSON.stringfy(data) );
+  });
 	});
 
 });
-
 

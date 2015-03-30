@@ -73,16 +73,10 @@
 						<div class="col-sm-5">
 
 							<div class="panel panel-default">
-								<div class="panel-thumbnail"><img src="/assets/bird.svg" class="img-responsive"></div>
+								<div class="panel-thumbnail"></div>
 								<div class="panel-body">
 									<p class="lead">Welcome to NanoTwitter!</p>
-
-
-									<textarea id="txtDisplay" rows="5" cols="35"></textarea>
-									<br />
-									<button class="btnChangeXML">Change XML</button>
-									<p>
-									<img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
+									Please sign in on the right.
 									</p>
 								</div>
 							</div>
@@ -134,21 +128,23 @@
 						<div class="col-sm-7">
 
 							<div class="well"> 
-								<form class="form">
-									<h4>Sign-up</h4>
-									<div class="input-group text-center">
-										<input type="text" class="form-control input-lg" placeholder="Enter your email address">
-										<span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">OK</button></span>
+								<form class="form" name="signIn">
+									<h4>Sign in</h4>
+									<div class="form-group">
+										<label for="exampleInputEmail1">Email address</label>
+										<input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
 									</div>
-								</form>
+									<div class="form-group">
+										<label for="exampleInputPassword1">Password</label>
+										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+									</div>
+									<button class="btn btn-default signIn">Submit</button>
+								</form>								
 							</div>
 
 							<div class="panel panel-default">
 								<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Recent Tweets</h4></div>
-								<div class="panel-body"><img src="//placehold.it/150x150" class="img-circle pull-left profile"> 
-
-									Design, build, test, and prototype using Bootstrap in real-time from your Web browser. Bootply combines the power of hand-coded HTML, CSS and JavaScript with the benefits of responsive design using Bootstrap. Find and showcase Bootstrap-ready snippets in the 100% free Bootply.com code repository.									<hr>
-
+								<div id="tweets" class="panel-body">
 								</div>
 							</div>
 
