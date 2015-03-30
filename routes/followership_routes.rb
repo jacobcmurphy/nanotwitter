@@ -15,7 +15,7 @@ class FollowershipRoutes < Sinatra::Base
 		results[:followees] = Followership.where(user_id: params[:user_id]).select("followee_id").map{|followership| followership.followee_id}
 		if results[:followees].empty?
 			status 404
-			{"error": "user not found"}.to_json
+			{"error" => "user not found"}.to_json
 		else
 			status 200
 			results.to_json

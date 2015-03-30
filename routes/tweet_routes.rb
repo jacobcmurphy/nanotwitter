@@ -9,7 +9,6 @@ class TweetRoutes < Sinatra::Base
 	register Sinatra::ActiveRecordExtension
 
 	post '/' do
-puts "*********", params.inspect, "*********88"
 		authorize!
 		begin
 			Tweet.create(text: params[:text], user_id: @current_user.id)
