@@ -1,5 +1,6 @@
 require 'active_record'
 require 'sinatra/activerecord/rake'
+require 'erb'
 require 'yaml'
 require 'rake/testtask'
 
