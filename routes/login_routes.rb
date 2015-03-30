@@ -51,10 +51,11 @@ class LoginRoutes < Sinatra::Base
 				login! user
 				redirect '/'
 			else
-				error 400, {:error => "invalid login credentials"}.to_json
+				redirect back#error 400, {:error => "invalid login credentials"}.to_json
+
 			end
 		rescue => e
-			error 400, e.message.to_json
+			redirect back#error 400, e.message.to_json
 		end 
 	end
 
