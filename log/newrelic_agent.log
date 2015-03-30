@@ -13,3 +13,4 @@
 [03/30/15 16:25:28 -0400 localhost (12064)] INFO : Doing deferred dependency-detection before Rack startup
 [03/30/15 16:25:28 -0400 localhost (12064)] INFO : Installing ActiveRecord 4 instrumentation
 [03/30/15 16:25:28 -0400 localhost (12064)] INFO : Installing Sinatra instrumentation
+[03/30/15 16:50:43 -0400 localhost (12064)] INFO : Starting Agent shutdown
