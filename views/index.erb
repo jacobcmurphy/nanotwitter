@@ -8,7 +8,15 @@
 			<div class="panel-thumbnail"></div>
 			<div class="panel-body">
 				<p class="lead">Welcome to NanoTwitter!</p>
-				Please sign in on the right.
+				<% if @current_user %>
+					Good to see you, <%= @current_user.name %>
+				<% else %>
+					Please sign in on the right.
+					<br>
+					Or 
+					<br>
+					<a href="/register">Register for an account.</a>
+				<% end %>
 				</p>
 			</div>
 		</div>
@@ -16,38 +24,15 @@
 
 	<!-- main col right -->
 	<div class="col-sm-7">
-
+		<% unless @current_user %>
 		<div class="well"> 
-			<form class="form" name="signIn">
-				<h4>Sign in</h4>
-				<div class="form-group">
-					<label for="exampleInputEmail1">Email address</label>
-					<input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
-					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-				</div>
-				<button class="btn btn-default signIn">Submit</button>
-			</form>								
+			<%= erb :login %>
 		</div>
+		<% end %>
 
 		<div class="panel panel-default">
-			<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Recent Tweets</h4></div>
-			<div id="tweets" class="panel-body">
-			</div>
+			<div class="panel-heading"><!-- <a href="#" class="pull-right"> View all</a>--> <h4>Recent Tweets</h4></div>
+			<%= erb :show_tweets %>
 		</div>
 
 	</div><!--/row-->
-
-	<div class="row" id="footer">    
-		<div class="col-sm-6">
-
-		</div>
-		<div class="col-sm-6">
-			<p>
-			<a href="#" class="pull-right">Jacob Murphy and Eden Zik</a>
-			</p>
-		</div>
-	</div>
-

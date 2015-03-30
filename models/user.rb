@@ -1,8 +1,9 @@
 require 'active_record'
 
 class User < ActiveRecord::Base 
-	has_many :followers, :class_name => 'Followership', :foreign_key => 'user_id'
-	has_many :followees, :class_name => 'Followership', :foreign_key => 'followee_id'
+	has_many :followerships
+	has_many :followers, :through => :followerships, :source => :user
+	has_many :followees, :class_name => 'User', :through => :followerships,  :foreign_key => 'user_id'
 	has_many :tweets
 
 

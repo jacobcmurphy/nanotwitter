@@ -24,16 +24,16 @@ class FollowershipRoutes < Sinatra::Base
 
 	# create a followership 
 	post '/' do
-		user_id = params[:user_id]
-		followee_id = params[:followee_id]
+		begin
+			user_id = params[:user_id]
+			followee_id = params[:followee_id]
 
-		followership = Followership.create(user_id: user_id, followee_id: followee_id)
-		if followership.valid?
+			followership = Followership.create(user_id: user_id, followee_id: followee_id)
 			status 201
-			redirect back
-		else
-			status 500
-			followership.errors.to_json
+		rescue => e
+			puts e
 		end
+		
+		redirect back
 	end
 end

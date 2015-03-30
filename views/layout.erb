@@ -8,13 +8,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+	  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	  <![endif]-->
+	  <link href="css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="wrapper">
-			<div>
 				<!-- main right col -->
 				<div class="col-sm-10 " id="main">
 					<!-- top nav -->
@@ -42,23 +41,22 @@
 									<a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
 								</li>
 								<% if @current_user %>
-									<li>
-										<a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-pencil"></i> Post</a>
-									</li>
+								<li>
+									<a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-pencil"></i> Post</a>
+								</li>
 								<% end %>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i></a>
 									<ul class="dropdown-menu">
-										<li><a href="/user/profile">Profile</a></li>
-										<li>
 										<% if @current_user %>
-											<a href="/logout">Logout</a></li>
+											<li><a href="/user/profile">Profile</a></li>
+											<li><a href="/logout">Logout</a></li>
 										<% else %>
-											<a href='/login'>Login</a>
+											<li><a href='/login'>Login</a></li>
+											<li><a href='/register'>Register</a></li>
 										<% end %>
-										</li>
 									</ul>
 								</li>
 							</ul>
@@ -66,7 +64,7 @@
 					</div>
 					<!-- /top nav -->
 
-					<div class="padding">
+							<div class="padding">
 						<div class="full col-sm-9">
 
 							<%= yield %>
@@ -76,10 +74,9 @@
 					</div><!-- /padding -->
 				</div>
 				<!-- /main -->
+	</div>
+		</div>
 
-			</div>
-		</div>
-		</div>
 
 		<% if @current_user %>
 			<!--post modal-->
@@ -104,20 +101,20 @@
 						</div>
 					</div>
 				</div>
+			</div>
 
-			<script>
-				function sendForm(){
-					var form_data = {user_id: <%= @current_user.id %>, text: $("[name='text']").val()}
-					$.post("/tweets", form_data,function(data){
-						alert(data);
-					});
-				}
-			</script>
+				<script>
+					function sendForm(){
+						var form_data = {user_id: <%= @current_user.id %>, text: $("[name='text']").val()}
+						$.post("/tweets", form_data)
+					}
+				</script>
 			<% end %>
 
 			<!-- script references -->
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 			<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-			<script src="js/scripts.js"></script>
+			
+			<!-- <script src="js/scripts.js"></script> -->
 	</body>
 </html>

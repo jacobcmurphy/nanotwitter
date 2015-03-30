@@ -1,0 +1,14 @@
+<div id="tweets" class="panel-body">
+	<% @tweets.each do |tweet| %>
+	<% puts "***", tweet, "***" %>
+	<a href="/user/<%= tweet[0] %>">
+		<%= tweet[2] %>
+	</a>
+	<br>
+	<%= tweet[1] %>
+	<br>
+	<%= tweet[3] %>
+	<br><hr>
+	<% end %>
+</div>
+
