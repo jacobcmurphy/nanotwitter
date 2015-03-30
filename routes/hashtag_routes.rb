@@ -12,7 +12,7 @@ class HashtagRoutes < Sinatra::Base
 		results[:tweet_ids] = Hashtag.where(tag: params[:tag]).select("tweet_id").map{|tweet| tweet.tweet_id}
 		if results[:tweet_ids].empty?
 				status 404
-				{"error": "user not found"}.to_json
+				{"error" => "user not found"}.to_json
 		else
 			status 200
 			results.to_json
