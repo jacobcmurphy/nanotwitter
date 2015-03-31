@@ -14,3 +14,33 @@
 [03/30/15 16:25:28 -0400 localhost (12064)] INFO : Installing ActiveRecord 4 instrumentation
 [03/30/15 16:25:28 -0400 localhost (12064)] INFO : Installing Sinatra instrumentation
 [03/30/15 16:50:43 -0400 localhost (12064)] INFO : Starting Agent shutdown
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : Starting the New Relic agent in "development" environment.
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : Reading configuration from config/newrelic.yml (/home/jacob/Dropbox/cosi105b_jcmurphy/nanotwitter)
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : Environment: development
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : No known dispatcher detected.
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : Application: NanoTwitter (Development)
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : Installing deferred Rack instrumentation
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : Installing Rack::Builder middleware instrumentation
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : Installing Net instrumentation
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : Finished instrumentation
+[03/31/15 11:06:02 -0400 localhost (1055)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[03/31/15 11:06:03 -0400 localhost (1055)] INFO : Doing deferred dependency-detection before Rack startup
+[03/31/15 11:06:03 -0400 localhost (1055)] INFO : Installing ActiveRecord 4 instrumentation
+[03/31/15 11:06:03 -0400 localhost (1055)] INFO : Installing Sinatra instrumentation
+[03/31/15 11:23:28 -0400 localhost (1055)] INFO : Starting Agent shutdown
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : Starting the New Relic agent in "development" environment.
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : Reading configuration from config/newrelic.yml (/home/jacob/Dropbox/cosi105b_jcmurphy/nanotwitter)
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : Environment: development
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : No known dispatcher detected.
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : Application: NanoTwitter (Development)
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : Installing deferred Rack instrumentation
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : Installing Rack::Builder middleware instrumentation
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : Installing Net instrumentation
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : Finished instrumentation
+[03/31/15 12:28:46 -0400 localhost (14797)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[03/31/15 12:28:47 -0400 localhost (14797)] INFO : Doing deferred dependency-detection before Rack startup
+[03/31/15 12:28:47 -0400 localhost (14797)] INFO : Installing ActiveRecord 4 instrumentation
+[03/31/15 12:28:47 -0400 localhost (14797)] INFO : Installing Sinatra instrumentation
+[03/31/15 12:54:21 -0400 localhost (14797)] INFO : Starting Agent shutdown
