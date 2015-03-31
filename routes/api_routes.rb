@@ -14,7 +14,7 @@ class ApiRoutes < Sinatra::Base
 			tweet.to_json
 		else
 			status 404
-			{"Message": "No tweet found with that id."}.to_json
+			{"Message" =>  "No tweet found with that id."}.to_json
 		end
 	end
 
@@ -31,7 +31,7 @@ class ApiRoutes < Sinatra::Base
 				user.to_json(only: [:id, :name, :username])
 			else
 				status 404
-				{"Message": "No user exists with that id."}.to_json
+				{"Message" => "No user exists with that id."}.to_json
 			end
 		rescue => e
 			status 500
@@ -48,7 +48,7 @@ class ApiRoutes < Sinatra::Base
 				tweets.to_json
 			else
 				status 404
-				{"Message": "No user exists with that id."}.to_json
+				{"Message" => "No user exists with that id."}.to_json
 			end
 		rescue => e
 			status 500
