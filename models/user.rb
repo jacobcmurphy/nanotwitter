@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
 	has_many :followees, :class_name => 'User', :through => :followerships,  :foreign_key => 'user_id'
 	has_many :tweets
 
-
-  validates_uniqueness_of :username
+	validates_uniqueness_of :username
 
 end

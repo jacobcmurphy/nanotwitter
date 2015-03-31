@@ -37,7 +37,6 @@
 
 				<% if @tweets.count > 0 %>
 					<% @tweets.each do |tweet| %>
-						<% puts "***", tweet, "***" %>
 						<a href="/user/<%= tweet[0] %>">
 							<%= tweet[2] %>
 						</a>
