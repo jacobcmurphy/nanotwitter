@@ -9,8 +9,9 @@ tweet_file = File.expand_path("../seed_data/tweets.csv", __FILE__)
 follow_file = File.expand_path("../seed_data/follows.csv", __FILE__)
 
 puts "starting users"
+User.delete_all
 user_list = []
-CSV.foreach(user_file, :row_sep => :auto) do |user|
+CSV.foreach(user_file) do |user|
 	user_list << User.new( name: user[1], username: "#{Faker::Internet.user_name+user[0]}", password: "pass", email: Faker::Internet.safe_email)
 end
 User.transaction do
@@ -21,19 +22,19 @@ User.transaction do
 end
 
 puts "starting tweets"
-tweet_list = []
-CSV.foreach(tweet_file, :row_sep => :auto) do |tweet|
-	tweet_list << Tweet.new(user_id: tweet[0], text: tweet[1], created_at: DateTime.parse(tweet[2]) )
-end
+Tweet.delete_all
 Tweet.transaction do
-	tweet_list.each do |tweet|
-		tweet.save
+	CSV.foreach(tweet_file) do |tweet|
+		uid = ActiveRecord::Base.sanitize(tweet[1])
+		date = ActiveRecord::Base.sanitize(DateTime.parse(tweet[2]).to_s(:db))
+		Tweet.connection.execute "INSERT INTO tweets (user_id, text, created_at) values (#{tweet[0].to_i}, #{uid}, #{date})"
 	end
 end
 
 puts "starting followerships"
+Followership.delete_all
 followership_list = []
-CSV.foreach(follow_file, :row_sep => :auto) do |relation|
+CSV.foreach(follow_file) do |relation|
 	followership_list << Followership.new(user_id: relation[0], followee_id: relation[1])
 end
 Followership.transaction do
