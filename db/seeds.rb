@@ -10,7 +10,7 @@ follow_file = File.expand_path("../seed_data/follows.csv", __FILE__)
 
 puts "starting users"
 user_list = []
-CSV.foreach(user_file) do |user|
+CSV.foreach(user_file, :row_sep => :auto) do |user|
 	user_list << User.new( name: user[1], username: "#{Faker::Internet.user_name+user[0]}", password: "pass", email: Faker::Internet.safe_email)
 end
 User.transaction do
@@ -22,7 +22,7 @@ end
 
 puts "starting tweets"
 tweet_list = []
-CSV.foreach(tweet_file) do |tweet|
+CSV.foreach(tweet_file, :row_sep => :auto) do |tweet|
 	tweet_list << Tweet.new(user_id: tweet[0], text: tweet[1], created_at: DateTime.parse(tweet[2]) )
 end
 Tweet.transaction do
@@ -33,7 +33,7 @@ end
 
 puts "starting followerships"
 followership_list = []
-CSV.foreach(follow_file) do |relation|
+CSV.foreach(follow_file, :row_sep => :auto) do |relation|
 	followership_list << Followership.new(user_id: relation[0], followee_id: relation[1])
 end
 Followership.transaction do
