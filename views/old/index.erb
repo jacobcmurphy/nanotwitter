@@ -11,11 +11,7 @@
 				<% if @current_user %>
 					Good to see you, <%= @current_user.name %>
 				<% else %>
-					Please sign in on the right.
-					<br>
-					Or 
-					<br>
-					<a href="/register">Register for an account.</a>
+					Please sign in or <a href="/register">register for an account.</a>
 				<% end %>
 				</p>
 			</div>
