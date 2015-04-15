@@ -7,6 +7,11 @@ class LoginRoutes < Sinatra::Base
 	set :views, File.expand_path('./../../views', __FILE__)
 	set :public_folder, File.expand_path('./../../public', __FILE__)
 
+	# loader.io validation endpoint
+	get 'loaderio-3a56c6f3181bf46c14582978f30c3c83' do
+		status 200
+	end
+
 	get '/' do
 		connection = ActiveRecord::Base.connection
 
