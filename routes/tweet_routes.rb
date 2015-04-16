@@ -4,11 +4,13 @@ require_relative './../helpers/auth'
 require_relative "../models/tweet"
 
 class TweetRoutes < Sinatra::Base
-	enable :sessions
+
+
 	register Sinatra::SessionAuth
 	register Sinatra::ActiveRecordExtension
 
 	post '/' do
+		puts 'hello'
 		authorize!
 		begin
 			Tweet.create(text: params[:text], user_id: @current_user.id)

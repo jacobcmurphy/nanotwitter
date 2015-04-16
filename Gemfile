@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.1.0', :engine => "rbx", :engine_version => "2.4.1"
 gem 'rake'
 gem 'puma'
 gem 'sinatra'
@@ -7,7 +6,7 @@ gem 'activerecord'
 gem "sinatra-activerecord"
 gem 'faker'
 gem 'newrelic_rpm'
-#gem 'sinatra-cross_origin'
+gem 'sinatra-session'
 
 group :production do
 	gem 'pg'

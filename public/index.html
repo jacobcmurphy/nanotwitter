@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>NanoTwitter by Eden and Jacob</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="css/style.css" rel="stylesheet">
+
+
+</head>
+<body>
+<div class="row">
+	<div class="col-md-4"><form>
+			<div id="postTweet"></div>
+			<div id="signIn">
+				<h1>Login to NanoTwitter</h1>
+				<form "signInForm">
+					<input id="email" type="email" placeholder="Email" />
+					<input id="password" type="password" placeholder="Password" />
+					<input type="button" id="signInButton" value="Log in" />
+	<input type="button" id="registerButton" class="register" value="Register" />
+				</form>
+				</div>
+				<div id="register">
+					<h1>Sign up for NanoTwitter</h1>
+				<form "registerForm">
+					<input id="handle" type="text" placeholder="Handle" />
+
+					<input id="regEmail" type="email" placeholder="Email" />
+					<input type="password" id="regPass1" placeholder="Password" />
+					<input type="password" id="regPass2" placeholder="Password Again" />
+
+					<input type="button" id="registerConfirmButton" class="register" value="Register" />
+					</form>
+
+			</div>
+			    
+			<div class="widget">
+				<ol class="widget-list" id="popular">
+					<input id="search_user" type="search" placeholder="Search here..." />
+				</ol>
+
+				<ol class="widget-list" id="following">
+				</ol>
+
+				<ol class="widget-list" id="followers">
+				
+				</ol>
+
+				<ul class="widget-tabs">
+					<li class="widget-tab">
+					<a href="#popular" class="widget-tab-link">Popular</a>
+					<!-- Omitting the end tag is valid HTML and removes the space in-between inline blocks. -->
+					<li class="widget-tab">
+					<a href="#following" class="widget-tab-link">Following</a>
+					<li class="widget-tab">
+					<a href="#followers" class="widget-tab-link">Followers</a>
+				</ul>
+			</div>
+
+
+
+
+
+
+
+		</div>
+		<div class="col-md-8">
+			<input id="searchbar" type="search" placeholder="Search here..." />
+			<div id="tweets" class="tweets panel">
+
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+<script src="js/rangy-core.js" type="text/javascript"></script> 
+<script src="js/rangy-textrange.js" type="text/javascript"></script> 
+<script src="js/jquery.tweetbox.js" type="text/javascript"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/init.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
+
+</body>
+</html>
