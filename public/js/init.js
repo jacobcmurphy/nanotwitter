@@ -1,4 +1,5 @@
-var id= null;
+var username = null;
+var password = null;
 String.prototype.format = function() {
     var formatted = this;
     for (var i = 0; i < arguments.length; i++) {
@@ -64,19 +65,23 @@ $('#postTweet').hide();
 $('#register').hide();
 
 $('#signInButton').click(function() {
+	$('.alert').hide();
+	email = $('#email').val();
+	password = $('#password').val();
 	$.post( "/login", {
-		email:$('#email').val(),
-		password:$('#password').val()
+		email:email,
+		password:password
 	},
 	function( data ) {
 		if (data.status != "OK") {
 			$('#signIn').effect("shake");
+			$('<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert">&times;</a>Bad username or password</div>').appendTo('#signIn');
+			email = null;
+			password = null;
 			return;
 		}
-		id = data.id;
 		$('#signIn').fadeOut(300, function(){
 			$('#postTweet').fadeIn(300);
-		
 			loadFollowers();
 		});
 	});

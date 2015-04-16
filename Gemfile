@@ -6,7 +6,7 @@ gem 'activerecord'
 gem "sinatra-activerecord"
 gem 'faker'
 gem 'newrelic_rpm'
-gem 'sinatra-cross_origin'
+gem 'sinatra-session'
 
 group :production do
 	gem 'pg'

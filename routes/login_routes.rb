@@ -1,43 +1,52 @@
-require 'sinatra/base'
+require 'sinatra'
 require 'json'
-require_relative './../helpers/auth'
-require 'sinatra/cross_origin'
-
 
 class LoginRoutes < Sinatra::Base
 
-	enable :sessions
 	set :public_folder, 'public'
-	register Sinatra::SessionAuth
 
 	get '/' do
 		connection = ActiveRecord::Base.connection
 		redirect '/index.html'	
 	end
 
+
+
 	post '/login' do
-		content_type :json
-		begin 
-			return {:id => User.find_by(:email => params["email"], :password => params["password"]).id, :status => "OK"}.to_json
-		rescue
-			return {:status => "FAIL"}.to_json
+		user = User.find_by(:email => params[:email])
+		if !user
+		#	status 403
+			return {:STATUS => "NOT FOUND"}.to_json
 		end
+		if user.password == params[:password]
+			status 200
+			return {:STATUS => "OK"}.to_json
+		end
+		status 403
+		return {:STATUS => "BAD PASSWORD"}.to_json
 	end
 
 	# sign up 
 	post '/register' do
-		content_type :json
-		begin
-			return {:id => User.create(:username => params['handle'], :email => params['email'], :password => params['password']).id}.to_json
-		rescue 
-			return {:status => "FAIL"}.to_json
+		if User.exists?(email: params[:email], username: params[:username])
+			return {:STATUS => "USER EXISTS"}.to_json
 		end
+		if User.create(email: params[:email], password: params[:password], username: params[:username])
+			status 200
+			return {:STATUS => "USER CREATED"}.to_json
+		end
+		status 403
+		return {:STATUS => "FAILED"}.to_json
 	end
 
 	post '/tweet' do
 		content_type :json
-		Tweet.create(text: params[:text], user_id: params[:id]).to_json
-		status 200
+		if User.exists?(email: params[:email], password: params[:password])
+			Tweet.create(text: params[:text], user_id: params[:id]).to_json
+			status 200
+		end
+		status 403
+		
 	end
 
 
