@@ -108,7 +108,7 @@ class ApiUserRoutes < Sinatra::Base
 	end
 
 	# list of all users
-	get '' do
+	get '/' do
 		@users = User.all
 
 		if @users

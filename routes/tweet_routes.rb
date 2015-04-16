@@ -10,7 +10,6 @@ class TweetRoutes < Sinatra::Base
 	register Sinatra::ActiveRecordExtension
 
 	post '/' do
-		puts 'hello'
 		authorize!
 		begin
 			Tweet.create(text: params[:text], user_id: @current_user.id)
