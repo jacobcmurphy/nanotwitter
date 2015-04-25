@@ -3,7 +3,6 @@ require 'sinatra/activerecord'
 require_relative "../models/tweet"
 
 class ApiTweetRoutes < Sinatra::Base
-	@number of tweets = 100
 	register Sinatra::ActiveRecordExtension
 
 	get '/tweets/:id' do
@@ -20,6 +19,6 @@ class ApiTweetRoutes < Sinatra::Base
 
 	get '/tweets/recent' do
 		date = (params[:date]) ? DateTime.parse(params[:date]) : Time.now.to_datetime
-		Tweet.where(['created_at < ?', date]).order(created_at: :desc).limit(50).to_json
+		Tweet.where(['created_at < ?', date]).order(created_at: :desc).limit(100).to_json
 	end
 end

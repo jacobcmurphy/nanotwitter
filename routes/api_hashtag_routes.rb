@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 require_relative "../models/hashtag"
 
-class HashtagRoutes < Sinatra::Base
+class ApiHashtagRoutes < Sinatra::Base
   	register Sinatra::ActiveRecordExtension
 
 	# get all ids with tag

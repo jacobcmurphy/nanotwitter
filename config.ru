@@ -1,18 +1,16 @@
 require 'newrelic_rpm'
-require_relative './routes/login_routes'
-require_relative './routes/hashtag_routes'
-require_relative './routes/user_routes'
-require_relative './routes/followership_routes'
-require_relative './routes/tweet_routes'
+require_relative './routes/base_routes'
+require_relative './routes/account_routes'
+require_relative './routes/api_hashtag_routes'
+require_relative './routes/api_followership_routes'
 require_relative './routes/api_tweet_routes'
 require_relative './routes/api_user_routes'
 
 run Rack::URLMap.new({
-	'/' => LoginRoutes,
-	'/hashtags' => HashtagRoutes,
-	'/users' => UserRoutes,
-	'/follows' => FollowershipRoutes,
-	'/tweets' => TweetRoutes,
-	'/api/v1/tweets' => ApiTweetRoutes,
-	'/api/v1/users' => ApiUserRoutes
+	'/' => BaseRoutes,
+	'/account' => AccountRoutes,
+	'/api/v1/follow' => ApiFollowershipRoutes,
+	'/api/v1/tweet' => ApiTweetRoutes,
+	'/api/v1/user' => ApiUserRoutes,
+	'/api/v1/hashtag' => ApiHashtagRoutes
 })

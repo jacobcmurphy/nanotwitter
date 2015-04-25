@@ -17,6 +17,10 @@
 <div class="row">
 	<div class="col-md-4"><form>
 			<div id="postTweet"></div>
+			<div id="signOut">
+				<input type="button" id="signOutButton" class="register" value="Sign Out" />
+			</div>
+
 			<div id="signIn">
 				<h1>Login to NanoTwitter</h1>
 				<form "signInForm">
@@ -41,21 +45,21 @@
 			</div>
 
 			<div class="widget">
-				<ol class="widget-list" id="popular">
-					<input id="search_user" type="search" placeholder="Search here..." />
+				<ol class="widget-list" id="all">
 				</ol>
 
 				<ol class="widget-list" id="following">
+				Log in above to see who is following you...
 				</ol>
 
 				<ol class="widget-list" id="followers">
+				Log in above to see your followers...
 
 				</ol>
 
 				<ul class="widget-tabs">
 					<li class="widget-tab">
-					<a href="#popular" class="widget-tab-link">Popular</a>
-					<!-- Omitting the end tag is valid HTML and removes the space in-between inline blocks. -->
+					<a href="#all" class="widget-tab-link">All</a>
 					<li class="widget-tab">
 					<a href="#following" class="widget-tab-link">Following</a>
 					<li class="widget-tab">

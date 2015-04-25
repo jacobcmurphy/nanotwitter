@@ -1,25 +1,31 @@
 require 'sinatra/base'
-require 'sinatra/activerecord'
-require_relative "../models/tweet"
+require 'json'
 
 class ApiTweetRoutes < Sinatra::Base
-	@number_of_tweets = 100
-	register Sinatra::ActiveRecordExtension
+	DB = Sequel.connect(:adapter => 'postgres', :host => 'localhost', :database => 'postgres', :user => 'edenzik')
 
 	get '/:id' do
-		pass if params[:id] == 'recent'
-		tweet = Tweet.find(params[:id])
-		if tweet
-			status 200
-			tweet.to_json
-		else
-			status 404
-			{"Message" =>  "No tweet found with that id."}.to_json
-		end
+		return DB[:tweets_users].filter(:id => params[:id]).limit(10).to_json
 	end
 
-	get '/recent' do
-		date = (params[:date]) ? DateTime.parse(params[:date]) : Time.now.to_datetime
-		Tweet.where(['created_at < ?', date]).order(created_at: :desc).limit(50).to_json
+	get '/search/:term' do
+		puts params[:term]
+		return DB["SELECT * FROM tweets_users WHERE text LIKE '%'||?||'%'",params[:term]].to_json
 	end
+
+
+	get '/' do
+		DB[:tweets_users].order(:created).reverse().limit(50).to_json
+	end
+
+	post '/' do
+		begin
+			DB['INSERT INTO tweets(text, user_id) VALUES(?, (SELECT id FROM users where email=? AND password=?))',params[:text],params[:email],params[:password]].insert
+			return {:status => "OK"}.to_json
+		rescue
+			return {:status => "FAILED"}.to_json
+		end
+		
+	end
+
 end

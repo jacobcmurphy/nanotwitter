@@ -1,11 +1,14 @@
 $( document ).ready(function() {
 	$('#postTweet').hide();
 	$('#register').hide();
+	$('#signOut').hide();
 });
 
-var username = null;
-var password = null;
 var id = null;
+var email = null;
+var password = null;
+
+var cachedFollowing = null;
 
 String.prototype.format = function() {
 	var formatted = this;
@@ -30,18 +33,43 @@ String.prototype.format = function() {
 	};
 }(jQuery));
 
+jQuery.each( [ "put", "delete" ], function( i, method ) {
+	jQuery[ method ] = function( url, data, callback, type ) {
+		if ( jQuery.isFunction( data ) ) {
+			type = type || callback;
+			callback = data;
+			data = undefined;
+		}
+
+		return jQuery.ajax({
+			url: url,
+		       type: method,
+		       dataType: type,
+		       data: data,
+		       success: callback
+		});
+	};
+});
+
 
 
 function toUser(eleID, name,followers){
-	return "<li><a class=\"widget-list-link\"><input id=\"{0}\" type=\"follow\" value=\"Follow\"><img src=\"http://www.gravatar.com/avatar/6?f=y&amp;s=64&amp;d=identicon\">{1}<span>{2} followers</a></span></span></li>".format(eleID, name,followers);
+	return '<li><a class="widget-list-link" id={0}dialog><img src="http://www.gravatar.com/avatar/6?f=y&amp;s=64&amp;d=identicon"><h7 id="{1}dialog">{1}</h7><span>{2} followers</a></span></span></li>'.format(eleID, name,followers);
 };
 
-function toTweet(name,text){
-	return '<section class="notif notif-notice"><h6 class="notif-title">{0}</h6><p>{1}</p></section>'.format(name,text);
+function toTweet(name,text,date){
+	return '<section class="notif notif-notice"><h6 class="notif-title">{0}</h6><p>{1}<div class="tweet_date">{2}</div></section>'.format(name,text,date);
 };
 
 function warningBox(warning){
 	return '<div id="warning" class="alert alert-warning"><a href="#" class="close" data-dismiss="alert">&times;</a>{0}</div>'.format(warning);
+}
+
+function toUserBox(eleID, name, content){
+	if (content==""){
+		content = "<h1>No tweets to show</h1>";
+	}
+	return '<div id="{0}" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title">{1}\'s Tweets</h4><input id="{0}follow" type="follow" value="Follow"></div>{2}</div>'.format(eleID, name, content);
 }
 
 
@@ -56,13 +84,14 @@ $('#registerConfirmButton').click(function() {
 	}
 	email = $('#regEmail').val();
 	password = $('#regPass1').val();
-	$.post( "/register", {
-		handle:$('#handle').val(),
+	$.post( "/account/register", {
+		username:$('#username').val(),
 		email:email,
 		password:password
 	},
 	function( data ) {
-		if (data.status == "OK") {
+		data = JSON.parse(data);
+		if (data.status == "USER CREATED") {
 			$('#register').fadeOut(300, function(){
 				id = data.id;
 				$('#postTweet').fadeIn(300);
@@ -86,27 +115,36 @@ $('#signInButton').click(function() {
 	$('#warning').remove();
 	email = $('#email').val();
 	password = $('#password').val();
-	$.post( "/login", {
+	if (email=="" || password==""){
+		$('#signIn').effect("shake");
+		return;
+	}
+	$.post( "/account/login", {
 		email:email,
 		password:password
 	},
 	function( data ) {
-		if (data.status == "OK" || true) {
+		data = JSON.parse(data);
+		if (data.status == "OK") {
 			$('#signIn').fadeOut(300, function(){
 				id = data.id;
 				$('#postTweet').fadeIn(300);
 				loadFollowers();
+				loadFollowing();
+				$('#email').val("");
+				$('#password').val("");
+				$('#signOut').fadeIn(300);
 			});
 			return;
 		};
 		$('#signIn').effect("shake");
 		email = null;
 		password = null;
-		if (data.status == "BAD PASSWORD" || true){			
+		if (data.status == "BAD PASSWORD"){			
 			$(warningBox("Bad Password")).appendTo('#signIn');
 			return;
 		}
-		if (data.status == "NO USER") {
+		if (data.status == "NOT FOUND") {
 			$(warningBox("User does not exist")).appendTo('#signIn');
 			return;
 		}
@@ -126,6 +164,21 @@ function validPassword(pass1, pass2){
 	return pass1==pass2;
 }
 
+$('#signOutButton').click(function() {
+	id = null;
+	email = null;
+	password = null;
+	$('#signOutButton').fadeOut(150);
+	$('#postTweet').fadeOut(150, function() {
+		$('#signIn').fadeIn(150, function(){
+			$('#followers').empty();
+			$('#following').empty();
+			
+		});
+	});
+
+});
+
 
 
 $('#registerButton').click(function() {
@@ -137,76 +190,131 @@ $('#registerButton').click(function() {
 
 $('#tweet-box-button').click(function(){
 	var tweet = $('#editor').html();
-	$.post( "/tweets", {
+	$.post( "/api/v1/tweet", {
 		text: tweet,
 		email: email,
 		password: password
 	});
 	loadTweets();
 	$(this).fadeOut(500, function() {
-		$('#editor').fadeOut(500, function() {
-			$('#editor').html("");
-		});
+		$('#editor').html("");
 	});
 	$(this).fadeIn(1000)
 });
 
 loadTweets();
 
-loadUsers();
 
 function loadTweets(){
-	$.get("/recent", function(data){
+	$.get("/api/v1/tweet", function(data){
 		populateTweets(JSON.parse(data));
 	});
 }
 
-function loadUsers(){
-	$.get("/users/"+id+"/"+followers, function(data){
-		populatePopularUsers(JSON.parse(data));
+loadAll();
+
+function loadAll(){
+	$.get("api/v1/user/", function(data){
+		populateAll(JSON.parse(data));
 	});
 }
 
 function loadFollowers(){
-	var searchString = "/get_followers/" + encodeURI(id);
-
-	$.get(searchString, function(data){
+	$('#followers').empty();
+	$.get("api/v1/follow/to/"+id, function(data){
 		populateFollowers(JSON.parse(data));
 	});
 }
 
+function loadFollowing(){
+	$('#following').empty();
+	cachedFollowing = [];
+	$.get("api/v1/follow/from/"+id, function(data){
+		var data = JSON.parse(data);
+		data.map(function(user){
+			cachedFollowing.push(user.followee_id);	
+		});
+		populateFollowing(data);
+	});
+}
+
+function loadTweetsOfUser(user_id, username, follower){
+	$('#'+user_id+'dialog').remove();
+	var tweetsOfUser = "";
+	$.get("api/v1/tweet/"+user_id, function(data){
+		var tweets = JSON.parse(data);
+		for (tweet in tweets){
+			tweetsOfUser += toTweet(tweets[tweet].username,tweets[tweet].text,tweets[tweet].created);
+		}
+		
+		$(document.body).append(toUserBox(user_id+'dialog', username, tweetsOfUser));
+		$("#" + user_id + 'dialog').modal('show');
+		if (id==null){
+			$('#' + user_id + 'dialogfollow').hide();
+		}
+		else {
+			$('#' + user_id + 'dialogfollow').show();
+		}
+		var to_follow = function(){
+				$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
+				loadFollowing();
+				loadFollowers();
+				$('#' + user_id + 'dialogfollow').val("Unfollow");
+		};
+		var to_unfollow = function(){
+				$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
+				loadFollowing();
+				loadFollowers();
+				$('#' + user_id + 'dialogfollow').val("Follow");
+		}
+		if ($.inArray(user_id, cachedFollowing) == 0){
+			$('#' + user_id + 'dialogfollow').val("Unfollow");
+			$('#' + user_id + 'dialogfollow').clickToggle(to_unfollow,to_follow);
+		}
+		else {
+			$('#' + user_id + 'dialogfollow').val("Follow");
+			$('#' + user_id + 'dialogfollow').clickToggle(to_follow,to_unfollow);
+		}
+	});
+
+}
+
+
+
+
+
+
+
 
 $("#searchbar").on('propertychange change keyup input paste', function(){
-	var searchString = "/search/" + encodeURI(JSON.stringify($("#searchbar").val()));
+	var searchString = $("#searchbar").val();
+	if (searchString == ""){
+		loadTweets();
+		return;
+	}
+	searchString = "/api/v1/tweet/search/" + searchString;
 	$.get( searchString, function( response ){
+		//console.log(response);
 		populateTweets(JSON.parse(response));
 	});
 
 });
 
-
-
 function populateTweets(tweets){
 	$('#tweets').empty();
 	for (tweet in tweets){
-		$('#tweets').append(toTweet(tweets[tweet].username,tweets[tweet].text));
+		$('#tweets').append(toTweet(tweets[tweet].username,tweets[tweet].text,tweets[tweet].created));
 	}
-
 };
 
 function populateFollowers(users){
-	$('#followers').empty();
 	for (user in users){
-		$('#followers').append(toUser("followers" + user, users[user].username, users[user].count));
-		$('#followers'+user).clickToggle(
-			function(){
-				$.post("/users/" + users[user].id + "/followers", {id:id, email:email,password:password});
-				$(this).val("Unfollow");
-			},
-			function(){
-				$.delete("/users/" + users[user].id + "/followers", {id:id, email:email,password:password});
-				$(this).val("Follow");
+		$('#followers').append(toUser("followers" + user, users[user].follower, users[user].count));
+		( function (user) {
+			$('#followers'+ user + 'dialog').click(function(){
+				loadTweetsOfUser(users[user].follower_id, users[user].follower);
 			});
+		})(user);
 	}
 
 };
@@ -214,20 +322,31 @@ function populateFollowers(users){
 function populateFollowing(users){
 	$('#following').empty();
 	for (user in users){
-		$('#following').append(toUser("following" + user, users[user].username, users[user].count));
-		$('#following'+user).val("Unfollow");
-		$('#following'+user).clickToggle(
-			function(){
-				$.delete("/users/" + users[user].id + "/following", {id:id, email:email,password:password});
-				$(this).val("Follow");
-			},
-			function(){
-				$.post("/users/" + users[user].id + "/following", {id:id, email:email,password:password});
-				$(this).val("Unfollow");
+		$('#following').append(toUser("following" + user, users[user].followee, users[user].count));
+		( function (user) {
+			$('#following'+ user + 'dialog').click(function(){
+				loadTweetsOfUser(users[user].followee_id, users[user].followee);
 			});
+		})(user);
+
 	}
 
 };
+
+
+function populateAll(users){
+	$('#all').empty();
+	for (user in users){
+		$('#all').append(toUser("all" + user, users[user].username, users[user].count));
+		( function (user) {
+			$('#all'+ user + 'dialog').click(function(){
+				loadTweetsOfUser(users[user].id, users[user].username);
+			});
+		})(user);
+	}
+
+};
+
 
 
 
