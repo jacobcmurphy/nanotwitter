@@ -18,7 +18,7 @@ h1{
 	font-family:'Open Sans',sans-serif;
 	font-size:small;
 	font-style: italic;
-	margin-top:-30px;
+	margin-top:1px;
 	margin-botton: 10px;
   	color:#555;
 }
@@ -149,7 +149,9 @@ input[type="button"].register:hover{
 }
 
 #signOutButton {
-	margin-top: 2%;
+	margin-top: 3%;
+	text-align: center;
+	display: inline;
 	background:#81c0e9;
 
 }

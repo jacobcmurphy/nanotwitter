@@ -1,21 +1,43 @@
 require 'sinatra/base'
 require 'json'
+require 'redis'
+
 
 class ApiTweetRoutes < Sinatra::Base
 	DB = Sequel.connect(:adapter => 'postgres', :host => 'localhost', :database => 'postgres', :user => 'edenzik')
+	r = Redis.new
+
 
 	get '/:id' do
-		return DB[:tweets_users].filter(:id => params[:id]).limit(10).to_json
+		if r.get(params[:id]).nil?
+			result =  DB[:tweets_users].filter(:id => params[:id]).limit(10).to_json
+			r.set(params[:id],result)
+			r.expire(params[:id],10)
+			return result
+		end
+		return r.get(params[:id])
 	end
 
 	get '/search/:term' do
-		puts params[:term]
-		return DB["SELECT * FROM tweets_users WHERE text LIKE '%'||?||'%'",params[:term]].to_json
+		if r.get(params[:term]).nil?
+			result = DB["SELECT * FROM tweets_users WHERE text LIKE '%'||?||'%'",params[:term]].limit(50).to_json
+			r.set(params[:term],result)
+			r.expire(params[:term],10)
+			return result
+		end
+		return r.get(params[:term])
 	end
 
 
 	get '/' do
-		DB[:tweets_users].order(:created).reverse().limit(50).to_json
+		query = :tweets_users
+		if r.get(query).nil?
+			result = DB[:tweets_users].order(:created).reverse().limit(100).to_json
+			r.set(query, result)
+			r.expire(query,10)
+			return result
+		end
+		return r.get(query)
 	end
 
 	post '/' do
@@ -29,3 +51,5 @@ class ApiTweetRoutes < Sinatra::Base
 	end
 
 end
+
+

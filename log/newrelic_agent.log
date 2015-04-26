@@ -5710,3 +5710,538 @@
 [04/25/15 16:54:46 -0400 Edens-MacBook-Pro.local (3886)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
 [04/25/15 16:56:32 -0400 Edens-MacBook-Pro.local (3886)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
 [04/25/15 16:57:15 -0400 Edens-MacBook-Pro.local (3886)] INFO : Starting Agent shutdown
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : Environment: development
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : No known dispatcher detected.
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : Installing Net instrumentation
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : Finished instrumentation
+[04/25/15 18:02:45 -0400 Edens-MacBook-Pro.local (11353)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:02:46 -0400 Edens-MacBook-Pro.local (11353)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:02:46 -0400 Edens-MacBook-Pro.local (11353)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:02:46 -0400 Edens-MacBook-Pro.local (11353)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:02:46 -0400 Edens-MacBook-Pro.local (11353)] INFO : Installing Sequel instrumentation
+[04/25/15 18:02:48 -0400 Edens-MacBook-Pro.local (11353)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:03:37 -0400 Edens-MacBook-Pro.local (11353)] INFO : Starting Agent shutdown
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : Environment: development
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : No known dispatcher detected.
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : Installing Net instrumentation
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : Finished instrumentation
+[04/25/15 18:04:24 -0400 Edens-MacBook-Pro.local (11453)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:04:25 -0400 Edens-MacBook-Pro.local (11453)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:04:25 -0400 Edens-MacBook-Pro.local (11453)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:04:25 -0400 Edens-MacBook-Pro.local (11453)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:04:25 -0400 Edens-MacBook-Pro.local (11453)] INFO : Installing Sequel instrumentation
+[04/25/15 18:04:27 -0400 Edens-MacBook-Pro.local (11453)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:04:35 -0400 Edens-MacBook-Pro.local (11453)] INFO : Starting Agent shutdown
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Environment: development
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : No known dispatcher detected.
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Installing Net instrumentation
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Finished instrumentation
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Installing Sequel instrumentation
+[04/25/15 18:05:18 -0400 Edens-MacBook-Pro.local (11579)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:05:20 -0400 Edens-MacBook-Pro.local (11579)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:07:41 -0400 Edens-MacBook-Pro.local (11579)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:09:58 -0400 Edens-MacBook-Pro.local (11579)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:10:21 -0400 Edens-MacBook-Pro.local (11579)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:12:11 -0400 Edens-MacBook-Pro.local (11579)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:12:19 -0400 Edens-MacBook-Pro.local (11579)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:24:20 -0400 Edens-MacBook-Pro.local (11579)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:24:33 -0400 Edens-MacBook-Pro.local (11579)] INFO : Starting Agent shutdown
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : Environment: development
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : No known dispatcher detected.
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : Installing Net instrumentation
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:24:34 -0400 Edens-MacBook-Pro.local (11914)] INFO : Finished instrumentation
+[04/25/15 18:24:35 -0400 Edens-MacBook-Pro.local (11914)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:24:35 -0400 Edens-MacBook-Pro.local (11914)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:24:35 -0400 Edens-MacBook-Pro.local (11914)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:24:35 -0400 Edens-MacBook-Pro.local (11914)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:24:35 -0400 Edens-MacBook-Pro.local (11914)] INFO : Installing Sequel instrumentation
+[04/25/15 18:24:37 -0400 Edens-MacBook-Pro.local (11914)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:27:27 -0400 Edens-MacBook-Pro.local (11914)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:28:04 -0400 Edens-MacBook-Pro.local (11914)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:31:20 -0400 Edens-MacBook-Pro.local (11914)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:31:27 -0400 Edens-MacBook-Pro.local (11914)] INFO : Starting Agent shutdown
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : Environment: development
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : No known dispatcher detected.
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : Installing Net instrumentation
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : Finished instrumentation
+[04/25/15 18:31:28 -0400 Edens-MacBook-Pro.local (12229)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:31:29 -0400 Edens-MacBook-Pro.local (12229)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:31:29 -0400 Edens-MacBook-Pro.local (12229)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:31:29 -0400 Edens-MacBook-Pro.local (12229)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:31:29 -0400 Edens-MacBook-Pro.local (12229)] INFO : Installing Sequel instrumentation
+[04/25/15 18:31:30 -0400 Edens-MacBook-Pro.local (12229)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:33:57 -0400 Edens-MacBook-Pro.local (12229)] INFO : Starting Agent shutdown
+[04/25/15 18:33:58 -0400 Edens-MacBook-Pro.local (12267)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:33:58 -0400 Edens-MacBook-Pro.local (12267)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:33:58 -0400 Edens-MacBook-Pro.local (12267)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:33:58 -0400 Edens-MacBook-Pro.local (12267)] INFO : Environment: development
+[04/25/15 18:33:58 -0400 Edens-MacBook-Pro.local (12267)] INFO : No known dispatcher detected.
+[04/25/15 18:33:58 -0400 Edens-MacBook-Pro.local (12267)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:33:59 -0400 Edens-MacBook-Pro.local (12267)] INFO : Installing Net instrumentation
+[04/25/15 18:33:59 -0400 Edens-MacBook-Pro.local (12267)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:33:59 -0400 Edens-MacBook-Pro.local (12267)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:33:59 -0400 Edens-MacBook-Pro.local (12267)] INFO : Finished instrumentation
+[04/25/15 18:33:59 -0400 Edens-MacBook-Pro.local (12267)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:33:59 -0400 Edens-MacBook-Pro.local (12267)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:33:59 -0400 Edens-MacBook-Pro.local (12267)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:33:59 -0400 Edens-MacBook-Pro.local (12267)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:33:59 -0400 Edens-MacBook-Pro.local (12267)] INFO : Installing Sequel instrumentation
+[04/25/15 18:34:01 -0400 Edens-MacBook-Pro.local (12267)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:40:01 -0400 Edens-MacBook-Pro.local (12267)] INFO : Starting Agent shutdown
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : Environment: development
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : No known dispatcher detected.
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : Installing Net instrumentation
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : Finished instrumentation
+[04/25/15 18:40:03 -0400 Edens-MacBook-Pro.local (12640)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:40:04 -0400 Edens-MacBook-Pro.local (12640)] INFO : Starting Agent shutdown
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : Environment: development
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : No known dispatcher detected.
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : Installing Net instrumentation
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : Finished instrumentation
+[04/25/15 18:40:13 -0400 Edens-MacBook-Pro.local (12665)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:40:14 -0400 Edens-MacBook-Pro.local (12665)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:40:14 -0400 Edens-MacBook-Pro.local (12665)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:40:14 -0400 Edens-MacBook-Pro.local (12665)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:40:14 -0400 Edens-MacBook-Pro.local (12665)] INFO : Installing Sequel instrumentation
+[04/25/15 18:40:17 -0400 Edens-MacBook-Pro.local (12665)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:40:50 -0400 Edens-MacBook-Pro.local (12665)] INFO : Starting Agent shutdown
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : Environment: development
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : No known dispatcher detected.
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : Installing Net instrumentation
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:40:51 -0400 Edens-MacBook-Pro.local (12689)] INFO : Finished instrumentation
+[04/25/15 18:40:52 -0400 Edens-MacBook-Pro.local (12689)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:40:52 -0400 Edens-MacBook-Pro.local (12689)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:40:52 -0400 Edens-MacBook-Pro.local (12689)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:40:52 -0400 Edens-MacBook-Pro.local (12689)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:40:52 -0400 Edens-MacBook-Pro.local (12689)] INFO : Installing Sequel instrumentation
+[04/25/15 18:40:53 -0400 Edens-MacBook-Pro.local (12689)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:43:36 -0400 Edens-MacBook-Pro.local (12689)] INFO : Starting Agent shutdown
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : Environment: development
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : No known dispatcher detected.
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : Installing Net instrumentation
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:43:37 -0400 Edens-MacBook-Pro.local (12730)] INFO : Finished instrumentation
+[04/25/15 18:43:38 -0400 Edens-MacBook-Pro.local (12730)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:43:38 -0400 Edens-MacBook-Pro.local (12730)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:43:38 -0400 Edens-MacBook-Pro.local (12730)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:43:38 -0400 Edens-MacBook-Pro.local (12730)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:43:38 -0400 Edens-MacBook-Pro.local (12730)] INFO : Installing Sequel instrumentation
+[04/25/15 18:43:41 -0400 Edens-MacBook-Pro.local (12730)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:45:14 -0400 Edens-MacBook-Pro.local (12730)] INFO : Starting Agent shutdown
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : Environment: development
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : No known dispatcher detected.
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : Installing Net instrumentation
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : Finished instrumentation
+[04/25/15 18:45:15 -0400 Edens-MacBook-Pro.local (12760)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:45:16 -0400 Edens-MacBook-Pro.local (12760)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:45:16 -0400 Edens-MacBook-Pro.local (12760)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:45:16 -0400 Edens-MacBook-Pro.local (12760)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:45:16 -0400 Edens-MacBook-Pro.local (12760)] INFO : Installing Sequel instrumentation
+[04/25/15 18:45:17 -0400 Edens-MacBook-Pro.local (12760)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:49:35 -0400 Edens-MacBook-Pro.local (12760)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:49:40 -0400 Edens-MacBook-Pro.local (12760)] INFO : Starting Agent shutdown
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : Environment: development
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : No known dispatcher detected.
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : Installing Net instrumentation
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : Finished instrumentation
+[04/25/15 18:49:42 -0400 Edens-MacBook-Pro.local (12890)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:49:43 -0400 Edens-MacBook-Pro.local (12890)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:49:43 -0400 Edens-MacBook-Pro.local (12890)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:49:43 -0400 Edens-MacBook-Pro.local (12890)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:49:43 -0400 Edens-MacBook-Pro.local (12890)] INFO : Installing Sequel instrumentation
+[04/25/15 18:49:44 -0400 Edens-MacBook-Pro.local (12890)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:50:04 -0400 Edens-MacBook-Pro.local (12890)] INFO : Starting Agent shutdown
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : Environment: development
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : No known dispatcher detected.
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : Installing Net instrumentation
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : Finished instrumentation
+[04/25/15 18:50:05 -0400 Edens-MacBook-Pro.local (12910)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:50:06 -0400 Edens-MacBook-Pro.local (12910)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:50:06 -0400 Edens-MacBook-Pro.local (12910)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:50:06 -0400 Edens-MacBook-Pro.local (12910)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:50:06 -0400 Edens-MacBook-Pro.local (12910)] INFO : Installing Sequel instrumentation
+[04/25/15 18:50:07 -0400 Edens-MacBook-Pro.local (12910)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:51:58 -0400 Edens-MacBook-Pro.local (12910)] INFO : Starting Agent shutdown
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : Environment: development
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : No known dispatcher detected.
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : Installing Net instrumentation
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:51:59 -0400 Edens-MacBook-Pro.local (12941)] INFO : Finished instrumentation
+[04/25/15 18:52:00 -0400 Edens-MacBook-Pro.local (12941)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:52:00 -0400 Edens-MacBook-Pro.local (12941)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:52:00 -0400 Edens-MacBook-Pro.local (12941)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:52:00 -0400 Edens-MacBook-Pro.local (12941)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:52:00 -0400 Edens-MacBook-Pro.local (12941)] INFO : Installing Sequel instrumentation
+[04/25/15 18:52:02 -0400 Edens-MacBook-Pro.local (12941)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:54:00 -0400 Edens-MacBook-Pro.local (12941)] INFO : Starting Agent shutdown
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : Environment: development
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : No known dispatcher detected.
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : Installing Net instrumentation
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : Finished instrumentation
+[04/25/15 18:54:01 -0400 Edens-MacBook-Pro.local (12974)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:54:02 -0400 Edens-MacBook-Pro.local (12974)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:54:02 -0400 Edens-MacBook-Pro.local (12974)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:54:02 -0400 Edens-MacBook-Pro.local (12974)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:54:02 -0400 Edens-MacBook-Pro.local (12974)] INFO : Installing Sequel instrumentation
+[04/25/15 18:54:07 -0400 Edens-MacBook-Pro.local (12974)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:56:53 -0400 Edens-MacBook-Pro.local (12974)] INFO : Starting Agent shutdown
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Environment: development
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : No known dispatcher detected.
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Installing Net instrumentation
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Finished instrumentation
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:56:54 -0400 Edens-MacBook-Pro.local (13099)] INFO : Installing Sequel instrumentation
+[04/25/15 18:56:56 -0400 Edens-MacBook-Pro.local (13099)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:58:12 -0400 Edens-MacBook-Pro.local (13099)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 18:58:51 -0400 Edens-MacBook-Pro.local (13099)] INFO : Starting Agent shutdown
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : Environment: development
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : No known dispatcher detected.
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : Application: NanoTwitter (Development)
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : Installing Net instrumentation
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : Installing deferred Rack instrumentation
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 18:58:52 -0400 Edens-MacBook-Pro.local (13133)] INFO : Finished instrumentation
+[04/25/15 18:58:53 -0400 Edens-MacBook-Pro.local (13133)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 18:58:53 -0400 Edens-MacBook-Pro.local (13133)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 18:58:53 -0400 Edens-MacBook-Pro.local (13133)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 18:58:53 -0400 Edens-MacBook-Pro.local (13133)] INFO : Installing Sinatra instrumentation
+[04/25/15 18:58:53 -0400 Edens-MacBook-Pro.local (13133)] INFO : Installing Sequel instrumentation
+[04/25/15 18:58:55 -0400 Edens-MacBook-Pro.local (13133)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:00:35 -0400 Edens-MacBook-Pro.local (13133)] INFO : Starting Agent shutdown
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : Environment: development
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : No known dispatcher detected.
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : Application: NanoTwitter (Development)
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : Installing Net instrumentation
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : Installing deferred Rack instrumentation
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 19:01:06 -0400 Edens-MacBook-Pro.local (13299)] INFO : Finished instrumentation
+[04/25/15 19:01:07 -0400 Edens-MacBook-Pro.local (13299)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 19:01:07 -0400 Edens-MacBook-Pro.local (13299)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 19:01:07 -0400 Edens-MacBook-Pro.local (13299)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 19:01:07 -0400 Edens-MacBook-Pro.local (13299)] INFO : Installing Sinatra instrumentation
+[04/25/15 19:01:07 -0400 Edens-MacBook-Pro.local (13299)] INFO : Installing Sequel instrumentation
+[04/25/15 19:01:11 -0400 Edens-MacBook-Pro.local (13299)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:02:26 -0400 Edens-MacBook-Pro.local (13299)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:03:27 -0400 Edens-MacBook-Pro.local (13299)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:05:17 -0400 Edens-MacBook-Pro.local (13299)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:08:19 -0400 Edens-MacBook-Pro.local (13299)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:11:42 -0400 Edens-MacBook-Pro.local (13299)] INFO : Starting Agent shutdown
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : Environment: development
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : No known dispatcher detected.
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : Application: NanoTwitter (Development)
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : Installing Net instrumentation
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : Installing deferred Rack instrumentation
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : Finished instrumentation
+[04/25/15 19:11:43 -0400 Edens-MacBook-Pro.local (13626)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 19:11:44 -0400 Edens-MacBook-Pro.local (13626)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 19:11:44 -0400 Edens-MacBook-Pro.local (13626)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 19:11:44 -0400 Edens-MacBook-Pro.local (13626)] INFO : Installing Sinatra instrumentation
+[04/25/15 19:11:44 -0400 Edens-MacBook-Pro.local (13626)] INFO : Installing Sequel instrumentation
+[04/25/15 19:15:24 -0400 Edens-MacBook-Pro.local (13626)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:16:02 -0400 Edens-MacBook-Pro.local (13626)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:16:52 -0400 Edens-MacBook-Pro.local (13626)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:17:54 -0400 Edens-MacBook-Pro.local (13626)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:20:45 -0400 Edens-MacBook-Pro.local (13626)] INFO : Starting Agent shutdown
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : Environment: development
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : No known dispatcher detected.
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : Application: NanoTwitter (Development)
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : Installing Net instrumentation
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : Installing deferred Rack instrumentation
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : Finished instrumentation
+[04/25/15 19:20:46 -0400 Edens-MacBook-Pro.local (13746)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 19:20:47 -0400 Edens-MacBook-Pro.local (13746)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 19:20:47 -0400 Edens-MacBook-Pro.local (13746)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 19:20:47 -0400 Edens-MacBook-Pro.local (13746)] INFO : Installing Sinatra instrumentation
+[04/25/15 19:20:47 -0400 Edens-MacBook-Pro.local (13746)] INFO : Installing Sequel instrumentation
+[04/25/15 19:20:49 -0400 Edens-MacBook-Pro.local (13746)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:21:54 -0400 Edens-MacBook-Pro.local (13746)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:24:17 -0400 Edens-MacBook-Pro.local (13746)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:25:43 -0400 Edens-MacBook-Pro.local (13746)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:26:18 -0400 Edens-MacBook-Pro.local (13746)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:27:28 -0400 Edens-MacBook-Pro.local (13746)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:27:49 -0400 Edens-MacBook-Pro.local (13746)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:29:21 -0400 Edens-MacBook-Pro.local (13746)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 19:29:51 -0400 Edens-MacBook-Pro.local (13746)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 21:58:12 -0400 Edens-MacBook-Pro.local (13746)] INFO : Starting Agent shutdown
+[04/25/15 21:58:12 -0400 Edens-MacBook-Pro.local (13746)] ERROR : 1 error(s) running task for event 'report_data' in Agent Event Loop:
+[04/25/15 21:58:12 -0400 Edens-MacBook-Pro.local (13746)] ERROR : TypeError: can't convert nil into an exact number
+[04/25/15 21:58:12 -0400 Edens-MacBook-Pro.local (13746)] ERROR : 1 error(s) running task for event 'report_event_data' in Agent Event Loop:
+[04/25/15 21:58:12 -0400 Edens-MacBook-Pro.local (13746)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-145.newrelic.com:443 after 0.031064 seconds: getaddrinfo: nodename nor servname provided, or not known
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Environment: development
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : No known dispatcher detected.
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Application: NanoTwitter (Development)
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Installing Net instrumentation
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Installing deferred Rack instrumentation
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Finished instrumentation
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Installing Sinatra instrumentation
+[04/25/15 21:58:13 -0400 Edens-MacBook-Pro.local (13907)] INFO : Installing Sequel instrumentation
+[04/25/15 21:58:21 -0400 Edens-MacBook-Pro.local (13907)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 21:58:21 -0400 Edens-MacBook-Pro.local (13907)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 21:59:24 -0400 Edens-MacBook-Pro.local (13907)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:00:31 -0400 Edens-MacBook-Pro.local (13907)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:01:57 -0400 Edens-MacBook-Pro.local (13907)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:02:37 -0400 Edens-MacBook-Pro.local (13907)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:02:55 -0400 Edens-MacBook-Pro.local (13907)] INFO : Starting Agent shutdown
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : Environment: development
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : No known dispatcher detected.
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : Application: NanoTwitter (Development)
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : Installing Net instrumentation
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : Installing deferred Rack instrumentation
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 22:02:57 -0400 Edens-MacBook-Pro.local (13974)] INFO : Finished instrumentation
+[04/25/15 22:02:58 -0400 Edens-MacBook-Pro.local (13974)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 22:02:58 -0400 Edens-MacBook-Pro.local (13974)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 22:02:58 -0400 Edens-MacBook-Pro.local (13974)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 22:02:58 -0400 Edens-MacBook-Pro.local (13974)] INFO : Installing Sinatra instrumentation
+[04/25/15 22:02:58 -0400 Edens-MacBook-Pro.local (13974)] INFO : Installing Sequel instrumentation
+[04/25/15 22:03:38 -0400 Edens-MacBook-Pro.local (13974)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:05:54 -0400 Edens-MacBook-Pro.local (13974)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:06:40 -0400 Edens-MacBook-Pro.local (13974)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:08:33 -0400 Edens-MacBook-Pro.local (13974)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:09:01 -0400 Edens-MacBook-Pro.local (13974)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:10:11 -0400 Edens-MacBook-Pro.local (13974)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:12:09 -0400 Edens-MacBook-Pro.local (13974)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:12:48 -0400 Edens-MacBook-Pro.local (13974)] INFO : Starting Agent shutdown
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : Environment: development
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : No known dispatcher detected.
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : Application: NanoTwitter (Development)
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : Installing Net instrumentation
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : Installing deferred Rack instrumentation
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 22:14:17 -0400 Edens-MacBook-Pro.local (14154)] INFO : Finished instrumentation
+[04/25/15 22:14:18 -0400 Edens-MacBook-Pro.local (14154)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 22:14:18 -0400 Edens-MacBook-Pro.local (14154)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 22:14:18 -0400 Edens-MacBook-Pro.local (14154)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 22:14:18 -0400 Edens-MacBook-Pro.local (14154)] INFO : Installing Sinatra instrumentation
+[04/25/15 22:14:18 -0400 Edens-MacBook-Pro.local (14154)] INFO : Installing Sequel instrumentation
+[04/25/15 22:14:20 -0400 Edens-MacBook-Pro.local (14154)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:15:30 -0400 Edens-MacBook-Pro.local (14154)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:17:43 -0400 Edens-MacBook-Pro.local (14154)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:18:24 -0400 Edens-MacBook-Pro.local (14154)] INFO : Starting Agent shutdown
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : Environment: development
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : No known dispatcher detected.
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : Application: NanoTwitter (Development)
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : Installing Net instrumentation
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : Installing deferred Rack instrumentation
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : Finished instrumentation
+[04/25/15 22:18:25 -0400 Edens-MacBook-Pro.local (14298)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 22:18:26 -0400 Edens-MacBook-Pro.local (14298)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 22:18:26 -0400 Edens-MacBook-Pro.local (14298)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 22:18:26 -0400 Edens-MacBook-Pro.local (14298)] INFO : Installing Sinatra instrumentation
+[04/25/15 22:18:26 -0400 Edens-MacBook-Pro.local (14298)] INFO : Installing Sequel instrumentation
+[04/25/15 22:18:28 -0400 Edens-MacBook-Pro.local (14298)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:19:01 -0400 Edens-MacBook-Pro.local (14298)] INFO : Starting Agent shutdown
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : Environment: development
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : No known dispatcher detected.
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : Application: NanoTwitter (Development)
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : Installing Net instrumentation
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : Installing deferred Rack instrumentation
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : Finished instrumentation
+[04/25/15 22:19:02 -0400 Edens-MacBook-Pro.local (14321)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 22:19:03 -0400 Edens-MacBook-Pro.local (14321)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 22:19:03 -0400 Edens-MacBook-Pro.local (14321)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 22:19:03 -0400 Edens-MacBook-Pro.local (14321)] INFO : Installing Sinatra instrumentation
+[04/25/15 22:19:03 -0400 Edens-MacBook-Pro.local (14321)] INFO : Installing Sequel instrumentation
+[04/25/15 22:19:04 -0400 Edens-MacBook-Pro.local (14321)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:19:51 -0400 Edens-MacBook-Pro.local (14321)] INFO : Starting Agent shutdown
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : Environment: development
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : No known dispatcher detected.
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : Application: NanoTwitter (Development)
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : Installing Net instrumentation
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : Installing deferred Rack instrumentation
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 22:19:52 -0400 Edens-MacBook-Pro.local (14346)] INFO : Finished instrumentation
+[04/25/15 22:19:53 -0400 Edens-MacBook-Pro.local (14346)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 22:19:53 -0400 Edens-MacBook-Pro.local (14346)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 22:19:53 -0400 Edens-MacBook-Pro.local (14346)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 22:19:53 -0400 Edens-MacBook-Pro.local (14346)] INFO : Installing Sinatra instrumentation
+[04/25/15 22:19:53 -0400 Edens-MacBook-Pro.local (14346)] INFO : Installing Sequel instrumentation
+[04/25/15 22:19:54 -0400 Edens-MacBook-Pro.local (14346)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:23:11 -0400 Edens-MacBook-Pro.local (14346)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:24:03 -0400 Edens-MacBook-Pro.local (14346)] INFO : Starting Agent shutdown
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : Environment: development
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : No known dispatcher detected.
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : Application: NanoTwitter (Development)
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : Installing Net instrumentation
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : Installing deferred Rack instrumentation
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 22:24:04 -0400 Edens-MacBook-Pro.local (14400)] INFO : Finished instrumentation
+[04/25/15 22:24:05 -0400 Edens-MacBook-Pro.local (14400)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 22:24:05 -0400 Edens-MacBook-Pro.local (14400)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 22:24:05 -0400 Edens-MacBook-Pro.local (14400)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 22:24:05 -0400 Edens-MacBook-Pro.local (14400)] INFO : Installing Sinatra instrumentation
+[04/25/15 22:24:05 -0400 Edens-MacBook-Pro.local (14400)] INFO : Installing Sequel instrumentation
+[04/25/15 22:24:08 -0400 Edens-MacBook-Pro.local (14400)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:28:07 -0400 Edens-MacBook-Pro.local (14400)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:29:14 -0400 Edens-MacBook-Pro.local (14400)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:30:38 -0400 Edens-MacBook-Pro.local (14400)] INFO : Starting Agent shutdown
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Starting the New Relic agent in "development" environment.
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Reading configuration from config/newrelic.yml (/Users/edenzik/nanotwitter)
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Environment: development
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : No known dispatcher detected.
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Application: NanoTwitter (Development)
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Installing Net instrumentation
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Installing deferred Rack instrumentation
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Installing Rack::Builder middleware instrumentation
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Finished instrumentation
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Reporting to: https://rpm.newrelic.com/accounts/943470/applications/7611639
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Doing deferred dependency-detection before Rack startup
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Installing ActiveRecord 4 instrumentation
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Installing Sinatra instrumentation
+[04/25/15 22:30:40 -0400 Edens-MacBook-Pro.local (14512)] INFO : Installing Sequel instrumentation
+[04/25/15 22:30:42 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:31:42 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:33:21 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:33:42 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:34:48 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:35:44 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:36:58 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:37:52 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:38:42 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:40:11 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:40:59 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:42:20 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:45:13 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:48:22 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:49:41 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:51:41 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:53:28 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:57:23 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:58:31 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:58:52 -0400 Edens-MacBook-Pro.local (14512)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/25/15 22:58:59 -0400 Edens-MacBook-Pro.local (14512)] INFO : Starting Agent shutdown
