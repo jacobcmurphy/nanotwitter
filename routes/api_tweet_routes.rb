@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'json'
 require 'redis'
 
 
@@ -10,7 +9,7 @@ class ApiTweetRoutes < Sinatra::Base
 
 	get '/:id' do
 		if r.get(params[:id]).nil?
-			result =  DB[:tweets_users].filter(:id => params[:id]).limit(10).to_json
+			result =  DB[:tweets_users].filter(:id => params[:id]).limit(10).all.to_json
 			r.set(params[:id],result)
 			r.expire(params[:id],10)
 			return result
@@ -30,10 +29,9 @@ class ApiTweetRoutes < Sinatra::Base
 
 
 	get '/' do
-		content_type :json
 		query = :tweets_users
 		if r.get(query).nil?
-			result = DB[:tweets_users].order(:created).reverse().limit(100).all().to_json
+			result = DB[:tweets_users].order(:created).reverse().limit(100).all.to_json
 			r.set(query, result)
 			r.expire(query,10)
 			return result
