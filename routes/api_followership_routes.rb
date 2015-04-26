@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'redis'
+require 'json'
 
 class ApiFollowershipRoutes < Sinatra::Base
 
