@@ -149,7 +149,7 @@ input[type="button"].register:hover{
 }
 
 #signOutButton {
-	margin-bottom: 3%;
+	margin-top: 3%;
 	text-align: center;
 	display: inline;
 	background:#81c0e9;

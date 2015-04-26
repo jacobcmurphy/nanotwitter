@@ -2,6 +2,7 @@ $( document ).ready(function() {
 	$('#postTweet').hide();
 	$('#register').hide();
 	$('#signOut').hide();
+	$('#signIn').show();
 });
 
 
@@ -92,12 +93,13 @@ jQuery.each( [ "put", "delete" ], function( i, method ) {
 	};
 });
 
+
 function toUser(eleID, name,count){
 	return '<li><a class="widget-list-link" id={0}dialog><img src="http://www.gravatar.com/avatar/6?f=y&amp;s=64&amp;d=identicon"><h7 id="{1}dialog">{1}</h7><span>{2} followers</a></span></span></li>'.format(eleID, name,count);
 };
 
 function toTweet(name,text,date){
-	return '<section class="notif notif-notice"><h6 class="notif-title">{0}</h6><p>{1}<div class="tweet_date">{2}</div></section>'.format(name,text,date);
+	return '<section class="notif notif-notice"><a><h6 class="{0}tweet notif-title">{0}</h6></a><p>{1}<div class="tweet_date">{2}</div></section>'.format(name,text,date);
 };
 
 function warningBox(warning){
@@ -114,12 +116,6 @@ function toUserBox(eleID, name, content){
 
 
 $('#registerConfirmButton').click(function() {
-	eraseCookie("id");
-	eraseCookie("email");
-	eraseCookie("password");
-	email = null;
-	password = null;
-	id = null;
 	$('#warning').remove();
 	var isValidPass = validPassword($('#regPass1').val(),$('#regPass2').val());
 	if (!isValidPass){
@@ -145,7 +141,6 @@ $('#registerConfirmButton').click(function() {
 				$('#email').val("");
 				$('#password').val("");
 				$('#signOut').fadeIn(300);
-				alert("hello");
 				createCookie("email",email,1);
 				createCookie("password",password,1);
 				createCookie("id",id,1);
@@ -166,12 +161,6 @@ $('#registerConfirmButton').click(function() {
 
 
 $('#signInButton').click(function() {
-	eraseCookie("id");
-	eraseCookie("email");
-	eraseCookie("password");
-	email = null;
-	password = null;
-	id = null;
 	$('#warning').remove();
 	email = $('#email').val();
 	password = $('#password').val();
@@ -369,6 +358,11 @@ function populateTweets(tweets){
 	$('#tweets').empty();
 	for (tweet in tweets){
 		$('#tweets').append(toTweet(tweets[tweet].username,tweets[tweet].text,tweets[tweet].created));
+		( function (user) {
+			$('.'+user.username + 'tweet').click(function(){
+				loadTweetsOfUser(user.id, user.username, "");
+			});
+		})(tweets[tweet]);
 	}
 };
 

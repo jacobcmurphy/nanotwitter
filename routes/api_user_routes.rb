@@ -7,6 +7,7 @@ class ApiUserRoutes < Sinatra::Base
 	r = Redis.new
 	
 	get '/' do
+		puts 'uoooo'
 		query = 'SELECT username, id, count from user_stats'
 		if r.get(query).nil?
 			result = DB[query].all().to_json()

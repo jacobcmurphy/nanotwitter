@@ -16,14 +16,14 @@
 <body>
 <div class="row">
 	<div class="col-md-4"><form>
-			<div id="signOut">
-				<div id="username"> Welcome, User! </div>
+			<div id="postTweet" hidden></div>
+			<div id="signOut" hidden>
 				<input type="button" id="signOutButton" class="register" value="Sign Out" />
 			</div>
 
-			<div id="postTweet"></div>
 			
-			<div id="signIn">
+			
+			<div id="signIn" hidden>
 				<h1>Login to NanoTwitter</h1>
 				<form "signInForm">
 					<input id="email" type="email" placeholder="Email" />
@@ -32,7 +32,7 @@
 					<input type="button" id="registerButton" class="register" value="Register" />
 				</form>
 			</div>
-			<div id="register">
+			<div id="register" hidden>
 				<h1>Sign up for NanoTwitter</h1>
 				<form "registerForm">
 					<input id="username" type="text" placeholder="Username" />
