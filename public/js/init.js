@@ -4,11 +4,52 @@ $( document ).ready(function() {
 	$('#signOut').hide();
 });
 
-var id = null;
-var email = null;
-var password = null;
+
+
+var id = readCookie("id");
+var email = readCookie("email");
+var password = readCookie("password");
 
 var cachedFollowing = null;
+
+
+if (id!=null){
+	$('#signIn').fadeOut(300, function(){
+		$('#postTweet').fadeIn(300);
+		loadFollowers();
+		loadFollowing();
+		$('#signOut').fadeIn(300);
+	});
+}
+
+
+function createCookie(name, value, days) {
+	var expires;
+
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+		expires = "; expires=" + date.toGMTString();
+	} else {
+		expires = "";
+	}
+	document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = encodeURIComponent(name) + "=";
+	var ca = document.cookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+		if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+	createCookie(name, "", -1);
+}
 
 String.prototype.format = function() {
 	var formatted = this;
@@ -51,10 +92,8 @@ jQuery.each( [ "put", "delete" ], function( i, method ) {
 	};
 });
 
-
-
-function toUser(eleID, name,followers){
-	return '<li><a class="widget-list-link" id={0}dialog><img src="http://www.gravatar.com/avatar/6?f=y&amp;s=64&amp;d=identicon"><h7 id="{1}dialog">{1}</h7><span>{2} followers</a></span></span></li>'.format(eleID, name,followers);
+function toUser(eleID, name,count){
+	return '<li><a class="widget-list-link" id={0}dialog><img src="http://www.gravatar.com/avatar/6?f=y&amp;s=64&amp;d=identicon"><h7 id="{1}dialog">{1}</h7><span>{2} followers</a></span></span></li>'.format(eleID, name,count);
 };
 
 function toTweet(name,text,date){
@@ -75,6 +114,12 @@ function toUserBox(eleID, name, content){
 
 
 $('#registerConfirmButton').click(function() {
+	eraseCookie("id");
+	eraseCookie("email");
+	eraseCookie("password");
+	email = null;
+	password = null;
+	id = null;
 	$('#warning').remove();
 	var isValidPass = validPassword($('#regPass1').val(),$('#regPass2').val());
 	if (!isValidPass){
@@ -95,6 +140,15 @@ $('#registerConfirmButton').click(function() {
 			$('#register').fadeOut(300, function(){
 				id = data.id;
 				$('#postTweet').fadeIn(300);
+				loadFollowers();
+				loadFollowing();
+				$('#email').val("");
+				$('#password').val("");
+				$('#signOut').fadeIn(300);
+				alert("hello");
+				createCookie("email",email,1);
+				createCookie("password",password,1);
+				createCookie("id",id,1);
 			});
 			return;
 		}
@@ -112,6 +166,12 @@ $('#registerConfirmButton').click(function() {
 
 
 $('#signInButton').click(function() {
+	eraseCookie("id");
+	eraseCookie("email");
+	eraseCookie("password");
+	email = null;
+	password = null;
+	id = null;
 	$('#warning').remove();
 	email = $('#email').val();
 	password = $('#password').val();
@@ -134,6 +194,9 @@ $('#signInButton').click(function() {
 				$('#email').val("");
 				$('#password').val("");
 				$('#signOut').fadeIn(300);
+				createCookie("email",email,1);
+				createCookie("password",password,1);
+				createCookie("id",id,1);
 			});
 			return;
 		};
@@ -173,7 +236,9 @@ $('#signOutButton').click(function() {
 		$('#signIn').fadeIn(150, function(){
 			$('#followers').empty();
 			$('#following').empty();
-			
+			eraseCookie("id");
+			eraseCookie("email");
+			eraseCookie("password");
 		});
 	});
 
@@ -246,7 +311,7 @@ function loadTweetsOfUser(user_id, username, follower){
 		for (tweet in tweets){
 			tweetsOfUser += toTweet(tweets[tweet].username,tweets[tweet].text,tweets[tweet].created);
 		}
-		
+
 		$(document.body).append(toUserBox(user_id+'dialog', username, tweetsOfUser));
 		$("#" + user_id + 'dialog').modal('show');
 		if (id==null){
@@ -255,26 +320,26 @@ function loadTweetsOfUser(user_id, username, follower){
 		else {
 			$('#' + user_id + 'dialogfollow').show();
 		}
-		var to_follow = function(){
-				$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
-				loadFollowing();
-				loadFollowers();
-				$('#' + user_id + 'dialogfollow').val("Unfollow");
-		};
-		var to_unfollow = function(){
-				$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
-				loadFollowing();
-				loadFollowers();
-				$('#' + user_id + 'dialogfollow').val("Follow");
-		}
-		if ($.inArray(user_id, cachedFollowing) == 0){
-			$('#' + user_id + 'dialogfollow').val("Unfollow");
-			$('#' + user_id + 'dialogfollow').clickToggle(to_unfollow,to_follow);
-		}
-		else {
-			$('#' + user_id + 'dialogfollow').val("Follow");
-			$('#' + user_id + 'dialogfollow').clickToggle(to_follow,to_unfollow);
-		}
+	var to_follow = function(){
+		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
+		loadFollowing();
+		loadFollowers();
+		$('#' + user_id + 'dialogfollow').val("Unfollow");
+	};
+	var to_unfollow = function(){
+		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
+		loadFollowing();
+		loadFollowers();
+		$('#' + user_id + 'dialogfollow').val("Follow");
+	}
+	if ($.inArray(user_id, cachedFollowing) == 0){
+		$('#' + user_id + 'dialogfollow').val("Unfollow");
+		$('#' + user_id + 'dialogfollow').clickToggle(to_unfollow,to_follow);
+	}
+	else {
+		$('#' + user_id + 'dialogfollow').val("Follow");
+		$('#' + user_id + 'dialogfollow').clickToggle(to_follow,to_unfollow);
+	}
 	});
 
 }
@@ -337,6 +402,7 @@ function populateFollowing(users){
 function populateAll(users){
 	$('#all').empty();
 	for (user in users){
+		//	console.log(users[user].count);
 		$('#all').append(toUser("all" + user, users[user].username, users[user].count));
 		( function (user) {
 			$('#all'+ user + 'dialog').click(function(){

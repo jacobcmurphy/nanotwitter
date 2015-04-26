@@ -1,13 +1,21 @@
 require 'sinatra/base'
-
+require 'redis'
 
 class ApiFollowershipRoutes < Sinatra::Base
 
 	DB = Sequel.connect(:adapter => 'postgres', :host => 'localhost', :database => 'postgres', :user => 'edenzik')
+	r = Redis.new
+
 	# get all followers of user with user_id
 	get '/to/:id' do
-		puts params[:id]
-		return DB["SELECT * FROM users_followers WHERE followee_id = ?",params[:id]].to_json
+		key = params[:id].to_str + "to"
+		if r.get(key).nil?
+			result = DB["SELECT * FROM users_followers WHERE followee_id = ?",params[:id]].to_json
+			r.set(key, result)
+			r.expire(key, 10)
+			return result
+		end
+		return r.get(key)
 	end
 
 	get '/from/:id' do
