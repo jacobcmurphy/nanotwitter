@@ -3,5 +3,6 @@ gem 'rake'
 gem 'puma'
 gem 'sinatra'
 gem 'sequel'
+gem 'pg'
 
 
