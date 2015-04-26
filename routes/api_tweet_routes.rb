@@ -30,14 +30,15 @@ class ApiTweetRoutes < Sinatra::Base
 
 
 	get '/' do
+		content_type :json
 		query = :tweets_users
 		if r.get(query).nil?
-			result = DB[:tweets_users].order(:created).reverse().limit(100)
+			result = DB[:tweets_users].order(:created).reverse().limit(100).to_json
 			r.set(query, result)
 			r.expire(query,10)
 			return result
 		end
-		return r.get(query).to_json
+		return r.get(query)
 	end
 
 	post '/' do
