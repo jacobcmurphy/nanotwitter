@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'rake'
-gem 'unicorn'
+gem 'puma'
 gem 'sinatra'
 gem 'sequel'
 
