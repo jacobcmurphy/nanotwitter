@@ -95,7 +95,7 @@ jQuery.each( [ "put", "delete" ], function( i, method ) {
 
 
 function toUser(eleID, name,count){
-	return '<li><a class="widget-list-link" id={0}dialog><img src="http://www.gravatar.com/avatar/6?f=y&amp;s=64&amp;d=identicon"><h7 id="{1}dialog">{1}</h7><span>{2} followers</a></span></span></li>'.format(eleID, name,count);
+	return '<li><a class="widget-list-link" id={0}dialog><img src="http://edenzik.github.io/nanotwitter/public/img/icon.png"><h7 id="{1}dialog">{1}</h7><span>{2} followers</a></span></span></li>'.format(eleID, name,count);
 };
 
 function toTweet(name,text,date){
