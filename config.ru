@@ -1,4 +1,3 @@
-require 'newrelic_rpm'
 require_relative './routes/base_routes'
 require_relative './routes/account_routes'
 require_relative './routes/api_hashtag_routes'
