@@ -37,7 +37,7 @@ class ApiTweetRoutes < Sinatra::Base
 			r.expire(query,10)
 			return result
 		end
-		return r.get(query)
+		return r.get(query).to_json
 	end
 
 	post '/' do
