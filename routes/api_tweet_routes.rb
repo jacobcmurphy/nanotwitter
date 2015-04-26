@@ -20,7 +20,7 @@ class ApiTweetRoutes < Sinatra::Base
 
 	get '/search/:term' do
 		if r.get(params[:term]).nil?
-			result = DB["SELECT * FROM tweets_users WHERE text LIKE '%'||?||'%'",params[:term]].limit(50).all().to_json
+			result = DB["SELECT * FROM tweets_users WHERE text LIKE '%'||?||'%'",params[:term]].limit(50).all.to_json
 			r.set(params[:term],result)
 			r.expire(params[:term],10)
 			return result
