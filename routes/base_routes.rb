@@ -10,6 +10,10 @@ class BaseRoutes < Sinatra::Base
 		status 200
 	end
 
+	get 'loaderio-feafc7f9426987c407a62f6375f1c865' do
+		status 200
+	end
+
 	# loader.io validation endpoint
 	get 'loaderio-211ffded21975d2a7404c4d83638692b' do
 		status 200
