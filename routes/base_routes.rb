@@ -1,9 +1,11 @@
 require 'sinatra'
 require 'json'
 require 'sequel'
+require 'redis'
 
 class BaseRoutes < Sinatra::Base
 	set :public_folder, 'public'
+	r = Redis.new
 
 	# loader.io validation endpoint
 	get 'loaderio-3a56c6f3181bf46c14582978f30c3c83' do
@@ -20,7 +22,14 @@ class BaseRoutes < Sinatra::Base
 	end
 
 	get '/' do
-		redirect '/index.html'	
+		if r.get(:main).nil?
+			puts "yes"
+			result =  File.read(File.join('public', 'index.html'))
+			r.set(:main,result)
+			return result
+		end
+		return r.get(:main)
+		#redirect '/index.html'	
 	end
 
 end
