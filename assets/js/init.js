@@ -144,6 +144,7 @@ $('#registerConfirmButton').click(function() {
 				createCookie("email",email,1);
 				createCookie("password",password,1);
 				createCookie("id",id,1);
+				loadTweetsOfFollowers();
 			});
 			return;
 		}
@@ -355,7 +356,11 @@ function loadTweetsOfUser(user_id, username, follower){
 $("#searchbar").on('propertychange change keyup input paste', function(){
 	var searchString = $("#searchbar").val();
 	if (searchString == ""){
-		loadTweets();
+		if (id==null)
+			loadTweets();
+			return;
+		}
+		loadTweetsOfFollowers();
 		return;
 	}
 	searchString = "/api/v1/tweet/search/" + searchString;
