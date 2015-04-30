@@ -377,7 +377,7 @@ function populateTweets(tweets){
 	for (tweet in tweets){
 		$('#tweets').append(toTweet(tweets[tweet].username,tweets[tweet].text,tweets[tweet].created));
 		( function (user) {
-			$('.'+user.username + 'tweet').remove();
+			$('.'+user.username + 'tweet').unbind();
 			$('.'+user.username + 'tweet').click(function(){
 				loadTweetsOfUser(user.id, user.username, "");
 			});
