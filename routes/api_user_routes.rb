@@ -1,20 +1,21 @@
 require 'sinatra/base'
-require 'redis'
-
+require_relative '../helpers/redis_helper'
 
 class ApiUserRoutes < Sinatra::Base
+	include RedisConnect
 	DB = Sequel.connect(:adapter => 'postgres', :host => 'localhost', :database => 'postgres', :user => 'edenzik')
-	r = Redis.new
-	
+
 	get '/' do
 		query = 'SELECT username, id, count from user_stats'
-		if r.get(query).nil?
-			result = DB[query].all().to_json()
-			r.set(query, result)
-			r.expire(query,10)
-			return result
-		end
-		return r.get(query)
+		get_from_redis(query){DB[query].all.to_json}
+
+		# if r.get(query).nil?
+		# 	result = DB[query].all().to_json()
+		# 	r.set(query, result)
+		# 	r.expire(query,10)
+		# 	return result
+		# end
+		# return r.get(query)
 	end
 
 
