@@ -186,6 +186,7 @@ $('#signInButton').click(function() {
 				createCookie("email",email,1);
 				createCookie("password",password,1);
 				createCookie("id",id,1);
+				loadTweetsOfFollowers();
 			});
 			return;
 		};
@@ -229,7 +230,7 @@ $('#signOutButton').click(function() {
 				eraseCookie("id");
 				eraseCookie("email");
 				eraseCookie("password");
-
+				loadTweets();
 
 			});
 	});
@@ -265,6 +266,12 @@ loadTweets();
 
 function loadTweets(){
 	$.get("/api/v1/tweet", function(data){
+		populateTweets(JSON.parse(data));
+	});
+}
+
+function loadTweetsOfFollowers(){
+	$.get("/api/v1/tweet/from/"+id, function(data){
 		populateTweets(JSON.parse(data));
 	});
 }
