@@ -5,7 +5,7 @@ gem 'sinatra'
 gem 'activerecord'
 gem "sinatra-activerecord"
 gem 'faker'
-gem 'newrelic_rpm'
+gem 'redis'
 gem 'sinatra-session'
 
 group :production do
