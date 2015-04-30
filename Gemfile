@@ -5,6 +5,4 @@ gem 'sequel'
 gem 'pg'
 gem 'redis'
 gem 'rack'
-
-
-
+gem 'minitest'

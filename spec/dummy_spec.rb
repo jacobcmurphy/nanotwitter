@@ -25,14 +25,4 @@ describe "service" do
 		end
 	end
 
-
-	# describe "POST on /followerships/1" do
-	# 	it "should add a follower" do
-	# 		post '/1', {followee_id: 4}.to_json
-	# 		last_response.status.must_equal 201
-	#
-	# 		attributes = JSON.parse(last_response.body)
-	# 		attributes.must_include "followee_id"
-	# 	end
-	# end
 end
