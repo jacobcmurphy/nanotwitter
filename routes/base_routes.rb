@@ -47,7 +47,10 @@ class BaseRoutes < Sinatra::Base
 		follow_id = rand(1...1000)
 		test_user_email = "test@example.com"
 		test_user_password = "testtest"
-		DB['INSERT INTO following(follower, followee) VALUES((SELECT id FROM users where email=? AND password=?), ?)', test_user_email, test_user_password, follow_id].insert
+		begin
+			DB['INSERT INTO following(follower, followee) VALUES((SELECT id FROM users where email=? AND password=?), ?)', test_user_email, test_user_password, follow_id].insert
+		rescue
+		end
 		status 200
 		"Confirmed #{Time.now}"
 	end
