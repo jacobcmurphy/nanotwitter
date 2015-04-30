@@ -12,6 +12,7 @@ var cachedFollowing = null;
 		$('#signOut').show();
 		loadFollowers();
 		loadFollowing();
+		loadTweetsOfFollowers();
 	}
 //});
 
