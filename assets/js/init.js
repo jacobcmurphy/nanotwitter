@@ -4,7 +4,7 @@ var password = readCookie("password");
 var cachedFollowing = null;
 
 
-$( document ).ready(function() {
+//$( document ).ready(function() {
 	if (id==null){
 		$('#signIn').show();
 	} else {
@@ -12,7 +12,7 @@ $( document ).ready(function() {
 		loadFollowers();
 		loadFollowing();
 	}
-});
+//});
 
 
 
