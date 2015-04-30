@@ -99,7 +99,7 @@ function toUser(eleID, name,count){
 };
 
 function toTweet(name,text,date){
-	return '<section class="temp notif notif-notice"><a><h6 class="{0}tweet notif-title">{0}</h6></a><p>{1}<div class="tweet_date">{2}</div></section>'.format(name,text,date);
+	return '<section class="notif notif-notice"><a><h6 class="{0}tweet notif-title">{0}</h6></a><p>{1}<div class="tweet_date">{2}</div></section>'.format(name,text,date);
 };
 
 function warningBox(warning){
