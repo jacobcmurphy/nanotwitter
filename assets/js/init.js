@@ -99,7 +99,7 @@ function toUser(eleID, name,count){
 };
 
 function toTweet(name,text,date){
-	return '<section class="notif notif-notice"><a><h6 class="{0}tweet notif-title">{0}</h6></a><p>{1}<div class="tweet_date">{2}</div></section>'.format(name,text,date);
+	return '<section class="temp notif notif-notice"><a><h6 class="{0}tweet notif-title">{0}</h6></a><p>{1}<div class="tweet_date">{2}</div></section>'.format(name,text,date);
 };
 
 function warningBox(warning){
@@ -110,7 +110,7 @@ function toUserBox(eleID, name, content){
 	if (content==""){
 		content = "<h1>No tweets to show</h1>";
 	}
-	return '<div id="{0}" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title">{1}\'s Tweets</h4><input id="{0}follow" type="follow" class="follow-button" value="Follow"></div>{2}</div>'.format(eleID, name, content);
+	return '<div id="{0}" class="temp modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title">{1}\'s Tweets</h4><input id="{0}follow" type="follow" class="follow-button" value="Follow"></div>{2}</div>'.format(eleID, name, content);
 }
 
 
@@ -187,6 +187,7 @@ $('#signInButton').click(function() {
 				createCookie("email",email,1);
 				createCookie("password",password,1);
 				createCookie("id",id,1);
+				$('.temp').remove();
 				//loadTweetsOfFollowers();
 			});
 			return;
