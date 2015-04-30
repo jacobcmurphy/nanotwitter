@@ -356,7 +356,7 @@ function loadTweetsOfUser(user_id, username, follower){
 $("#searchbar").on('propertychange change keyup input paste', function(){
 	var searchString = $("#searchbar").val();
 	if (searchString == ""){
-		if (id==null)
+		if (id==null) {
 			loadTweets();
 			return;
 		}
