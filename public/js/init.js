@@ -95,7 +95,7 @@ jQuery.each( [ "put", "delete" ], function( i, method ) {
 
 
 function toUser(eleID, name,count){
-	return '<li><a class="widget-list-link" id={0}dialog><img src="http://www.gravatar.com/avatar/6?f=y&amp;s=64&amp;d=identicon"><h7 id="{1}dialog">{1}</h7><span>{2} followers</a></span></span></li>'.format(eleID, name,count);
+	return '<li><a class="widget-list-link" id={0}dialog><img src="http://edenzik.github.io/nanotwitter/public/img/icon.png"><h7 id="{1}dialog">{1}</h7><span>{2} followers</a></span></span></li>'.format(eleID, name,count);
 };
 
 function toTweet(name,text,date){
@@ -110,7 +110,7 @@ function toUserBox(eleID, name, content){
 	if (content==""){
 		content = "<h1>No tweets to show</h1>";
 	}
-	return '<div id="{0}" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title">{1}\'s Tweets</h4><input id="{0}follow" type="follow" value="Follow"></div>{2}</div>'.format(eleID, name, content);
+	return '<div id="{0}" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title">{1}\'s Tweets</h4><input id="{0}follow" type="follow" class="follow-button" value="Follow"></div>{2}</div>'.format(eleID, name, content);
 }
 
 
@@ -220,16 +220,20 @@ $('#signOutButton').click(function() {
 	id = null;
 	email = null;
 	password = null;
-	$('#signOutButton').fadeOut(150);
-	$('#postTweet').fadeOut(150, function() {
-		$('#signIn').fadeIn(150, function(){
-			$('#followers').empty();
-			$('#following').empty();
-			eraseCookie("id");
-			eraseCookie("email");
-			eraseCookie("password");
-		});
+	$('#signOut').fadeOut(100);
+	$('#postTweet').fadeOut(100, function() {
+		
+			$('#signIn').fadeIn(100, function(){
+				$('#followers').empty();
+				$('#following').empty();
+				eraseCookie("id");
+				eraseCookie("email");
+				eraseCookie("password");
+
+
+			});
 	});
+	$(".follow-button").hide();
 
 });
 
