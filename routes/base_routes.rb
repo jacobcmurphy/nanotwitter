@@ -58,7 +58,7 @@ class BaseRoutes < Sinatra::Base
 		test_user_password = "testtest"
 		DB['DELETE FROM following WHERE follower = (SELECT id FROM users where email=? AND password=?)', test_user_email, test_user_password].delete
 		DB['DELETE FROM tweets WHERE user_id = (SELECT id FROM users where email=? AND password=?)', test_user_email, test_user_password].delete
-		status 204
+		status 200
 		"Confirmed #{Time.now}"
 	end
 
