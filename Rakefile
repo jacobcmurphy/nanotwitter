@@ -2,6 +2,8 @@ require 'erb'
 require 'yaml'
 require 'rake/testtask'
 
+task :default => :test
+
 namespace :db do
 	# desc "Load the environment"
 	# task :environment do
@@ -21,8 +23,7 @@ namespace :db do
 # task(:test => ["db:migrate", :spec]) do
 end
 
-Rake::TestTask.new(:spec) do |t|
-	#env = "test"
+Rake::TestTask.new do |t|
 	t.libs << "spec"
 	t.test_files = FileList['spec/**/*_spec.rb']
 	t.verbose = true
