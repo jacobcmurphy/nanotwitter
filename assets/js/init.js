@@ -1,31 +1,22 @@
+var id = readCookie("id");
+var email = readCookie("email");
+var password = readCookie("password");
+var cachedFollowing = null;
+
+
 $( document ).ready(function() {
-	//$('#postTweet').hide();
-	//$('#register').hide();
-	//$('#signOut').hide();
-	//$('#signIn').show();
+	if (id==null){
+		$('#signIn').show();
+	} else {
+		$('#postTweet').show();
+		loadFollowers();
+		loadFollowing();
+	}
 });
 
 
 
-var id = readCookie("id");
-var email = readCookie("email");
-var password = readCookie("password");
 
-var cachedFollowing = null;
-
-
-if (id!=null && false){
-	alert("cookie workinggg");
-	$('#signIn').hide();
-	$('#signIn').fadeOut(300, function(){
-		alert("cmore work");
-
-		$('#postTweet').fadeIn(300);
-		loadFollowers();
-		loadFollowing();
-		$('#signOut').fadeIn(300);
-	});
-}
 
 
 function createCookie(name, value, days) {
