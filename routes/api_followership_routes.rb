@@ -42,8 +42,6 @@ class ApiFollowershipRoutes < Sinatra::Base
 	end
 
 
-
-
 	delete 'to/:id' do
 		puts "tada"
 	end
