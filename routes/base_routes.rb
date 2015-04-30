@@ -23,7 +23,6 @@ class BaseRoutes < Sinatra::Base
 
 	get '/' do
 		if r.get(:main).nil?
-			puts "yes"
 			result =  File.read(File.join('public', 'index.html'))
 			r.set(:main,result)
 			return result
