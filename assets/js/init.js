@@ -144,7 +144,7 @@ $('#registerConfirmButton').click(function() {
 				createCookie("email",email,1);
 				createCookie("password",password,1);
 				createCookie("id",id,1);
-				//loadTweetsOfFollowers();
+				loadTweetsOfFollowers();
 			});
 			return;
 		}
@@ -187,8 +187,7 @@ $('#signInButton').click(function() {
 				createCookie("email",email,1);
 				createCookie("password",password,1);
 				createCookie("id",id,1);
-				$('.temp').remove();
-				//loadTweetsOfFollowers();
+				loadTweetsOfFollowers();
 			});
 			return;
 		};
@@ -274,6 +273,7 @@ function loadTweets(){
 }
 
 function loadTweetsOfFollowers(){
+	$('.temp').remove();
 	$('#tweets').empty();
 	$.get("/api/v1/tweet/to/"+id, function(data){
 		populateTweets(JSON.parse(data));
