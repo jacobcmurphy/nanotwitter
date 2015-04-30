@@ -5,6 +5,7 @@ require 'redis'
 
 class BaseRoutes < Sinatra::Base
 	set :public_folder, 'public'
+	DB = Sequel.connect(:adapter => 'postgres', :host => 'localhost', :database => 'postgres', :user => 'edenzik')
 	r = Redis.new
 
 	# loader.io validation endpoint
@@ -37,6 +38,7 @@ class BaseRoutes < Sinatra::Base
 		test_user_password = "testtest"
 		text = "I only exist for your testing - #{Time.now}"
 		DB['INSERT INTO tweets(text, user_id) VALUES(?, (SELECT id FROM users where email=? AND password=?))', text, test_user_email, test_user_password].insert
+		status 200
 		"Confirmed #{Time.now}"
 	end
 
@@ -46,6 +48,7 @@ class BaseRoutes < Sinatra::Base
 		test_user_email = "test@example.com"
 		test_user_password = "testtest"
 		DB['INSERT INTO following(follower, followee) VALUES((SELECT id FROM users where email=? AND password=?), ?)', test_user_email, test_user_password, follow_id]
+		status 200
 		"Confirmed #{Time.now}"
 	end
 
@@ -55,6 +58,7 @@ class BaseRoutes < Sinatra::Base
 		test_user_password = "testtest"
 		DB['DELETE FROM following WHERE follower = (SELECT id FROM users where email=? AND password=?)', test_user_email, test_user_password].delete
 		DB['DELETE FROM tweets WHERE user_id = (SELECT id FROM users where email=? AND password=?)', test_user_email, test_user_password].delete
+		status 204
 		"Confirmed #{Time.now}"
 	end
 

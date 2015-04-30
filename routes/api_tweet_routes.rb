@@ -27,9 +27,9 @@ class ApiTweetRoutes < Sinatra::Base
 	post '/' do
 		begin
 			DB['INSERT INTO tweets(text, user_id) VALUES(?, (SELECT id FROM users where email=? AND password=?))',params[:text],params[:email],params[:password]].insert
-			return {:status => "OK"}.to_json
+			return {status: "OK"}.to_json
 		rescue
-			return {:status => "FAILED"}.to_json
+			return {status: "FAILED"}.to_json
 		end
 	end
 
