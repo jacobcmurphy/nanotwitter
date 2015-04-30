@@ -3,6 +3,8 @@ $( document ).ready(function() {
 	$('#register').hide();
 	$('#signOut').hide();
 	$('#signIn').show();
+	$('#followers').empty();
+	$('#following').empty();
 });
 
 
