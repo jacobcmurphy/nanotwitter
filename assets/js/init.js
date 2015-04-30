@@ -266,6 +266,8 @@ loadTweets();
 
 
 function loadTweets(){
+	$('#tweets').empty();
+	$('.modal').remove();
 	$.get("/api/v1/tweet", function(data){
 		populateTweets(JSON.parse(data));
 	});
@@ -273,6 +275,7 @@ function loadTweets(){
 
 function loadTweetsOfFollowers(){
 	$('#tweets').empty();
+	$('.modal').remove();
 	$.get("/api/v1/tweet/to/"+id, function(data){
 		populateTweets(JSON.parse(data));
 	});
