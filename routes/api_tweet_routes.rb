@@ -19,12 +19,25 @@ class ApiTweetRoutes < Sinatra::Base
 
 	get '/search/:term' do
 		if r.get(params[:term]).nil?
-			result = DB["SELECT * FROM tweets_users WHERE text LIKE '%'||?||'%'",params[:term]].limit(50).all.to_json
+			result = DB["SELECT * FROM tweets_users WHERE text LIKE '%'||?||'%'",params[:term]].limit(100).all.to_json
 			r.set(params[:term],result)
 			r.expire(params[:term],10)
 			return result
 		end
 		return r.get(params[:term])
+	end
+
+	get '/to/:id' do
+		query = 'SELECT * FROM following, tweets WHERE follower=? AND tweets.user_id = followee'
+		if r.get(query).nil?
+			result = DB[query,params[:id]].order(:created).reverse().limit(100).all.to_json
+			r.set(query, result)
+			r.expire(query,10)
+			return result
+		end
+		return r.get(query)
+
+
 	end
 
 
