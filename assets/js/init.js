@@ -14,7 +14,7 @@ var password = readCookie("password");
 var cachedFollowing = null;
 
 
-if (id!=null){
+if (id!=null && false){
 	alert("cookie workinggg");
 	$('#signIn').hide();
 	$('#signIn').fadeOut(300, function(){
