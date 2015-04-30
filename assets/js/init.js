@@ -9,6 +9,7 @@ var cachedFollowing = null;
 		$('#signIn').show();
 	} else {
 		$('#postTweet').show();
+		$('#signOut').show();
 		loadFollowers();
 		loadFollowing();
 	}
