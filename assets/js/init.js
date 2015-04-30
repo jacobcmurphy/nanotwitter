@@ -1,8 +1,8 @@
 $( document ).ready(function() {
-	$('#postTweet').hide();
-	$('#register').hide();
-	$('#signOut').hide();
-	$('#signIn').show();
+	//$('#postTweet').hide();
+	//$('#register').hide();
+	//$('#signOut').hide();
+	//$('#signIn').show();
 });
 
 
@@ -15,8 +15,16 @@ var cachedFollowing = null;
 
 
 if (id!=null){
-	alert("cookie workinggg" + id);
+	alert("cookie workinggg");
 	$('#signIn').hide();
+	$('#signIn').fadeOut(300, function(){
+		alert("cmore work");
+
+		$('#postTweet').fadeIn(300);
+		loadFollowers();
+		loadFollowing();
+		$('#signOut').fadeIn(300);
+	});
 }
 
 
