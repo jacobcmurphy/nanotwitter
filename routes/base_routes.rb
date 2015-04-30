@@ -5,6 +5,7 @@ require 'redis'
 
 class BaseRoutes < Sinatra::Base
 	set :public_folder, 'public'
+	DB = Sequel.connect(:adapter => 'postgres', :host => 'localhost', :database => 'postgres', :user => 'edenzik')
 	r = Redis.new
 
 	# loader.io validation endpoint
