@@ -15,7 +15,7 @@ var cachedFollowing = null;
 
 
 if (id!=null){
-	//alert("cookie workinggg");
+	alert("cookie workinggg");
 	$('#signIn').hide();
 }
 
