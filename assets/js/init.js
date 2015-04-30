@@ -267,7 +267,6 @@ loadTweets();
 
 function loadTweets(){
 	$('#tweets').empty();
-	$('.modal').remove();
 	$.get("/api/v1/tweet", function(data){
 		populateTweets(JSON.parse(data));
 	});
@@ -275,7 +274,6 @@ function loadTweets(){
 
 function loadTweetsOfFollowers(){
 	$('#tweets').empty();
-	$('.modal').remove();
 	$.get("/api/v1/tweet/to/"+id, function(data){
 		populateTweets(JSON.parse(data));
 	});
@@ -368,7 +366,6 @@ $("#searchbar").on('propertychange change keyup input paste', function(){
 	}
 	searchString = "/api/v1/tweet/search/" + searchString;
 	$.get( searchString, function( response ){
-		//console.log(response);
 		populateTweets(JSON.parse(response));
 	});
 
