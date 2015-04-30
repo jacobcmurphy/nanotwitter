@@ -271,7 +271,7 @@ function loadTweets(){
 }
 
 function loadTweetsOfFollowers(){
-	$.get("/api/v1/tweet/from/"+id, function(data){
+	$.get("/api/v1/tweet/to/"+id, function(data){
 		populateTweets(JSON.parse(data));
 	});
 }
