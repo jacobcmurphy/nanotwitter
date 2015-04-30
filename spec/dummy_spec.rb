@@ -21,7 +21,7 @@ describe "service" do
 		# end
 
 		it "should be fine" do
-			"1"".must_equal "1"
+			"1".must_equal "1"
 		end
 	end
 
