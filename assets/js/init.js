@@ -15,7 +15,8 @@ var cachedFollowing = null;
 
 
 if (id!=null){
-	alert("cookie workinggg");
+	//alert("cookie workinggg");
+	$('#signIn').hide();
 	$('#signIn').fadeOut(300, function(){
 		alert("cmore work");
 
