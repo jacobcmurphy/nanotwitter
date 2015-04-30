@@ -3,8 +3,6 @@ $( document ).ready(function() {
 	$('#register').hide();
 	$('#signOut').hide();
 	$('#signIn').show();
-	$('#followers').empty();
-	$('#following').empty();
 });
 
 
@@ -17,6 +15,7 @@ var cachedFollowing = null;
 
 
 if (id!=null){
+	alert("cookie workinggg");
 	$('#signIn').fadeOut(300, function(){
 		$('#postTweet').fadeIn(300);
 		loadFollowers();
