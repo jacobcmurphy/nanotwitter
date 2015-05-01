@@ -9,7 +9,7 @@ if (id==null){
 } else {
 	$('#postTweet').show();
 	$('#signOut').show();
-	$('#name').val("hello");
+	$('#name').text("hello");
 	$('#name').show();
 	loadFollowers();
 	loadFollowing();
