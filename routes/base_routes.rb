@@ -8,17 +8,9 @@ class BaseRoutes < Sinatra::Base
 	set :public_folder, 'public'
 	include RedisConnect
 	include Database
-
+	@@main = File.read(File.join('public', 'index.html'))
 	get '/' do
-		r = Redis.new
-		if r.get(:main).nil?
-			r.set(:main, File.read(File.join('public', 'index.html')))
-		end
-		return r.get(:main)
-	#	puts File.read(File.join('public', 'index.html'))
-		get_from_redis(:main){ 
-			File.read(File.join('public', 'index.html'))
-		}
+		return @@main
 		#File.read(File.join('public', 'index.html')
 	end
 
