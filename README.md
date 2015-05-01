@@ -63,7 +63,7 @@ similar to the original /user/profile page. Other similar endpoints are:
 Load Testing Information
 ------------------------
 Since we use AJAX heavily, the actual data endpoints to test are:  
-/ - home page if non logged-in  
+/ - home page if not logged-in  
 /api/v1/tweet/to/100002 - get all tweets from people Test user follows  
 /test_tweet - to make a tweet by user Test  
 /test_follow - to randomly follow someone by user Test  
