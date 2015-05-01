@@ -10,8 +10,13 @@ AJAX technologies like Javascript and jQuery were used in the front end to ensur
 
 The name of the class is "Software Engineering and Architecture to Scale", and indeed - the major focus of this product was the ability to scale up and be capable of handling a large amount of simultaneous users. We used the load testing utility [loader.io](www.loader.io) to provide reliable and consistent load testing data, effectively enabling us to run multiple tests following any change to the system, to see a change in responsiveness.
 
-By validating changes to the system increased speed, we were able to effectively have an incremental approach to scaling.
+By validating performance changes to the system, we were able to effectively have an incremental approach to scaling.
 
+All aspects of the application, its architecture, and its interface are given below.
+
+Most importantly, the approaches we used for scaling, as well as their results, are given in detail here.
+
+#
 
 
 The purpose of the project was to make a simplified version of Twitter to practice concepts of scalability. This simplified Twitter version has the ability to follow/unfollow people, view the tweets of the people that you follow, and to see both the users that you follow and the users that follow you. Hashtags and mentions are not a part of the simple Twitter project.
