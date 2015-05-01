@@ -11,7 +11,7 @@ class BaseRoutes < Sinatra::Base
 
 	get '/' do
 		r = Redis.new
-		r.get(:main).nil?
+		if r.get(:main).nil?
 			r.set(:main, File.read(File.join('public', 'index.html')))
 		end
 		return r.get(:main)
