@@ -228,7 +228,7 @@ $('#signOutButton').click(function() {
 	password = null;
 	$('#signOut').fadeOut(100);
 	$('#postTweet').fadeOut(100, function() {
-		
+			$('#name').hide();
 			$('#signIn').fadeIn(100, function(){
 				$('#followers').empty();
 				$('#following').empty();
@@ -236,7 +236,7 @@ $('#signOutButton').click(function() {
 				eraseCookie("email");
 				eraseCookie("password");
 				eraseCookie("username");
-				$('#name').hide();
+				
 				loadTweets();
 
 			});
