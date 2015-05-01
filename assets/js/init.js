@@ -283,6 +283,7 @@ function loadAll(){
 }
 
 function loadFollowers(){
+	cachedFollowing = [];
 	$('#followers').empty();
 	$.get("api/v1/follow/to/"+id, function(data){
 		populateFollowers(JSON.parse(data));
