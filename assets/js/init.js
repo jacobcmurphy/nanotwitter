@@ -1,6 +1,7 @@
 var id = readCookie("id");
 var email = readCookie("email");
 var password = readCookie("password");
+var username = readCookie("username");
 var cachedFollowing = null;
 
 if (id==null){
@@ -9,7 +10,7 @@ if (id==null){
 } else {
 	$('#postTweet').show();
 	$('#signOut').show();
-	$('#name').text("Welcome, " + email + "!");
+	$('#name').text("Welcome, " + username + "!");
 	$('#name').show();
 	loadFollowers();
 	loadFollowing();
@@ -130,15 +131,19 @@ $('#registerConfirmButton').click(function() {
 		if (data.status == "USER CREATED") {
 			$('#register').fadeOut(300, function(){
 				id = data.id;
+				username = data.username;
 				$('#postTweet').fadeIn(300);
 				loadFollowers();
 				loadFollowing();
 				$('#email').val("");
 				$('#password').val("");
 				$('#signOut').fadeIn(300);
+				$('#name').text("Welcome, " + username + "!");
+				$('#name').show();
 				createCookie("email",email,1);
 				createCookie("password",password,1);
 				createCookie("id",id,1);
+				createCookie("username",username,1);
 				loadTweetsOfFollowers();
 			});
 			return;
@@ -173,6 +178,7 @@ $('#signInButton').click(function() {
 		if (data.status == "OK") {
 			$('#signIn').fadeOut(300, function(){
 				id = data.id;
+				username = data.username;
 				$('#postTweet').fadeIn(300);
 				loadFollowers();
 				loadFollowing();
@@ -180,7 +186,10 @@ $('#signInButton').click(function() {
 				$('#password').val("");
 				$('#signOut').fadeIn(300);
 				createCookie("email",email,1);
+				$('#name').text("Welcome, " + username + "!");
+				$('#name').show();
 				createCookie("password",password,1);
+				createCookie("username",username,1);
 				createCookie("id",id,1);
 				loadTweetsOfFollowers();
 			});
