@@ -291,9 +291,9 @@ function loadFollowers(){
 }
 
 function loadFollowing(){
+	$('#following').empty();
+	cachedFollowing = [];
 	$.get("api/v1/follow/from/"+id, function(data){
-		$('#following').empty();
-		cachedFollowing = [];
 		var data = JSON.parse(data);
 		data.map(function(user){
 			cachedFollowing.push(user.followee_id);	
