@@ -1,13 +1,13 @@
 require 'sinatra/base'
 require_relative '../helpers/redis_helper'
+require_relative '../helpers/database_helper'
 
 class ApiTweetRoutes < Sinatra::Base
 	include RedisConnect
-
-	DB = Sequel.connect(:adapter => 'postgres', :host => 'localhost', :database => 'postgres', :user => 'edenzik')
+	include Database
 
 	get '/:id' do
-		get_from_redis(params[:id]){ DB[:tweets_users].filter(:id => params[:id]).limit(10).all.to_json }
+		get_from_redis(params[:id]){ DB[:tweets_users].filter(id: params[:id]).limit(10).all.to_json }
 	end
 
 	get '/search/:term' do

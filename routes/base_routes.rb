@@ -1,11 +1,12 @@
 require 'sinatra'
 require 'json'
-require 'sequel'
-require 'redis'
+require_relative '../helpers/redis_helper'
+require_relative '../helpers/database_helper'
 
 class BaseRoutes < Sinatra::Base
 	set :public_folder, 'public'
-	DB = Sequel.connect(:adapter => 'postgres', :host => 'localhost', :database => 'postgres', :user => 'edenzik')
+	include RedisConnect
+	include Database
 	r = Redis.new
 
 	# loader.io validation endpoint
@@ -23,13 +24,7 @@ class BaseRoutes < Sinatra::Base
 	end
 
 	get '/' do
-		if r.get(:main).nil?
-			result =  File.read(File.join('public', 'index.html'))
-			r.set(:main,result)
-			return result
-		end
-		return r.get(:main)
-		#redirect '/index.html'
+		get_from_redis(:main){ File.read(File.join('public', 'index.html'))}
 	end
 
 	# for the instructor testing
