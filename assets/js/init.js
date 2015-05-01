@@ -3,19 +3,16 @@ var email = readCookie("email");
 var password = readCookie("password");
 var cachedFollowing = null;
 
-
-//$( document ).ready(function() {
-	if (id==null){
-		$('#signIn').show();
-	} else {
-		$('#postTweet').show();
-		$('#signOut').show();
-		loadFollowers();
-		loadFollowing();
-		loadTweetsOfFollowers();
-	}
-//});
-
+if (id==null){
+	$('#signIn').show();
+	loadTweets();
+} else {
+	$('#postTweet').show();
+	$('#signOut').show();
+	loadFollowers();
+	loadFollowing();
+	loadTweetsOfFollowers();
+}
 
 
 
@@ -258,9 +255,6 @@ $('#tweet-box-button').click(function(){
 	});
 	$(this).fadeIn(1000)
 });
-
-loadTweets();
-
 
 function loadTweets(){
 	$('#tweets').empty();
