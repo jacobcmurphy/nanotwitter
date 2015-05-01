@@ -249,7 +249,11 @@ $('#tweet-box-button').click(function(){
 		email: email,
 		password: password
 	});
-	loadTweets();
+	if (id==null){
+		loadTweets();
+	}else {
+		loadTweetsOfFollowers();
+	}
 	$(this).fadeOut(500, function() {
 		$('#editor').html("");
 	});
@@ -406,7 +410,6 @@ function populateFollowing(users){
 function populateAll(users){
 	$('#all').empty();
 	for (user in users){
-		//	console.log(users[user].count);
 		$('#all').append(toUser("all" + user, users[user].username, users[user].count));
 		( function (user) {
 			$('#all'+ user + 'dialog').click(function(){
@@ -416,15 +419,3 @@ function populateAll(users){
 	}
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
