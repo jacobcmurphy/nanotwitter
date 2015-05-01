@@ -318,14 +318,19 @@ function loadTweetsOfUser(user_id, username, follower){
 			$('#' + user_id + 'dialogfollow').show();
 		}
 	var to_follow = function(){
-		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
+		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password},function(){
 		loadFollowers();
 		$('#' + user_id + 'dialogfollow').val("Unfollow");
+		});
+		
+		
 	};
 	var to_unfollow = function(){
-		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
+		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password}, function(){
 		loadFollowers();
-		$('#' + user_id + 'dialogfollow').val("Follow");
+		$('#' + user_id + 'dialogfollow').val("Follow");	
+		});
+		
 	}
 	if ($.inArray(user_id, cachedFollowing) == 0){
 		$('#' + user_id + 'dialogfollow').val("Unfollow");
@@ -387,7 +392,6 @@ function populateFollowing(users){
 		( function (user) {
 			$('#following'+ user + 'dialog').click(function(){
 				loadTweetsOfUser(users[user].followee_id, users[user].followee);
-				$('#' + users[user].followee_id + 'dialogfollow').val("Unfollow");
 			});
 		})(user);
 
