@@ -318,12 +318,15 @@ function loadTweetsOfUser(user_id, username, follower){
 			$('#' + user_id + 'dialogfollow').show();
 		}
 	var to_follow = function(){
-		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		$('#following').empty();
+		alert("hey");
+		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
+		
 		loadFollowers();
 		$('#' + user_id + 'dialogfollow').val("Unfollow");
 	};
 	var to_unfollow = function(){
+		alert("good");
 		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		$('#following').empty();
 		loadFollowers();
