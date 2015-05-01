@@ -1,15 +1,15 @@
 require 'redis'
 
 module RedisConnect
-@@r = Redis.new
 
   def get_from_redis(key)
-     if @@r.get(key).nil?
+	r ||= Redis.new
+     if r.get(key).nil?
       result =  yield
-      @@r.set key, result
-      @@r.expire key, 10
-      return result
+      r.set key, result
+      r.expire key, 10
+      return r.get key
     end
-    return @@r.get key
+    return r.get key
   end
 end
