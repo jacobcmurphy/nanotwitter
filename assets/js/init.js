@@ -16,7 +16,11 @@ if (id==null){
 
 
 
-
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
 
 function createCookie(name, value, days) {
 	var expires;
@@ -310,7 +314,6 @@ function loadTweetsOfUser(user_id, username, follower){
 		for (tweet in tweets){
 			tweetsOfUser += toTweet(tweets[tweet].username,tweets[tweet].text,tweets[tweet].created);
 		}
-
 		$(document.body).append(toUserBox(user_id+'dialog', username, tweetsOfUser));
 		$("#" + user_id + 'dialog').modal('show');
 		if (id==null){
@@ -323,12 +326,14 @@ function loadTweetsOfUser(user_id, username, follower){
 		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		loadFollowing();
 		loadFollowers();
+		cachedFollowing.push(user_id);
 		$('#' + user_id + 'dialogfollow').val("Unfollow");
 	};
 	var to_unfollow = function(){
 		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		loadFollowing();
 		loadFollowers();
+		cachedFollowing.remove(user_id);
 		$('#' + user_id + 'dialogfollow').val("Follow");
 	}
 	if ($.inArray(user_id, cachedFollowing) == 0){
@@ -342,13 +347,6 @@ function loadTweetsOfUser(user_id, username, follower){
 	});
 
 }
-
-
-
-
-
-
-
 
 $("#searchbar").on('propertychange change keyup input paste', function(){
 	var searchString = $("#searchbar").val();
@@ -364,7 +362,6 @@ $("#searchbar").on('propertychange change keyup input paste', function(){
 	$.get( searchString, function( response ){
 		populateTweets(JSON.parse(response));
 	});
-
 });
 
 function populateTweets(tweets){
