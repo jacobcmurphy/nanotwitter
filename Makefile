@@ -2,9 +2,9 @@ pull:
 	git pull
 
 stop:
-	killall unicorn 2> /dev/null
-	killall puma 2> /dev/null
-	killall ruby
+	killall unicorn 2> /dev/null; true
+	killall puma 2> /dev/null; true
+	killall ruby; true
 gitpush:
 	git add --all
 	git commit -m 'added something automatically'
