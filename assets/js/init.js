@@ -283,16 +283,17 @@ function loadAll(){
 }
 
 function loadFollowers(){
-	$('#followers').empty();
+	
 	$.get("api/v1/follow/to/"+id, function(data){
+		$('#followers').empty();
 		populateFollowers(JSON.parse(data));
 	});
 }
 
 function loadFollowing(){
-	$('#following').empty();
-	cachedFollowing = [];
 	$.get("api/v1/follow/from/"+id, function(data){
+		$('#following').empty();
+		cachedFollowing = [];
 		var data = JSON.parse(data);
 		data.map(function(user){
 			cachedFollowing.push(user.followee_id);	
@@ -318,14 +319,12 @@ function loadTweetsOfUser(user_id, username, follower){
 			$('#' + user_id + 'dialogfollow').show();
 		}
 	var to_follow = function(){
-		$('#following').empty();
 		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});	
 		loadFollowers();
 		$('#' + user_id + 'dialogfollow').val("Unfollow");
 	};
 	var to_unfollow = function(){
 		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
-		$('#following').empty();
 		loadFollowers();
 		$('#' + user_id + 'dialogfollow').val("Follow");
 	}
