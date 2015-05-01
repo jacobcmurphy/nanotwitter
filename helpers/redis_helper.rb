@@ -10,6 +10,6 @@ module RedisConnect
       @@r.expire key, 10
       return result
     end
-    return r.get key
+    return @@r.get key
   end
 end
