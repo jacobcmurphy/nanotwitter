@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'json'
-require_relative '../helpers/database_helper'
+require_relative '../helpers/db_helper'
 
 class AccountRoutes < Sinatra::Base
 	include Database

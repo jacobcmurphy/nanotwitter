@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require_relative '../helpers/redis_helper'
-require_relative '../helpers/database_helper'
+require_relative '../helpers/db_helper'
 
 class ApiUserRoutes < Sinatra::Base
 	include RedisConnect

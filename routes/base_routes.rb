@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'json'
 require_relative '../helpers/redis_helper'
-require_relative '../helpers/database_helper'
+require_relative '../helpers/db_helper'
 
 class BaseRoutes < Sinatra::Base
 	set :public_folder, 'public'

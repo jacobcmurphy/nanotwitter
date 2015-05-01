@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'json'
 require_relative '../helpers/redis_helper'
-require_relative '../helpers/database_helper'
+require_relative '../helpers/db_helper'
 
 class ApiFollowershipRoutes < Sinatra::Base
 	include RedisConnect
