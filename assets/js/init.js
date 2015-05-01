@@ -327,7 +327,6 @@ function loadTweetsOfUser(user_id, username, follower){
 		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		$('#following').empty();
 		loadFollowers();
-		$('#following').empty();
 		$('#' + user_id + 'dialogfollow').val("Follow");
 	}
 	if ($.inArray(user_id, cachedFollowing) == 0){
