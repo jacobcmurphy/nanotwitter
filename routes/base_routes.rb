@@ -11,7 +11,7 @@ class BaseRoutes < Sinatra::Base
 	
 	get '/' do
 		#return @@main
-		@main ||= File.read(File.join('public', 'index.html')
+		@main ||= File.read(File.join('public', 'index.html'))
 		@main
 	end
 
