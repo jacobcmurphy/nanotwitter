@@ -235,6 +235,8 @@ $('#signOutButton').click(function() {
 				eraseCookie("id");
 				eraseCookie("email");
 				eraseCookie("password");
+				eraseCookie("username");
+				$('#name').hide();
 				loadTweets();
 
 			});
