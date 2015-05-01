@@ -10,6 +10,4 @@ class ApiUserRoutes < Sinatra::Base
 		query = 'SELECT username, id, count from user_stats'
 		get_from_redis(query){DB[query].all.to_json}
 	end
-
-
 end

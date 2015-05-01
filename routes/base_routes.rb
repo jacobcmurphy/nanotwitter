@@ -7,21 +7,6 @@ class BaseRoutes < Sinatra::Base
 	set :public_folder, 'public'
 	include RedisConnect
 	include Database
-	r = Redis.new
-
-	# loader.io validation endpoint
-	get 'loaderio-3a56c6f3181bf46c14582978f30c3c83' do
-		status 200
-	end
-
-	get 'loaderio-feafc7f9426987c407a62f6375f1c865' do
-		status 200
-	end
-
-	# loader.io validation endpoint
-	get 'loaderio-211ffded21975d2a7404c4d83638692b' do
-		status 200
-	end
 
 	get '/' do
 		get_from_redis(:main){ File.read(File.join('public', 'index.html'))}
@@ -33,8 +18,7 @@ class BaseRoutes < Sinatra::Base
 		test_user_password = "testtest"
 		text = "I only exist for your testing - #{Time.now}"
 		DB['INSERT INTO tweets(text, user_id) VALUES(?, (SELECT id FROM users where email=? AND password=?))', text, test_user_email, test_user_password].insert
-		status 200
-		"Confirmed #{Time.now}"
+		status 200, "Confirmed #{Time.now}"
 	end
 
 	# mimicks a post to /api/v1/follow for the Test user
@@ -46,8 +30,7 @@ class BaseRoutes < Sinatra::Base
 			DB['INSERT INTO following(follower, followee) VALUES((SELECT id FROM users where email=? AND password=?), ?)', test_user_email, test_user_password, follow_id].insert
 		rescue
 		end
-		status 200
-		"Confirmed #{Time.now}"
+		status 200, "Confirmed #{Time.now}"
 	end
 
 	# would actually be a delete request
@@ -56,8 +39,20 @@ class BaseRoutes < Sinatra::Base
 		test_user_password = "testtest"
 		DB['DELETE FROM following WHERE follower = (SELECT id FROM users where email=? AND password=?)', test_user_email, test_user_password].delete
 		DB['DELETE FROM tweets WHERE user_id = (SELECT id FROM users where email=? AND password=?)', test_user_email, test_user_password].delete
+		status 200, "Confirmed #{Time.now}"
+	end
+
+	# loader.io validation endpoints
+	get 'loaderio-3a56c6f3181bf46c14582978f30c3c83' do
 		status 200
-		"Confirmed #{Time.now}"
+	end
+
+	get 'loaderio-feafc7f9426987c407a62f6375f1c865' do
+		status 200
+	end
+
+	get 'loaderio-211ffded21975d2a7404c4d83638692b' do
+		status 200
 	end
 
 end

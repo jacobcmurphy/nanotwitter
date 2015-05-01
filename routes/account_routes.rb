@@ -8,7 +8,7 @@ class AccountRoutes < Sinatra::Base
 	post '/login' do
 		user = DB[:users].select(:id, :password).where(email: params[:email], password: params[:password]).first
 		if !user
-			return {:status => "NOT FOUND"}.to_json
+			return {status: "NOT FOUND"}.to_json
 		end
 		if user[:password] == params[:password]
 			status 200

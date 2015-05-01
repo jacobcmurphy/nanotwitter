@@ -16,12 +16,12 @@ class ApiTweetRoutes < Sinatra::Base
 
 	get '/to/:id' do
 		query = 'SELECT * FROM tweets_users, following WHERE followee=id AND follower=?'
-		get_from_redis(query){DB[query,params[:id]].order(:created).reverse().limit(100).all.to_json}
+		get_from_redis(query){DB[query,params[:id]].order(:created).reverse.limit(100).all.to_json}
 	end
 
 
 	get '/' do
-		get_from_redis(:tweets_users){DB[:tweets_users].order(:created).reverse().limit(100).all.to_json}
+		get_from_redis(:tweets_users){DB[:tweets_users].order(:created).reverse.limit(100).all.to_json}
 	end
 
 	post '/' do
