@@ -16,11 +16,7 @@ if (id==null){
 
 
 
-Array.prototype.remove = function(from, to) {
-	var rest = this.slice((to || from) + 1 || this.length);
-	this.length = from < 0 ? this.length + from : from;
-	return this.push.apply(this, rest);
-};
+
 
 function createCookie(name, value, days) {
 	var expires;
@@ -222,16 +218,16 @@ $('#signOutButton').click(function() {
 	password = null;
 	$('#signOut').fadeOut(100);
 	$('#postTweet').fadeOut(100, function() {
+		
+			$('#signIn').fadeIn(100, function(){
+				$('#followers').empty();
+				$('#following').empty();
+				eraseCookie("id");
+				eraseCookie("email");
+				eraseCookie("password");
+				loadTweets();
 
-		$('#signIn').fadeIn(100, function(){
-			$('#followers').empty();
-			$('#following').empty();
-			eraseCookie("id");
-			eraseCookie("email");
-			eraseCookie("password");
-			loadTweets();
-
-		});
+			});
 	});
 	$(".follow-button").hide();
 
@@ -326,14 +322,13 @@ function loadTweetsOfUser(user_id, username, follower){
 		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		loadFollowing();
 		loadFollowers();
-		//cachedFollowing.push(user_id);
 		$('#' + user_id + 'dialogfollow').val("Unfollow");
 	};
 	var to_unfollow = function(){
 		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		loadFollowing();
 		loadFollowers();
-		//cachedFollowing.remove(user_id);
+
 		$('#' + user_id + 'dialogfollow').val("Follow");
 	}
 	if ($.inArray(user_id, cachedFollowing) == 0){
