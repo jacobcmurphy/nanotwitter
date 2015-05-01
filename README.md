@@ -20,9 +20,11 @@ All aspects of the application, its architecture, and its interface are given be
 
 Most importantly, the approaches we used for scaling, as well as their results, are given in detail here.
 
-Endpoints:
+Endpoints
+=========
 
-Required by assignment:
+Required by assignment
+----------------------
 * /
 	- return homepage - 100 recent tweets if not logged in,
 	100 recent of followers if logged in
@@ -35,7 +37,7 @@ Required by assignment:
 * /user/:id
 	- returns page with list of user's tweets, button to follow user if logged in, if your page, a tweet box
 * /user/profile
-	- returns page of logged in user with name, email, and list of followers; if not logged in, redirects back to
+	- returns page of logged in user with name, email, and list of followers; if not logged in, redirects back
 * /tweet (post)
 	- creates tweet and redirects back to last pag
 * /api/v1/tweets/:id
@@ -48,14 +50,15 @@ Required by assignment:
 	- JSON of user's 100 most recent tweet 
 
 
-ours:
-* /api/v1/users/:id/feed
-	- JSON of user's follower's 100 most recent tweets
-* /api/v1/users/:id/following
-	- JSON array of users that user follows
-* /api/v1/users/:id/followers (get, post, delete)
-	- add or remove a following
-	- JSON array of followers for user
+Our Structure
+-------------
+We decided to structure ours as a single page application that performs AJAX calls
+to API endpoints. Clicking on a person's name will open a modal with their username
+and most recent tweets - like the original /user/:id 
+The main page shows your name and all you follow and all who follow you, 
+similar to the original /user/profile page. Other similar endpoints are:
+*	/api/v1/tweet/:id - gets the tweets of user :id
+*	/api/v1/tweet/ - 100 most recent tweets from all tweets
 
 Load Testing Information
 ------------------------
