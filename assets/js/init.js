@@ -318,7 +318,7 @@ function loadTweetsOfUser(user_id, username, follower){
 			$('#' + user_id + 'dialogfollow').show();
 		}
 	var to_follow = function(){
-		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password}, function(){console.log("hello");});
+		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		loadFollowers();
 		$('#' + user_id + 'dialogfollow').val("Unfollow");
 	};
