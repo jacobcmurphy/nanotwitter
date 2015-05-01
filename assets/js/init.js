@@ -17,9 +17,9 @@ if (id==null){
 
 
 Array.prototype.remove = function(from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
+	var rest = this.slice((to || from) + 1 || this.length);
+	this.length = from < 0 ? this.length + from : from;
+	return this.push.apply(this, rest);
 };
 
 function createCookie(name, value, days) {
@@ -222,16 +222,16 @@ $('#signOutButton').click(function() {
 	password = null;
 	$('#signOut').fadeOut(100);
 	$('#postTweet').fadeOut(100, function() {
-		
-			$('#signIn').fadeIn(100, function(){
-				$('#followers').empty();
-				$('#following').empty();
-				eraseCookie("id");
-				eraseCookie("email");
-				eraseCookie("password");
-				loadTweets();
 
-			});
+		$('#signIn').fadeIn(100, function(){
+			$('#followers').empty();
+			$('#following').empty();
+			eraseCookie("id");
+			eraseCookie("email");
+			eraseCookie("password");
+			loadTweets();
+
+		});
 	});
 	$(".follow-button").hide();
 
