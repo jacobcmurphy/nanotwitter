@@ -326,14 +326,14 @@ function loadTweetsOfUser(user_id, username, follower){
 		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		loadFollowing();
 		loadFollowers();
-		cachedFollowing.push(user_id);
+		//cachedFollowing.push(user_id);
 		$('#' + user_id + 'dialogfollow').val("Unfollow");
 	};
 	var to_unfollow = function(){
 		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		loadFollowing();
 		loadFollowers();
-		cachedFollowing.remove(user_id);
+		//cachedFollowing.remove(user_id);
 		$('#' + user_id + 'dialogfollow').val("Follow");
 	}
 	if ($.inArray(user_id, cachedFollowing) == 0){
