@@ -6,13 +6,13 @@ class AccountRoutes < Sinatra::Base
 	include Database
 
 	post '/login' do
-		user = DB[:users].select(:id, :password).where(email: params[:email], password: params[:password]).first
+		user = DB[:users].select(:id, :password, :username).where(email: params[:email], password: params[:password]).first
 		if !user
 			return {status: "NOT FOUND"}.to_json
 		end
 		if user[:password] == params[:password]
 			status 200
-			return {status: "OK", id: user[:id]}.to_json
+			return {status: "OK", id: user[:id], username: user[:username]}.to_json
 		end
 		return {status: "BAD PASSWORD"}.to_json
 	end
@@ -23,9 +23,9 @@ class AccountRoutes < Sinatra::Base
 			return {status: "USER EXISTS"}.to_json
 		end
 		if DB[:users].insert(username: params[:username], password: params[:password], email: params[:email])
-			user = DB[:users].select(:id, :password).where(email: params[:email], password: params[:password]).first
+			user = DB[:users].select(:id, :password, :username).where(email: params[:email], password: params[:password]).first
 			status 200
-			return {status: "USER CREATED", id: user[:id]}.to_json
+			return {status: "USER CREATED", id: user[:id], username: user[:username]}.to_json
 		end
 		return {status: "FAILED"}.to_json
 	end
