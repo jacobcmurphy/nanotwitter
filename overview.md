@@ -6,8 +6,11 @@ We set out to create a simplified version of [Twitter](twitter.com) that can wit
 
 We used the [Sinatra](www.sinatrarb.com) Ruby web framework to handle the server component, with Postgres for persistence and Redis for caching.
 
-AJAX technologies like Javascript and jQuery were used in the front end to ensure fast delivery
+AJAX technologies like Javascript and jQuery were used in the front end to ensure good user experience, and good user interface design guidelines were followed to make an intuitive product - such that anyone who uses Twitter can enjoy the basic feature set of NanoTwitter.
 
+The name of the class is "Software Engineering and Architecture to Scale", and indeed - the major focus of this product was the ability to scale up and be capable of handling a large amount of simultaneous users. We used the load testing utility [loader.io](www.loader.io) to provide reliable and consistent load testing data, effectively enabling us to run multiple tests following any change to the system, to see a change in responsiveness.
+
+By validating changes to the system increased speed, we were able to effectively have an incremental approach to scaling.
 
 
 
