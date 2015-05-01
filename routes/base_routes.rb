@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'json'
+require 'redis'
 require_relative '../helpers/redis_helper'
 require_relative '../helpers/db_helper'
 
@@ -9,6 +10,11 @@ class BaseRoutes < Sinatra::Base
 	include Database
 
 	get '/' do
+		r = Redis.new
+		r.get(:main).nil?
+			r.set(:main, File.read(File.join('public', 'index.html')))
+		end
+		return r.get(:main)
 	#	puts File.read(File.join('public', 'index.html'))
 		get_from_redis(:main){ 
 			File.read(File.join('public', 'index.html'))
