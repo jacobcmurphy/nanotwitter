@@ -4,7 +4,7 @@ pull:
 stop:
 	thin stop 2> /dev/null
 
-start: pull thin
+start: thin
 	echo "NanoTwitter Started"
 	
 gitpush:
@@ -21,5 +21,5 @@ puma: pull stop
 webrick: pull stop
 	rackup -s webrick -p 8080 --host 0.0.0.0 -D
 
-thin: pull stop
+thin: pull
 	thin start -p 8080 -d
