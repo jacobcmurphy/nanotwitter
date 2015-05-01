@@ -10,6 +10,7 @@ class BaseRoutes < Sinatra::Base
 
 	get '/' do
 	#	puts File.read(File.join('public', 'index.html'))
+		return "wowow"
 		get_from_redis(:main){ 
 			File.read(File.join('public', 'index.html'))
 		}
