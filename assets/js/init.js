@@ -10,6 +10,7 @@ if (id==null){
 	$('#postTweet').show();
 	$('#signOut').show();
 	$('#name').value("hello");
+	$('#name').show();
 	loadFollowers();
 	loadFollowing();
 	loadTweetsOfFollowers();
