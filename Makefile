@@ -4,7 +4,7 @@ pull:
 stop:
 	thin stop
 
-start: thin
+start: pull thin
 	echo "NanoTwitter Started"
 	
 gitpush:
