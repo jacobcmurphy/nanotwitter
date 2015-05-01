@@ -14,10 +14,10 @@ unicorn: pull stop
 	unicorn -D
 
 puma: pull stop
-	rackup -s puma -p 8080 --host 0.0.0.0 &> /dev/null &
+	rackup -s puma -p 8080 --host 0.0.0.0 -D
 
 webrick: pull stop
-	rackup -s webrick -p 8080 --host 0.0.0.0 &> /dev/null &
+	rackup -s webrick -p 8080 --host 0.0.0.0 -D
 
 thin: pull stop
-	rackup -s thin -p 8080 --host 0.0.0.0 &> /dev/null &
+	rackup -s thin -p 8080 --host 0.0.0.0 -D
