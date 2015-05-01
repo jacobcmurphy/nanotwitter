@@ -10,14 +10,14 @@ gitpush:
 	git commit -m 'added something automatically'
 	git push
 
-unicorn: pull
+unicorn: pull stop
 	unicorn -D
 
 puma: pull stop
-	rackup -s puma -p 8080 --host 0.0.0.0 -D
+	rackup -s puma -p 8080 --host 0.0.0.0 &> /dev/null &
 
 webrick: pull stop
-	rackup -s webrick -p 8080 --host 0.0.0.0 -D
+	rackup -s webrick -p 8080 --host 0.0.0.0 &> /dev/null &
 
 thin: pull stop
-	rackup -s thin -p 8080 --host 0.0.0.0 -D
+	rackup -s thin -p 8080 --host 0.0.0.0 &> /dev/null &
