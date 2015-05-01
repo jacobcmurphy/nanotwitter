@@ -1,7 +1,10 @@
 # nanotwitter
 [![Code Climate](https://codeclimate.com/github/jacobcmurphy/nanotwitter/badges/gpa.svg)](https://codeclimate.com/github/jacobcmurphy/nanotwitter)
 
-We present Eden's and Jacob's NanoTwitter, a project for COSI 105b at Brandeis University (Spring 2015). 
+We present Eden's and Jacob's NanoTwitter, a project for COSI 105b at Brandeis University (Spring 2015).  
+The running project can be found [here](http://104.236.17.72)
+
+If you fork the project, you can start it by running _unicorn config.ru_
 
 We set out to create a simplified version of [Twitter](twitter.com) that can withstand the test of scale. The purpose of the exercise was to demonstrate a variety of scaling techniques that were covered in the class - and put them into practice under controlled testing conditions in a live application.
 
@@ -53,3 +56,12 @@ ours:
 * /api/v1/users/:id/followers (get, post, delete)
 	- add or remove a following
 	- JSON array of followers for user
+
+Load Testing Information
+------------------------
+Since we use AJAX heavily, the actual data endpoints to test are:  
+/ - home page if non logged-in  
+/api/v1/tweet/to/100002 - get all tweets from people Test user follows  
+/test_tweet - to make a tweet by user Test  
+/test_follow - to randomly follow someone by user Test  
+/reset - delete all tweets and follow records of user Test  
