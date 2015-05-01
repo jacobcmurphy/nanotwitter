@@ -319,18 +319,14 @@ function loadTweetsOfUser(user_id, username, follower){
 		}
 	var to_follow = function(){
 		$('#following').empty();
-		alert("hey");
-		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
-		
+		$.post("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});	
 		loadFollowers();
 		$('#' + user_id + 'dialogfollow').val("Unfollow");
 	};
 	var to_unfollow = function(){
-		alert("good");
 		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		$('#following').empty();
 		loadFollowers();
-
 		$('#' + user_id + 'dialogfollow').val("Follow");
 	}
 	if ($.inArray(user_id, cachedFollowing) == 0){
