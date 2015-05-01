@@ -2,7 +2,7 @@ pull:
 	git pull
 
 stop:
-	thin stop
+	thin stop 2> /dev/null
 
 start: pull thin
 	echo "NanoTwitter Started"
