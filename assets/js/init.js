@@ -387,6 +387,7 @@ function populateFollowing(users){
 		( function (user) {
 			$('#following'+ user + 'dialog').click(function(){
 				loadTweetsOfUser(users[user].followee_id, users[user].followee);
+				$('#' + users[user].followee_id + 'dialogfollow').val("Unfollow");
 			});
 		})(user);
 
