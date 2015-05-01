@@ -5,6 +5,7 @@ module RedisConnect
     r = Redis.new
     if r.get(key).nil?
       result =  yield
+      puts result
       r.set key, result
       r.expire key, 10
       return result
