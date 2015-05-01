@@ -1,7 +1,5 @@
-rerun: 
-	killall unicorn
-	run
 run:
+	killall unicorn 2>/dev/null
 	git pull
 	unicorn config.ru &
 
