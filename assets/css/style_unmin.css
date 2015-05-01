@@ -1,0 +1,433 @@
+.alert {
+	margin-top: 15px;
+}
+
+:focus {outline:none;}
+
+.users {
+  margin: 20px;
+  width: 92%;
+}
+
+h1{
+	text-align: center;
+}
+
+.tweet_date{
+	text-align: right;
+	font-family:'Open Sans',sans-serif;
+	font-size:small;
+	font-style: italic;
+	margin-top:1px;
+	margin-botton: 10px;
+  	color:#555;
+}
+
+#searchbar {
+	margin: 20px;
+	overflow: auto;
+	width: 95%;
+	height: 10px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+
+
+}
+#search_user {
+	margin-left: 10px;
+	margin-top: 10px;
+	overflow: auto;
+	width: 80%;
+	height: 10px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+
+
+}
+
+.tweets {
+	margin: 20px;
+	overflow: auto;
+	height:570px;
+	width: 95%;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+
+}
+
+.button{
+  width:100px;
+  background:#3399cc;
+  margin-top:1%;
+  padding:100px;
+  text-align:left;
+  text-decoration:none;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+.button:hover{
+  background:#2288bb;
+}
+
+
+
+
+
+
+form{
+text-align:center;
+  padding:2% 6%;
+  margin-botton:4px;
+}
+
+input[type="email"],input[type="password"],input[type="search"],input[type="text"]{
+  width:100%;
+  background:#fff;
+  border-radius: 25px;
+  margin-bottom:4%;
+  border:1px solid #ccc;
+  padding:4%;
+  font-family:'Open Sans',sans-serif;
+  font-size:150%;
+  color:#555;
+}
+
+input[type="button"]{
+  width:30%;
+  height: 50px;
+  border-radius: 25px;
+  background:#3399cc;
+  border:0;
+  float: center;
+  margin-right: 5%;
+  margin-left: 5%;
+  font-family:'Open Sans',sans-serif;
+  font-size:100%;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+input[type="follow"]{
+  width:20%;
+  height: 30%;
+  float: right;
+  border-radius: 25px;
+  background:#7ca83f;
+  border:0;
+  text-align: center;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 1%;
+  font-family:'Open Sans',sans-serif;
+  font-size:100%;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+input[type="follow"]:hover{
+  background:#418e32;
+}
+
+
+
+
+input[type="button"].register{
+	background:#d90000;
+
+}
+
+input[type="button"].register:hover{
+	background:#c01111;
+
+}
+
+#signOutButton {
+	margin-top: 3%;
+	text-align: center;
+	display: inline;
+	background:#81c0e9;
+
+}
+
+input[type="button"]:hover{
+  background:#2288bb;
+}
+
+.notif {
+	padding:100px;
+width: 90%;
+margin: 30px;
+  position: relative;
+  border: 1px solid;
+border-radius: 10px;
+  padding: 25px 30px 25px 100px;
+  min-height: 50px;
+  background: white;
+}
+.notif:before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+  border: 5px solid;
+  border-radius: 25px;
+}
+.notif p {
+  font-size: 25px;
+  line-height: 120%;
+  color: #666;
+}
+
+.notif-title {
+  margin: 0 0 5px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+.notif-title:before, .notif-title:after {
+  position: relative;
+  background: white;
+  border-radius: 2px;
+}
+
+.notif-notice:before {
+  background: #4099FF;
+  border-color: #7eb4f2;
+}
+
+
+
+/*
+ * Copyright (c) 2013 Thibaut Courouble
+ * http://www.cssflow.com
+ *
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+/* Note: this implementation is very hacky.
+   You may not want to use it in production. ;) */
+body {
+  font: 12px/20px 'Lucida Grande', Verdana, sans-serif;
+  color: #404040;
+  background: #eee;
+}
+
+.widget {
+  position: relative;
+  height:400px;
+  margin: auto;
+  width: 95%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.07);
+}
+
+.widget-tabs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 9px 12px 0;
+  text-align: left;
+  /* Make the last tab in the DOM the left-most tab on the screen.
+     That way we can activate it by default and still be able to
+     deactivate it later using the ~ selector. */
+  direction: rtl;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  border-radius: 3px 3px 0 0;
+}
+
+.widget-tab,
+.widget-list:target:first-of-type ~ .widget-tabs > .widget-tab:first-child ~ .widget-tab,
+.widget-list:target:nth-of-type(2) ~ .widget-tabs > .widget-tab:nth-child(2) ~ .widget-tab,
+.widget-list:target:last-of-type ~ .widget-tabs > .widget-tab:last-child ~ .widget-tab {
+
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 3px;
+  line-height: 36px;
+  font-weight: normal;
+  color: #999;
+  background: #fcfcfc;
+  border: solid #ddd;
+  border-width: 1px 1px 0;
+  border-radius: 5px 5px 0 0;
+  /* Reset %active-widget-tab */
+  padding-bottom: 0;
+  bottom: auto;
+}
+.widget-tab > .widget-tab-link,
+.widget-list:target:first-of-type ~ .widget-tabs > .widget-tab:first-child ~ .widget-tab > .widget-tab-link,
+.widget-list:target:nth-of-type(2) ~ .widget-tabs > .widget-tab:nth-child(2) ~ .widget-tab > .widget-tab-link,
+.widget-list:target:last-of-type ~ .widget-tabs > .widget-tab:last-child ~ .widget-tab > .widget-tab-link {
+  margin: 0;
+  border-top: 0;
+}
+
+.widget-tab + .widget-tab {
+  margin-right: -1px;
+}
+
+.widget-tab:last-child,
+.widget-list:target:first-of-type ~ .widget-tabs > .widget-tab:first-child,
+.widget-list:target:nth-of-type(2) ~ .widget-tabs > .widget-tab:nth-child(2),
+.widget-list:target:last-of-type ~ .widget-tabs > .widget-tab:last-child {
+  bottom: -1px;
+  margin-top: 0;
+  padding-bottom: 2px;
+  line-height: 34px;
+  font-weight: bold;
+  color: #555;
+  background: white;
+  border-top: 0;
+}
+.widget-tab:last-child > .widget-tab-link,
+.widget-list:target:first-of-type ~ .widget-tabs > .widget-tab:first-child > .widget-tab-link,
+.widget-list:target:nth-of-type(2) ~ .widget-tabs > .widget-tab:nth-child(2) > .widget-tab-link,
+.widget-list:target:last-of-type ~ .widget-tabs > .widget-tab:last-child > .widget-tab-link {
+  margin: 0 -1px;
+  border-top: 4px solid #4cc8f1;
+}
+
+/* Deactivate the default tab when a preceding tab is activated. */
+.widget-tab-link {
+  display: block;
+  min-width: 60px;
+  padding: 0 15px;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px 4px 0 0;
+}
+
+.widget-list {
+  display: none;
+    overflow: auto;
+height:400px;
+  padding-top: 50px;
+  /* The last list is activated (visible) by default. */
+}
+.widget-list > li + li {
+  border-top: 1px solid #e8e8e8;
+}
+.widget-list:last-of-type {
+  display: block;
+}
+.widget-list:target {
+  display: block;
+  /* Hide the default list when another is activated. */
+  /* First list activates the first tab, second list activates the second tab, etc. */
+}
+.widget-list:target ~ .widget-list {
+  display: none;
+}
+
+.widget-list-link {
+  display: block;
+  line-height: 18px;
+  padding: 10px 12px;
+  font-weight: bold;
+  color: #555;
+  text-decoration: none;
+  cursor: pointer;
+}
+.widget-list-link:hover {
+  background: #f7f7f7;
+}
+li:last-child > .widget-list-link {
+  border-radius: 0 0 3px 3px;
+}
+.widget-list-link > img {
+  float: left;
+  width: 32px;
+  height: 32px;
+  margin: 2px 12px 0 0;
+}
+.widget-list-link > span {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  color: #999;
+}
+
+#postTweet {
+	border-radius: 10px;
+	border: 1px solid #ccc;
+  width: 100%;
+  left: 0%;
+  text-align: left;
+  height: 250px;
+  background-color: white;
+  font-size: 30px;
+  padding: 10%;
+  line-height: 120%;
+
+}
+
+.mention,
+.hashtag,
+.url {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.mention {
+  color: #fff;
+  background-color: #c0392b;
+}
+
+.hashtag {
+  color: #fff;
+  background-color: #34495e;
+  padding: 5px;
+}
+
+.url {
+  color: #fff;
+  background-color: #2980b9;
+  text-decoration: underline;
+}
+.tweet-box-editable:afterr {
+ content:' #tweetrm';
+ color:rgba(0,0,0,.4);
+ padding:10px;
+}
+
+div.tweet-box-bottom { background-color: #5facdd; }
+
+input[type="button"].tweet-box-button {
+  background-color: #81c0e9;
+  border: 1px solid #3990cd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: white;
+  font-size: 18px;
+line-height: 0%;
+height: 10px;
+  font-weight: bold;
+}
+
+div.tweet-box-info {
+	line-height: 100%;
+
+  font-size: 12px;
+  color: rgba(255,255,255,.8);
+}
+
+
