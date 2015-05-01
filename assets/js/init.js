@@ -14,6 +14,7 @@ if (id==null){
 	loadTweetsOfFollowers();
 }
 
+loadAll();
 
 function createCookie(name, value, days) {
 	var expires;
@@ -272,7 +273,6 @@ function loadTweetsOfFollowers(){
 	});
 }
 
-loadAll();
 
 function loadAll(){
 	$.get("api/v1/user/", function(data){
