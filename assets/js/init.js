@@ -14,9 +14,6 @@ if (id==null){
 	loadTweetsOfFollowers();
 }
 
-loadAll();
-
-
 
 function createCookie(name, value, days) {
 	var expires;
@@ -275,6 +272,8 @@ function loadTweetsOfFollowers(){
 	});
 }
 
+loadAll();
+
 function loadAll(){
 	$.get("api/v1/user/", function(data){
 		populateAll(JSON.parse(data));
@@ -326,7 +325,7 @@ function loadTweetsOfUser(user_id, username, follower){
 		$.delete("/api/v1/follow/to/" + user_id, {id:id, email:email,password:password});
 		loadFollowing();
 		loadFollowers();
-		//cachedFollowing
+
 		$('#' + user_id + 'dialogfollow').val("Follow");
 	}
 	if ($.inArray(user_id, cachedFollowing) == 0){
