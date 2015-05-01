@@ -4,6 +4,8 @@ require_relative './routes/api_followership_routes'
 require_relative './routes/api_tweet_routes'
 require_relative './routes/api_user_routes'
 
+require 'sinatra'
+
 use Rack::Deflater		#For gzip compression
 
 run Rack::URLMap.new({
