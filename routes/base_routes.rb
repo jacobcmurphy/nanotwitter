@@ -21,7 +21,8 @@ class BaseRoutes < Sinatra::Base
 		test_user_password = "testtest"
 		text = "I only exist for your testing - #{Time.now}"
 		DB['INSERT INTO tweets(text, user_id) VALUES(?, (SELECT id FROM users where email=? AND password=?))', text, test_user_email, test_user_password].insert
-		status 200, "Confirmed #{Time.now}"
+		status 200
+		"Confirmed #{Time.now}"
 	end
 
 	# mimicks a post to /api/v1/follow for the Test user
@@ -33,7 +34,8 @@ class BaseRoutes < Sinatra::Base
 			DB['INSERT INTO following(follower, followee) VALUES((SELECT id FROM users where email=? AND password=?), ?)', test_user_email, test_user_password, follow_id].insert
 		rescue
 		end
-		status 200, "Confirmed #{Time.now}"
+		status 200
+		"Confirmed #{Time.now}"
 	end
 
 	# would actually be a delete request
@@ -42,7 +44,8 @@ class BaseRoutes < Sinatra::Base
 		test_user_password = "testtest"
 		DB['DELETE FROM following WHERE follower = (SELECT id FROM users where email=? AND password=?)', test_user_email, test_user_password].delete
 		DB['DELETE FROM tweets WHERE user_id = (SELECT id FROM users where email=? AND password=?)', test_user_email, test_user_password].delete
-		status 200, "Confirmed #{Time.now}"
+		status 200
+		"Confirmed #{Time.now}"
 	end
 
 	# loader.io validation endpoints
