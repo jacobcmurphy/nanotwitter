@@ -2,9 +2,11 @@ pull:
 	git pull
 
 stop:
-	killall unicorn 2> /dev/null; true
-	killall puma 2> /dev/null; true
-	killall ruby; true
+	thin stop
+
+start: thin
+	echo "NanoTwitter Started"
+	
 gitpush:
 	git add --all
 	git commit -m 'added something automatically'
@@ -20,4 +22,4 @@ webrick: pull stop
 	rackup -s webrick -p 8080 --host 0.0.0.0 -D
 
 thin: pull stop
-	rackup -s thin -p 8080 --host 0.0.0.0 -D
+	thin start -p 8080 -d
